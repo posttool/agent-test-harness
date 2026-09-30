@@ -5,7 +5,8 @@
   "type": "module",
   "exports": {
     ".": "./src/skin.ts",
-    "./skin.css": "./src/skin.css"
+    "./skin.css": "./src/skin.css",
+    "./skin.json": "./skin.json"
   },
   "dependencies": {
     "@harness/core": "*"

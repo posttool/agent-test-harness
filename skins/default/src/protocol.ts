@@ -1,15 +1,13 @@
-import type { ClientMessage, DeviceState } from "@harness/core/types";
+import type { SkinCommand, SkinViewModel } from "@harness/core/skin";
 
-/** Host (harness page) to skin. */
+/** Host (harness page) to skin: skin contract v1. */
 export interface SkinStateMessage {
   type: "state";
-  device: DeviceState;
-  apps: { id: string; name: string }[];
-  theme: "light" | "dark";
+  view: SkinViewModel;
 }
 
-/** Skin to host: a command for the runtime. */
+/** Skin to host: a skin command; the host checks it and maps it to runtime messages. */
 export interface SkinCommandMessage {
   type: "command";
-  command: ClientMessage;
+  command: SkinCommand;
 }

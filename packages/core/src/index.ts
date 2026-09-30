@@ -42,3 +42,5 @@ export * from "./ambient/AmbientFactory.ts";
 export * from "./persona/PersonaSource.ts";
 export * from "./persona/personaDay.ts";
 export * from "./device/DeviceTool.ts";
+export * from "./skin/buildSkinView.ts";
+export * from "./skin/skinCommands.ts";

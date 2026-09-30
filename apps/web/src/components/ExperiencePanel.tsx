@@ -1,6 +1,9 @@
 import { useEffect, useRef } from "react";
-import type { ClientMessage, HarnessSnapshot } from "@harness/core/types";
+import { buildSkinView, skinCommandToMessages, SkinManifestSchema, type ClientMessage, type HarnessSnapshot } from "@harness/core/skin";
 import type { SkinCommandMessage, SkinStateMessage } from "@harness/skin-default";
+import manifestJson from "@harness/skin-default/skin.json";
+
+const manifest = SkinManifestSchema.parse(manifestJson);
 
 /** Hosts the skin in an iframe (isolated styles) and relays state and commands. */
 export function ExperiencePanel({ snapshot, send }: { snapshot: HarnessSnapshot; send: (m: ClientMessage) => void }) {
@@ -8,14 +11,11 @@ export function ExperiencePanel({ snapshot, send }: { snapshot: HarnessSnapshot;
   const ready = useRef(false);
   const lastSent = useRef("");
 
-  const state: SkinStateMessage = {
-    type: "state",
-    device: snapshot.device,
-    apps: snapshot.tools.definitions.map((t) => ({ id: t.id, name: t.name })),
-    theme: snapshot.settings.theme,
-  };
+  const state: SkinStateMessage = { type: "state", view: buildSkinView(snapshot) };
   const stateRef = useRef(state);
   stateRef.current = state;
+  const snapshotRef = useRef(snapshot);
+  snapshotRef.current = snapshot;
 
   useEffect(() => {
     const onMessage = (e: MessageEvent<SkinCommandMessage | { type: "ready" }>) => {
@@ -25,7 +25,8 @@ export function ExperiencePanel({ snapshot, send }: { snapshot: HarnessSnapshot;
         lastSent.current = JSON.stringify(stateRef.current);
         frame.current?.contentWindow?.postMessage(stateRef.current, "*");
       }
-      if (e.data.type === "command") send(e.data.command);
+      // Skin code is untrusted: its commands are checked against the snapshot before they reach the runtime.
+      if (e.data.type === "command") for (const m of skinCommandToMessages(e.data.command, snapshotRef.current, manifest)) send(m);
     };
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);

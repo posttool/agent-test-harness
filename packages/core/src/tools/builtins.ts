@@ -34,7 +34,7 @@ export const BUILTIN_TOOLS: ToolDefinition[] = [
   {
     id: "device",
     name: "Device",
-    description: "Control the phone's surfaces: notify the user or open a document in Spaces.",
+    description: "Control the phone's surfaces: notify the user, open a document in Spaces, or fill data the phone's skin asked for.",
     source: "builtin",
     endpoint: null,
     code: null,
@@ -52,6 +52,23 @@ export const BUILTIN_TOOLS: ToolDefinition[] = [
         name: "open_space",
         description: "Bring a document to the front of Spaces.",
         params: { type: "object", properties: { documentId: { type: "string" } }, required: ["documentId"], additionalProperties: false },
+        returns: { type: "object" },
+        oversight: "auto_from_memory",
+        longRunning: false,
+      },
+      {
+        name: "fulfill_need",
+        description: "Answer a skin_need signal: give the phone's skin the data it asked for, with a value for every field it listed (an empty string when unknown).",
+        params: {
+          type: "object",
+          properties: {
+            needId: { type: "string" },
+            values: { type: "object", additionalProperties: { type: "string" } },
+            summary: { type: "string", description: "One short line, e.g. 'Rain from 6pm, 14°C now'." },
+          },
+          required: ["needId", "values", "summary"],
+          additionalProperties: false,
+        },
         returns: { type: "object" },
         oversight: "auto_from_memory",
         longRunning: false,

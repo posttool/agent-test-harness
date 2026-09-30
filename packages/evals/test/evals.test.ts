@@ -34,7 +34,7 @@ describe("runScenario (scripted)", () => {
       if (req.schemaName === "RouteDecision") return { value: { action: "new", sessionId: null, title: "t", rationale: "r" } };
       if (req.schemaName === "UiRequest")
         return { value: { purpose: "disambiguation", surface: "intent_space", blocking: true, question: "Color?", rationale: "r", component: { kind: "choice_group", id: "c", title: "Color", primaryActionLabel: null, elements: [{ kind: "choice", id: "color", label: null, text: null, items: ["Blue", "Red"], value: null, url: null, progress: null, fieldType: null }] } } };
-      if (req.schemaName === "SurfacePlan") return { value: { islandWords: "", brief: [], discover: [], spaceDocumentIds: [], rationale: "r" } };
+      if (req.schemaName === "SurfacePlan") return { value: { islandWords: "", headline: "", summary: "", brief: [], discover: [], waiting: [], spaceDocumentIds: [], rationale: "r" } };
       if (!asked && last?.kind === "signal") {
         asked = true;
         return { value: { action: "step", capability: "ui.generate", instruction: "ask", rationale: "r", summary: null } };

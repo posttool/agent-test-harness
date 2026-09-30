@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { ModelPolicySchema } from "./ModelPolicy.ts";
+import { SkinNeedSchema } from "./SkinNeed.ts";
 import { ToolProposalSchema } from "./ToolProposal.ts";
 import { UiFeedbackSchema } from "./UiFeedback.ts";
 
@@ -29,6 +30,7 @@ export const ClientMessageSchema = z.discriminatedUnion("type", [
   z.object({ type: z.literal("persona_start"), personaId: z.string() }),
   z.object({ type: z.literal("persona_stop") }),
   z.object({ type: z.literal("refresh_surfaces") }),
+  z.object({ type: z.literal("skin_need"), need: SkinNeedSchema }),
 ]);
 
 export type ClientMessage = z.infer<typeof ClientMessageSchema>;

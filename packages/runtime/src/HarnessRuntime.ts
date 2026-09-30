@@ -36,6 +36,7 @@ import {
   type ProviderId,
   type ReasoningSession,
   type Signal,
+  type SkinNeed,
   type StorageAdapter,
   type ToolProposal,
   type TraceEntry,
@@ -126,6 +127,10 @@ export class HarnessRuntime {
         "web.fetch": (args) => this.requireWeb().fetch(String(args.url)),
         "device.notify": (args) => ({ shown: this.device.notice(String(args.text)).id }),
         "device.open_space": async (args) => ({ opened: await this.device.openDocument(String(args.documentId)) }),
+        "device.fulfill_need": (args) => {
+          this.device.fulfillNeed(String(args.needId), (args.values ?? {}) as Record<string, unknown>, String(args.summary ?? ""));
+          return { filled: args.needId };
+        },
       },
     });
     this.bridge = new SignalBridge({ clock: this.clock, send: (s) => this.dispatch(s), windowSeconds: this.settings.signalWindowSeconds, ids: this.ids });
@@ -268,6 +273,8 @@ export class HarnessRuntime {
         return this.stopPersona();
       case "refresh_surfaces":
         return void (await this.device.refresh(this.now()));
+      case "skin_need":
+        return void this.askNeed(m.need);
     }
   }
 
@@ -278,6 +285,25 @@ export class HarnessRuntime {
   /** Sends any kind of signal (messages, location, vision…), as evals and tests do. */
   sendSignal(kind: Signal["kind"], source: string, content: string): Promise<ReasoningSession | null> {
     return this.dispatch(this.signal(kind, source, content));
+  }
+
+  /**
+   * A skin asked for data it declared (docs/SKINS_FROM_CLAUDE_DESIGN.md section 3). The agent
+   * gets a skin_need signal and answers with device.fulfill_need. Repeats are ignored while an
+   * ask is in flight or the last answer is fresh. Resolves to null when nothing was asked.
+   */
+  async askNeed(need: SkinNeed): Promise<ReasoningSession | null> {
+    if (!this.device.askNeed(need)) return null;
+    const location = this.device.snapshot().location ?? this.bridge.location;
+    const content = [
+      `The phone's skin needs data for its "${need.id}" display: ${need.ask}`,
+      `Fields: ${need.fields.join(", ")}.`,
+      `User location: ${location ?? "unknown"}.`,
+      `Find it with a tool (for example the web tool), then call device.fulfill_need with needId "${need.id}", a short string value for every field, and a one-line summary. Don't store it in memory unless it matters beyond this display.`,
+    ].join("\n");
+    const session = await this.dispatch(this.signal("skin_need", "skin", content), { refresh: false });
+    this.device.failNeed(need.id);
+    return session;
   }
 
   sendFeedback(feedback: UiFeedback, said = ""): Promise<ReasoningSession | null> {
@@ -420,7 +446,7 @@ export class HarnessRuntime {
     return { id: this.ids.next("signal"), kind, source, occurredAt: new Date(this.clock.now()).toISOString(), content, data: {}, sessionId: null, uiRequestId: null, subscriptionId: null };
   }
 
-  private dispatch(signal: Signal): Promise<ReasoningSession | null> {
+  private dispatch(signal: Signal, options: { refresh?: boolean } = {}): Promise<ReasoningSession | null> {
     this.busy++;
     this.changed();
     const run = this.loop
@@ -433,7 +459,7 @@ export class HarnessRuntime {
         this.busy--;
         this.pending.delete(run);
         if (this.busy === 0) this.device.setIsland(false, null);
-        if (this.o.autoRefreshSurfaces !== false) this.scheduleRefresh();
+        if (this.o.autoRefreshSurfaces !== false && options.refresh !== false) this.scheduleRefresh();
         this.changed();
       });
     this.pending.add(run);

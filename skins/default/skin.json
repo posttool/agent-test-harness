@@ -1,0 +1,13 @@
+{
+  "id": "default",
+  "name": "Default",
+  "contract": 1,
+  "needs": [
+    {
+      "id": "weather",
+      "ask": "Local weather for the user's current location: now, and the rest of today.",
+      "fields": ["now", "high", "low", "summary"],
+      "refreshMinutes": 60
+    }
+  ]
+}

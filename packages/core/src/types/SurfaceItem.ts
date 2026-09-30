@@ -10,6 +10,8 @@ export const SurfaceItemSchema = z.object({
   topicId: z.string().nullable(),
   documentId: z.string().nullable(),
   reason: z.string().nullable(),
+  icon: z.string().nullable().default(null),
+  badge: z.string().nullable().default(null),
   updatedAt: z.string(),
 });
 

@@ -1,9 +1,10 @@
-import type { DeviceState, SurfaceItem, UiComponentSpec, UiElement } from "@harness/core/types";
+import type { SkinBriefRow, SkinCommand, SkinViewModel, UiComponentSpec, UiElement } from "@harness/core/skin";
 import type { SkinCommandMessage, SkinStateMessage } from "./protocol.ts";
 
 export type { SkinCommandMessage, SkinStateMessage } from "./protocol.ts";
 
 type Screen = "discover" | "home" | "spaces";
+type Doc = SkinViewModel["documents"][number];
 
 const h = <K extends keyof HTMLElementTagNameMap>(tag: K, attrs: Record<string, string> = {}, ...children: (Node | string | null)[]): HTMLElementTagNameMap[K] => {
   const node = document.createElement(tag);
@@ -12,15 +13,23 @@ const h = <K extends keyof HTMLElementTagNameMap>(tag: K, attrs: Record<string, 
   return node;
 };
 
+const ICONS: Record<string, string> = {
+  event: "📅", message: "💬", task: "✓", travel: "🚗", place: "📍", shopping: "🛒",
+  school: "🎓", health: "❤", money: "$", weather: "☁", info: "•", alert: "❓",
+};
+
 /**
- * The default skin (PLAN.md section 8). It renders DeviceState and nothing else, and sends
- * every tap back to the host as a runtime command. It runs inside an iframe, so its styles
- * never touch the harness.
+ * The default skin (PLAN.md section 8). It renders skin contract v1 (SkinViewModel) and
+ * nothing else, and sends every tap to the host as a SkinCommand. It runs inside an iframe,
+ * so its styles never touch the harness.
  */
 export class DefaultSkin {
-  private state: SkinStateMessage | null = null;
+  private view: SkinViewModel | null = null;
   private screen: Screen = "home";
+  /** `q:<questionId>` or `d:<documentId>`. */
   private selectedSpace: string | null = null;
+  /** Whether Home has asked for the weather since it was last shown. */
+  private homeShown = false;
   /** What the last render drew; unchanged state is not redrawn. */
   private lastKey = "";
   /** Text the user is typing survives redraws: the input bar and every form field. */
@@ -36,72 +45,68 @@ export class DefaultSkin {
   }
 
   update(state: SkinStateMessage): void {
-    this.state = state;
-    document.documentElement.dataset.theme = state.theme;
+    this.view = state.view;
+    document.documentElement.dataset.theme = state.view.theme;
     if (this.renderKey() !== this.lastKey) this.render();
   }
 
   /** Everything the screen shows. Time only matters on the lock screen, to the minute. */
   private renderKey(): string {
-    if (!this.state) return "";
-    const d = this.state.device;
-    return JSON.stringify([{ ...d, virtualTime: d.locked ? d.virtualTime.slice(0, 16) : "" }, this.state.apps, this.state.theme, this.screen, this.selectedSpace, this.recognition !== null]);
+    if (!this.view) return "";
+    const v = this.view;
+    return JSON.stringify([{ ...v, now: v.locked ? v.now.time : "" }, this.screen, this.selectedSpace, this.recognition !== null]);
   }
 
-  private send(command: SkinCommandMessage["command"]): void {
+  private send(command: SkinCommand): void {
     this.post({ type: "command", command });
   }
 
   private render(): void {
-    if (!this.state) return;
+    if (!this.view) return;
     this.lastKey = this.renderKey();
-    const d = this.state.device;
+    const v = this.view;
     // Keep focus and the caret on whatever field the user is typing in.
     const active = document.activeElement instanceof HTMLInputElement ? document.activeElement : null;
     const focusKey = active?.dataset.key;
     const start = active?.selectionStart ?? null;
     const end = active?.selectionEnd ?? null;
-    this.root.replaceChildren(d.locked ? this.lock(d) : this.unlocked(d));
+    this.root.replaceChildren(v.locked ? this.lock(v) : this.unlocked(v));
     if (focusKey) {
       const again = this.root.querySelector<HTMLInputElement>(`[data-key="${CSS.escape(focusKey)}"]`);
       again?.focus();
       if (again && start !== null && end !== null && again.type === "text") again.setSelectionRange(start, end);
     }
+    // Home shows the weather, which the agent looks up when asked (a skin need, see skin.json).
+    const onHome = !v.locked && this.screen === "home";
+    if (onHome && !this.homeShown) this.send({ type: "need", needId: "weather" });
+    this.homeShown = onHome;
   }
 
-  private island(d: DeviceState): HTMLElement {
-    const active = d.island.active;
-    return h("div", { class: `island${active ? " active" : ""}`, "data-testid": "island" }, h("span", { class: "dot" }), active && d.island.words ? h("span", { class: "words" }, d.island.words) : null);
+  private island(v: SkinViewModel): HTMLElement {
+    const p = v.island.process;
+    const words = v.island.active ? v.island.words : p ? `${p.label}${p.eta ? ` · ${p.eta}` : ""}` : "";
+    return h("div", { class: `island${v.island.active || p ? " active" : ""}`, "data-testid": "island" }, h("span", { class: "dot" }), words ? h("span", { class: "words" }, words) : null);
   }
 
-  private time(d: DeviceState): { time: string; date: string } {
-    const t = new Date(d.virtualTime);
-    return {
-      time: t.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: "UTC" }),
-      date: t.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", timeZone: "UTC" }),
-    };
-  }
-
-  private lock(d: DeviceState): HTMLElement {
-    const { time, date } = this.time(d);
+  private lock(v: SkinViewModel): HTMLElement {
     const unlock = h("button", { class: "unlock", "data-testid": "unlock" }, "Tap to unlock");
-    unlock.onclick = () => this.send({ type: "device", action: "unlock" });
-    return h("div", { class: "screen lock", "data-testid": "lock-screen" }, this.island(d), h("div", { class: "clock" }, h("div", { class: "time" }, time), h("div", { class: "date" }, date)), this.brief(d), unlock);
+    unlock.onclick = () => this.send({ type: "unlock" });
+    const p = v.island.process;
+    const live = p ? h("div", { class: "live-activity", "data-testid": "live-activity" }, h("div", { class: "title" }, p.label), h("div", { class: "line" }, [p.status, p.detail].filter(Boolean).join(": ")), p.progress === null ? null : h("div", { class: "bar" }, h("div", { class: "fill", style: `width:${Math.round(Math.min(1, Math.max(0, p.progress)) * 100)}%` }))) : null;
+    return h("div", { class: "screen lock", "data-testid": "lock-screen" }, this.island(v), h("div", { class: "clock" }, h("div", { class: "time" }, v.now.time), h("div", { class: "date" }, v.now.date)), live, this.brief(v.brief.items.slice(0, 5)), unlock);
   }
 
-  private brief(d: DeviceState): HTMLElement {
-    const items = [...d.notices.slice(0, 2), ...d.brief].slice(0, 5);
+  private brief(rows: SkinBriefRow[]): HTMLElement {
     const list = h("div", { class: "brief", "data-testid": "brief" });
-    if (!items.length) list.append(h("div", { class: "empty" }, "Nothing needs you right now."));
-    for (const item of items) {
-      const text = item.component.elements.find((e) => e.text)?.text ?? item.reason ?? "";
-      const card = h("button", { class: `brief-item${item.context ? " needs" : ""}` }, h("div", { class: "title" }, item.component.title ?? "Update"), h("div", { class: "line" }, text));
-      card.onclick = () => this.openItem(item);
-      if (!item.context) {
+    if (!rows.length) list.append(h("div", { class: "empty" }, "Nothing needs you right now."));
+    for (const row of rows) {
+      const card = h("button", { class: `brief-item${row.kind === "question" ? " needs" : ""}` }, h("div", { class: "title" }, h("span", { class: "icon" }, ICONS[row.icon] ?? "•"), row.title, row.badge ? h("span", { class: "badge" }, row.badge) : null), h("div", { class: "line" }, row.line));
+      card.onclick = () => this.openRow(row);
+      if (row.kind !== "question") {
         const dismiss = h("span", { class: "dismiss", title: "Not now", "data-testid": "dismiss" }, "×");
         dismiss.onclick = (e) => {
           e.stopPropagation();
-          this.send({ type: "dismiss", itemId: item.id });
+          this.send({ type: "dismiss", itemId: row.id });
         };
         card.append(dismiss);
       }
@@ -110,17 +115,15 @@ export class DefaultSkin {
     return list;
   }
 
-  private openItem(item: SurfaceItem): void {
-    if (item.topicId) this.send({ type: "seen", topicId: item.topicId });
-    if (item.documentId && !item.context) this.send({ type: "open_document", documentId: item.documentId });
-    if (this.state?.device.locked) this.send({ type: "device", action: "unlock" });
+  private openRow(row: SkinBriefRow): void {
+    this.send({ type: "open", itemId: row.id });
     this.screen = "spaces";
-    this.selectedSpace = item.context ? (this.state?.device.spaces.find((s) => s.context?.uiRequestId === item.context?.uiRequestId)?.id ?? null) : null;
+    this.selectedSpace = row.questionId ? `q:${row.questionId}` : row.documentId ? `d:${row.documentId}` : null;
     this.render();
   }
 
-  private unlocked(d: DeviceState): HTMLElement {
-    const body = this.screen === "home" ? this.home(d) : this.screen === "spaces" ? this.spaces(d) : this.discover(d);
+  private unlocked(v: SkinViewModel): HTMLElement {
+    const body = this.screen === "home" ? this.home(v) : this.screen === "spaces" ? this.spaces(v) : this.discover(v);
     const nav = h("nav", { class: "pager" });
     for (const s of ["discover", "home", "spaces"] as Screen[]) {
       const b = h("button", { class: s === this.screen ? "on" : "", "data-testid": `nav-${s}` }, s[0]!.toUpperCase() + s.slice(1));
@@ -128,20 +131,28 @@ export class DefaultSkin {
       nav.append(b);
     }
     const lock = h("button", { class: "lock-btn", title: "Lock" }, "Lock");
-    lock.onclick = () => this.send({ type: "device", action: "lock" });
-    return h("div", { class: `screen ${this.screen}` }, h("div", { class: "top" }, this.island(d), lock), body, nav);
+    lock.onclick = () => this.send({ type: "lock" });
+    return h("div", { class: `screen ${this.screen}` }, h("div", { class: "top" }, this.island(v), lock), body, nav);
   }
 
-  private home(d: DeviceState): HTMLElement {
+  private home(v: SkinViewModel): HTMLElement {
+    const weather = v.needs.weather;
+    const header = h(
+      "div",
+      { class: "day", "data-testid": "day" },
+      v.brief.headline ? h("div", { class: "headline" }, v.brief.headline) : null,
+      v.brief.summary ? h("div", { class: "summary" }, v.brief.summary) : null,
+      weather?.status === "ready" ? h("div", { class: "weather", "data-testid": "weather" }, `${ICONS.weather} ${weather.values.now ?? ""} · ${weather.summary}`) : null,
+    );
     const apps = h("div", { class: "apps" });
-    for (const app of this.state?.apps ?? []) apps.append(h("div", { class: "app" }, h("div", { class: "icon" }, app.name.slice(0, 1)), h("div", { class: "name" }, app.name)));
+    for (const app of v.apps) apps.append(h("div", { class: "app" }, h("div", { class: "icon" }, app.icon), h("div", { class: "name" }, app.name)));
     const input = h("input", { placeholder: this.recognition ? "Listening…" : "Ask or tell your agent…", "data-testid": "input", "data-key": "home-input" }) as HTMLInputElement;
     input.value = this.inputDraft;
     input.oninput = () => (this.inputDraft = input.value);
     const sendText = () => {
       const text = input.value.trim();
       if (!text) return;
-      this.send({ type: "user_text", text, source: "home input bar" });
+      this.send({ type: "say", text, via: "text" });
       input.value = "";
       this.inputDraft = "";
     };
@@ -153,7 +164,13 @@ export class DefaultSkin {
     send.onclick = sendText;
     const mic = h("button", { class: `mic${this.recognition ? " listening" : ""}`, title: this.recognition ? "Stop listening" : "Speak", "data-testid": "mic" }, "🎙");
     mic.onclick = () => this.listen();
-    return h("div", { class: "home-body" }, this.brief(d), apps, h("div", { class: "input-bar" }, mic, input, send));
+    const waiting = v.waiting.length ? h("div", { class: "waiting", "data-testid": "waiting" }, h("div", { class: "label" }, "Waiting on you")) : null;
+    for (const w of v.waiting) {
+      const b = h("button", { class: "chip" }, w.cta);
+      b.onclick = () => this.send({ type: "act", itemId: w.id });
+      waiting?.append(h("div", { class: "waiting-row" }, h("span", { class: "who" }, w.who), h("span", { class: "text" }, w.text), b));
+    }
+    return h("div", { class: "home-body" }, header, this.brief(v.brief.items), waiting, apps, h("div", { class: "input-bar" }, mic, input, send));
   }
 
   /**
@@ -205,7 +222,7 @@ export class DefaultSkin {
       if (!sent && text) {
         sent = true;
         this.inputDraft = "";
-        this.send({ type: "user_text", text, source: "voice" });
+        this.send({ type: "say", text, via: "voice" });
       }
       this.render();
     };
@@ -216,40 +233,70 @@ export class DefaultSkin {
     rec.start();
   }
 
-  private spaces(d: DeviceState): HTMLElement {
-    const items = d.spaces;
-    if (!items.length) return h("div", { class: "spaces-body" }, h("div", { class: "empty" }, "No active projects yet."));
-    const selected = items.find((i) => i.id === this.selectedSpace) ?? items[0]!;
-    // Stay on this item when new ones arrive, instead of jumping away mid-typing.
-    this.selectedSpace = selected.id;
-    const tabs = h("div", { class: "tabs" });
-    for (const item of items) {
-      const t = h("button", { class: item === selected ? "on" : "" }, item.context ? `❓ ${item.component.title ?? "Question"}` : (item.component.title ?? "Document"));
-      t.onclick = () => ((this.selectedSpace = item.id), this.render());
-      tabs.append(t);
+  private spaces(v: SkinViewModel): HTMLElement {
+    const tabs: { key: string; label: string; draw: () => HTMLElement }[] = [
+      ...v.questions.map((q) => ({ key: `q:${q.id}`, label: `❓ ${q.title}`, draw: () => this.component(q.component, q.id) })),
+      ...v.documents.map((d) => ({ key: `d:${d.id}`, label: d.title, draw: () => this.document(d) })),
+    ];
+    if (!tabs.length) return h("div", { class: "spaces-body" }, h("div", { class: "empty" }, "No active projects yet."));
+    const selected = tabs.find((t) => t.key === this.selectedSpace) ?? tabs[0]!;
+    // Stay on this tab when new ones arrive, instead of jumping away mid-typing.
+    this.selectedSpace = selected.key;
+    const bar = h("div", { class: "tabs" });
+    for (const t of tabs) {
+      const b = h("button", { class: t === selected ? "on" : "" }, t.label);
+      b.onclick = () => ((this.selectedSpace = t.key), this.render());
+      bar.append(b);
     }
-    return h("div", { class: "spaces-body" }, tabs, this.component(selected.component, selected));
+    return h("div", { class: "spaces-body" }, bar, selected.draw());
   }
 
-  private discover(d: DeviceState): HTMLElement {
+  private document(d: Doc): HTMLElement {
+    const card = h("div", { class: "card kind-document_view", "data-testid": "component-document_view" }, h("h3", {}, d.title));
+    if (d.description) card.append(h("div", { class: "el text" }, h("p", {}, d.description)));
+    for (const s of d.sections) {
+      const label = h("div", { class: "label" }, s.title);
+      if (s.items.length) {
+        const ul = h("ul", {});
+        for (const it of s.items) ul.append(h("li", {}, it));
+        card.append(h("div", { class: "el list" }, label, ul));
+      } else {
+        card.append(h("div", { class: "el text" }, label, h("p", {}, s.body)));
+      }
+    }
+    for (const p of d.processes) card.append(h("div", { class: "el progress" }, h("div", { class: "label" }, p.label), h("div", { class: "sub" }, `${p.status}: ${p.detail}`)));
+    for (const [title, list] of [["Results", d.results], ["Follow-ups", d.followUps]] as const) {
+      if (!list.length) continue;
+      const ul = h("ul", {});
+      for (const it of list) ul.append(h("li", {}, it));
+      card.append(h("div", { class: "el list" }, h("div", { class: "label" }, title), ul));
+    }
+    if (d.actions.length) card.append(h("div", { class: "el list" }, h("div", { class: "label" }, "Suggested"), h("p", {}, d.actions.map((a) => a.label).join(" · "))));
+    return card;
+  }
+
+  private discover(v: SkinViewModel): HTMLElement {
     const list = h("div", { class: "discover-body" });
-    if (!d.discover.length) list.append(h("div", { class: "empty" }, "Nothing to discover yet."));
-    for (const item of d.discover) list.append(this.component(item.component, item));
+    if (!v.discover.length) list.append(h("div", { class: "empty" }, "Nothing to discover yet."));
+    for (const row of v.discover) {
+      const card = h("div", { class: "card kind-card", "data-testid": "component-card" }, h("h3", {}, row.title), h("div", { class: "el text" }, h("p", {}, row.line)));
+      card.onclick = () => this.openRow(row);
+      list.append(card);
+    }
     return list;
   }
 
-  /** Renders a component; interactive only when it came from the loop (has a UiContext). */
-  private component(spec: UiComponentSpec, item: SurfaceItem): HTMLElement {
+  /** Renders a question the loop asked; answers go back by question id. */
+  private component(spec: UiComponentSpec, questionId: string): HTMLElement {
     const card = h("div", { class: `card kind-${spec.kind}`, "data-testid": `component-${spec.kind}` });
     if (spec.title) card.append(h("h3", {}, spec.title));
     const values: Record<string, string> = {};
     const submit = (action: string, said: string) => {
-      if (!item.context) return;
-      this.send({ type: "ui_feedback", feedback: { context: item.context, action, values: { ...values }, at: new Date().toISOString() }, said });
-      for (const key of [...this.drafts.keys()]) if (key.startsWith(`${item.id}:`)) this.drafts.delete(key);
+      this.send({ type: "answer", questionId, action, values: { ...values }, said });
+      for (const key of [...this.drafts.keys()]) if (key.startsWith(`${questionId}:`)) this.drafts.delete(key);
     };
-    for (const e of spec.elements) card.append(this.element(e, values, submit, item.id));
-    if (spec.primaryActionLabel && item.context && !spec.elements.some((e) => e.kind === "button")) {
+    for (const e of spec.elements) card.append(this.element(e, values, submit, questionId));
+    if (spec.primaryActionLabel && !spec.elements.some((e) => e.kind === "button")) {
       const b = h("button", { class: "primary" }, spec.primaryActionLabel);
       b.onclick = () => submit("submit", spec.primaryActionLabel ?? "submit");
       card.append(b);
@@ -326,7 +373,7 @@ interface SpeechLike {
 export function mountSkin(root: HTMLElement): DefaultSkin {
   const skin = new DefaultSkin(root, (m) => window.parent.postMessage(m, "*"));
   window.addEventListener("message", (e: MessageEvent<SkinStateMessage>) => {
-    if (e.data?.type === "state") skin.update(e.data);
+    if (e.data?.type === "state" && e.data.view?.contract === 1) skin.update(e.data);
   });
   window.parent.postMessage({ type: "ready" }, "*");
   return skin;

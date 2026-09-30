@@ -2,7 +2,7 @@ import { mkdtempSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { beforeEach, describe, expect, it } from "vitest";
-import { ScriptedProviderClient, SequentialIds, type ProviderRequest, type ScriptedReply } from "@harness/core";
+import { buildSkinView, ScriptedProviderClient, SequentialIds, skinCommandToMessages, type ProviderRequest, type ScriptedReply, type SkinManifest } from "@harness/core";
 import { createNodeRuntime, type NodeRuntimeOptions } from "../src/node.ts";
 import type { HarnessRuntime } from "../src/HarnessRuntime.ts";
 
@@ -171,7 +171,7 @@ describe("HarnessRuntime", () => {
   it("tells the agent when the user swipes a topic off the Brief", async () => {
     const rt = await runtime();
     script = {
-      SurfacePlan: [reply({ islandWords: "", brief: [{ topicId: "node_9", documentId: null, title: "Academics", line: "Test Friday", callToAction: "Study", reason: "Study now" }], discover: [], spaceDocumentIds: [], rationale: "r" })],
+      SurfacePlan: [reply({ islandWords: "", headline: "", summary: "", brief: [{ topicId: "node_9", documentId: null, title: "Academics", line: "Test Friday", callToAction: "Study", reason: "Study now", icon: "school", badge: "" }], discover: [], waiting: [], spaceDocumentIds: [], rationale: "r" })],
       RouteDecision: [route("Brief swipe")],
       NextStepDecision: [end("noted the dismissal")],
     };
@@ -184,6 +184,58 @@ describe("HarnessRuntime", () => {
     const signal = rt.traces.list({ kind: "signal" })[0]!.data.signal as { source: string; content: string };
     expect(signal).toMatchObject({ source: "brief swipe" });
     expect(signal.content).toContain('swiped away "Academics" (topic node_9)');
+  });
+
+  it("fills a skin need through the agent and a device tool call", async () => {
+    const rt = await runtime();
+    const need = { id: "weather", ask: "Local weather now and today.", fields: ["now", "summary"], refreshMinutes: 60 };
+    script = {
+      RouteDecision: [route("Weather for the skin")],
+      NextStepDecision: [step("tools.use"), end("filled the weather")],
+      ToolInvocationPlan: [reply({ toolId: "device", functionName: "fulfill_need", argsJson: JSON.stringify({ needId: "weather", values: { now: "14°C", summary: "Rain from 6pm" }, summary: "Rain from 6pm" }), argsFromMemory: [], documentId: null, rationale: "r" })],
+    };
+    await rt.handle({ type: "skin_need", need });
+    await rt.idle();
+    const snap = await rt.snapshot();
+    expect(snap.device.needs.weather).toMatchObject({ status: "ready", values: { now: "14°C", summary: "Rain from 6pm" } });
+    expect(buildSkinView(snap).needs.weather!.values.now).toBe("14°C");
+    const signal = claude.calls.find((c) => c.schemaName === "RouteDecision")!;
+    expect(JSON.stringify(signal.context)).toContain('device.fulfill_need with needId \\"weather\\"');
+    // Fresh answers are not asked for again.
+    expect(await rt.askNeed(need)).toBeNull();
+  });
+
+  it("marks a need failed when the agent ends without answering", async () => {
+    const rt = await runtime();
+    script = { RouteDecision: [route("Weather")], NextStepDecision: [end("no weather tool")] };
+    await rt.askNeed({ id: "weather", ask: "weather", fields: ["now"], refreshMinutes: 60 });
+    expect((await rt.snapshot()).device.needs.weather?.status).toBe("failed");
+  });
+
+  it("maps skin commands to runtime messages and ignores unknown ids", async () => {
+    const rt = await runtime();
+    script = {
+      SurfacePlan: [reply({ islandWords: "", headline: "Busy day", summary: "Test at 2", brief: [{ topicId: "node_9", documentId: "node_10", title: "Chemistry", line: "Test at 2pm", callToAction: "Study", reason: "Soon", icon: "school", badge: "in 4h" }], discover: [], waiting: [{ topicId: null, who: "Maya", when: "8:12", text: "Dinner Friday?", callToAction: "Reply" }], spaceDocumentIds: [], rationale: "r" })],
+    };
+    await rt.handle({ type: "refresh_surfaces" });
+    const snap = await rt.snapshot();
+    const view = buildSkinView(snap);
+    expect(view.brief).toMatchObject({ headline: "Busy day", summary: "Test at 2" });
+    expect(view.brief.items[0]).toMatchObject({ title: "Chemistry", line: "Test at 2pm", icon: "school", badge: "in 4h", kind: "item", questionId: null });
+    const manifest: SkinManifest = { id: "t", name: "t", contract: 1, needs: [{ id: "weather", ask: "w", fields: ["now"], refreshMinutes: 60 }] };
+    const row = view.brief.items[0]!;
+    expect(skinCommandToMessages({ type: "open", itemId: row.id }, snap, manifest)).toEqual([
+      { type: "device", action: "unlock" },
+      { type: "seen", topicId: "node_9" },
+      { type: "open_document", documentId: "node_10" },
+    ]);
+    expect(skinCommandToMessages({ type: "act", itemId: view.waiting[0]!.id }, snap, manifest)[0]).toMatchObject({ type: "user_text", source: "skin action" });
+    expect(skinCommandToMessages({ type: "say", text: "hi", via: "voice" }, snap, manifest)).toEqual([{ type: "user_text", text: "hi", source: "voice" }]);
+    expect(skinCommandToMessages({ type: "need", needId: "weather" }, snap, manifest)).toEqual([{ type: "skin_need", need: manifest.needs[0] }]);
+    expect(skinCommandToMessages({ type: "need", needId: "stocks" }, snap, manifest)).toEqual([]);
+    expect(skinCommandToMessages({ type: "dismiss", itemId: "nope" }, snap, manifest)).toEqual([]);
+    expect(skinCommandToMessages({ type: "answer", questionId: "nope", action: "a", values: {}, said: "" }, snap, manifest)).toEqual([]);
+    expect(skinCommandToMessages({ type: "teleport" }, snap, manifest)).toEqual([]);
   });
 
   it("rejects malformed commands", async () => {

@@ -71,3 +71,11 @@ test("two clients share one live agent (cross-device)", async ({ page, browser }
   await expect(phone(other).getByText("Needs your answer")).toBeVisible();
   await other.close();
 });
+
+test("the skin asks the agent for the weather and shows it (skin need)", async ({ page }) => {
+  const p = phone(page);
+  await p.getByTestId("unlock").click();
+  await expect(p.getByTestId("weather")).toContainText("14°C · Rain from 6pm");
+  await page.getByRole("tab", { name: "Traces" }).click();
+  await expect(page.getByText("Weather for the phone").first()).toBeVisible();
+});

@@ -11,6 +11,7 @@ export const SignalKindSchema = z.enum([
   "tool_progress",
   "ui_feedback",
   "schedule",
+  "skin_need",
 ]);
 
 export type SignalKind = z.infer<typeof SignalKindSchema>;

@@ -1,6 +1,6 @@
 # Installing skins from Claude Design: plan
 
-**Status:** plan, not built. The four open decisions are settled (§10). **Reference design:** "Liquid Glass Phone" (Claude Design canvas `4Dtcsq4Mwn4F3psXDeVMTz`): Lock Screen, Home Screen and Brief Detail, 390×844, interactive.
+**Status:** S1 (skin contract and skin needs) is built; S2–S6 are planned. The four open decisions are settled (§10). **Reference design:** "Liquid Glass Phone" (Claude Design canvas `4Dtcsq4Mwn4F3psXDeVMTz`): Lock Screen, Home Screen and Brief Detail, 390×844, interactive.
 
 ## 1. What we are building
 
@@ -206,7 +206,7 @@ Failures go back to the rewrite call with the lint messages, at most two retries
 
 | # | Milestone | Deliverables | Done when |
 |---|---|---|---|
-| **S1** | Skin contract | `SkinViewModel`, `SkinCommand`, host adapter from the runtime snapshot, `SurfacePlan` additions (headline, summary, icon, badge, waiting), skin needs (`need` command, `skin_need` signal, `device.fulfill_need`), the default skin moved onto the contract, sample fixtures | Default skin passes today's UI tests on the contract; parity check passes; a scripted test fills a weather need |
+| **S1** ✅ | Skin contract | `SkinViewModel`, `SkinCommand`, host adapter from the runtime snapshot, `SurfacePlan` additions (headline, summary, icon, badge, waiting), skin needs (`need` command, `skin_need` signal, `device.fulfill_need`), the default skin moved onto the contract, sample fixtures | Default skin passes today's UI tests on the contract; parity check passes; a scripted test fills a weather need |
 | **S2** | DC runtime | `@harness/dc-runtime` (template, logic, tweaks, navigation, sandbox), skin host page | The three reference artboards render with their original copy and tweaks, and links navigate |
 | **S3** | Fetch | `install-skin` skill, `scripts/install-skin.ts`, asset localization, `skin.json` | The reference canvas installs into `skins/liquid-glass/design/` from its URL |
 | **S4** | Analyze | `SkinBindingPlan` schema, analyzer, binding report view | The reference design's plan matches the §6 table, with the weather strip flagged |

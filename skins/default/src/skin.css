@@ -63,3 +63,20 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 .brief-item .dismiss { position: absolute; top: 6px; right: 10px; color: var(--muted); font-size: 16px; line-height: 1; }
 .input-bar .mic { border-radius: 50%; }
 .input-bar .mic.listening { background: var(--warn); animation: pulse 1.2s ease-in-out infinite; }
+/* Skin contract v1 additions: icons, badges, the day header, weather, waiting, live activity. */
+.brief-item .icon { margin-right: 6px; }
+.brief-item .badge { float: right; margin-right: 18px; color: var(--accent); font-weight: 500; font-size: 12px; }
+.day { padding: 4px 2px 8px; }
+.day .headline { font-size: 18px; font-weight: 700; }
+.day .summary { color: var(--muted); font-size: 12px; margin-top: 2px; }
+.day .weather { font-size: 12px; margin-top: 6px; }
+.waiting { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 8px 12px; margin-top: 8px; font-size: 12px; }
+.waiting .label { color: var(--muted); margin-bottom: 4px; }
+.waiting-row { display: flex; gap: 8px; align-items: center; padding: 3px 0; }
+.waiting-row .who { font-weight: 600; }
+.waiting-row .text { flex: 1; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.live-activity { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 10px 12px; margin: 8px 0; }
+.live-activity .title { font-weight: 600; font-size: 13px; }
+.live-activity .line { color: var(--muted); font-size: 12px; margin: 2px 0 6px; }
+.live-activity .bar { height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.live-activity .fill { height: 100%; background: var(--ok); }
