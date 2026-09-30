@@ -205,7 +205,7 @@ The question is asked *before* the next step, and the session pauses until feedb
 
 **Resting a model (circuit breaker).** After 3 failures in a row that exhausted retries on one model within 2 minutes, the model **rests** for a 60 s cooldown. During the cooldown, calls skip it and go down the chain. After the cooldown, one probe call is allowed. If the probe succeeds the model is back in rotation; if it fails, the cooldown doubles, up to 10 min. Rest state is shared by all concurrent sessions, so one struggling model doesn't slow every loop.
 
-**Budget.** Each step has a total time budget (default 90 s) across all retries and fallbacks. When it runs out, the step fails and the session records the error, and the loop decides what to do next.
+**Budget.** Each structured model call has a total time budget (`stepBudgetMs`, default 90 s) across all of its retries and fallbacks, and each request's timeout is capped at whatever budget remains. When the budget runs out, the call fails, the session records the error with every attempt, and the session is marked failed.
 
 **Switching models mid-session is safe.** Each step is a fresh request built from the session context. No provider's conversation state (Claude thinking blocks, for example) is carried from one step to the next, so falling back to a different model or provider doesn't break anything.
 

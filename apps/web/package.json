@@ -1,0 +1,13 @@
+{
+  "name": "@harness/web",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "server": "node server/main.ts"
+  },
+  "dependencies": {
+    "@harness/core": "*",
+    "zod": "^4.6.5"
+  }
+}
