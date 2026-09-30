@@ -1,42 +1,51 @@
 # agent-test-harness
 
-A harness for designing and testing a next-generation personal agent. It contains an LLM reasoning loop (Claude Opus 5.5 first, with Gemini as a fallback), graph memory, tools the agent can discover, simulated ambient data, and a simulated phone Experience with Memory, Tools, Data and Traces panels for inspecting it.
+A harness for designing and testing a next-generation personal agent (the "Agent OS" brief). An LLM reasoning loop, Claude Opus 5.5 first with Gemini as a fallback, maintains graph memory of the user's world, finds and uses tools, and asks the user through generated UI when it is unsure. A simulated phone (the Experience) and four inspection panels (Memory, Tools, Data, Traces) sit around it. Aura personas can play through a day in the life.
 
 - **[PLAN.md](PLAN.md)**: the full build plan (architecture, data model, testing strategy, milestones)
 - **[docs/brief.md](docs/brief.md)**: the original "Agent OS - Quintessa" brief
+
+## Run it
+
+```bash
+npm install
+cp .env.example .env         # add ANTHROPIC_API_KEY and GEMINI_API_KEY
+set -a; . ./.env; set +a
+npm run build -w @harness/web
+npm run server -w @harness/web   # http://127.0.0.1:8787
+```
+
+Open http://127.0.0.1:8787 in one or more browsers or devices. Every client shares the same live agent and memory, which persist to `data/harness.json` (set `HARNESS_DATA` to move it). For UI development, run `npm run dev -w @harness/web` (Vite on :5173, proxying to the server).
+
+- **Experience**: unlock the phone, then type (or speak) to the agent from Home. Questions appear in Spaces with a pointer on the Brief.
+- **Persona**: pick an Aura persona in the top bar and press *Start day*. Memory is cleared, and the day's real observations stream in at 60× speed (change it in Data).
+- **Clear memory** wipes memory, tools, data streams, traces and the phone. Settings survive.
+- **Model settings** (the model button) sets the primary model, the fallback chain, the model and Claude effort for each role, and the resting strategy.
 
 ## Layout
 
 | Path | What it holds |
 |---|---|
-| `packages/core` | Types (one per file in `src/types/`), output-schema registry, provider JSON Schema conversion, and later the loop, memory and tools |
-| `packages/capabilities` | Capability Markdown files (`capabilities/*.md`), system prompts (`prompts/*.md`) and their loader |
-| `apps/web/server` | Dev server with the model proxy (`POST /api/model/:provider`), so API keys never reach the browser |
+| `packages/core` | Everything platform-neutral: types (one per file), model adapters and the resting runner, the reasoning loop, memory, tools, ambient engine, persona sources, Device tool. `@harness/core/node` adds the VM sandbox and fixture loaders. |
+| `packages/capabilities` | Capability Markdown files, the loop and router prompts, the loader, and the recorded-scenario runner |
+| `packages/runtime` | `HarnessRuntime`, which composes everything, plus `createNodeRuntime` and `FileStorage` |
+| `packages/evals` | Scenario evals on both providers with a user simulator and an LLM judge |
+| `apps/web` | The React harness, the harness server (WebSocket + model proxy) and Playwright UI tests |
+| `skins/default` | The phone skin, rendered in an iframe |
+| `samples/` | Ambient templates, tool suggestions and eval scenarios (JSON) |
+| `fixtures/` | Exported Aura personas and recorded model runs |
+| `scripts/` | Persona export extractor, scenario recorder, headless persona run |
 
 ## Commands
 
 ```bash
-npm install
-npm run check      # typecheck + lint + tests (what CI runs)
-npm test           # unit tests only, no network
-npm run test:live  # live model calls; needs ANTHROPIC_API_KEY / GEMINI_API_KEY and costs money
-npm run server -w @harness/web   # model proxy on http://127.0.0.1:8787
+npm run check          # typecheck + lint + unit tests (CI)
+npm run test:ui        # Playwright UI tests on scripted models (CI)
+npm run test:live      # live model smoke tests (costs money)
+npm run eval           # live scenario evals on Claude and Gemini (costs money)
+node scripts/run-persona.ts "Jamie Lee" 2        # two virtual hours of a persona's day, no UI
+node scripts/record-scenario.ts math-test-prep   # re-record the replayed fixture
+node scripts/extract-persona-export.ts <persona-repo>/exported-data5 fixtures/personas 3 2
 ```
 
-Node runs the TypeScript sources directly (type stripping), so `tsconfig.json` sets `erasableSyntaxOnly`: no enums, namespaces or constructor parameter properties.
-
-Copy `.env.example` to `.env` for local keys. Never commit keys.
-
-## Status
-
-M0 (scaffold), M1 (data model) and M2 (loop core) are done. See PLAN.md section 12 for the milestones.
-
-M2 includes:
-- the Claude and Gemini adapters
-- the resting runner (backoff, retry-after, resting and probing, auth skip, cross-provider fallback, and a time budget per call)
-- the trigger router
-- the reasoning loop, with pause and resume for UI questions
-- the trace store
-- the model proxy
-
-Live checks: all seven output schemas are accepted by both Claude Opus 5.5 and Gemini 3.8 Flash, and an end-to-end loop on Claude reads memory, asks the user, and pauses.
+Node runs the TypeScript sources directly (type stripping), so `tsconfig.json` sets `erasableSyntaxOnly`. Never commit keys. The persona service (`PERSONA_BASE_URL`) is used when it is reachable, with the exported fixtures as a fallback.

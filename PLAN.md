@@ -1,7 +1,7 @@
 # Agent OS Test Harness: Build Plan
 
 **Codename:** Quintessa
-**Status:** Plan v1. Nothing is built yet.
+**Status:** Built. M0 to M9 are implemented (see section 12). Decisions made during the build are recorded inline and in section 13.
 **Source:** "Agent OS - Quintessa" brief. This plan restates it as a buildable spec.
 
 ---
@@ -495,7 +495,7 @@ agent-test-harness/
 | **M6** | Device and Experience | Render-op protocol, default skin in an iframe, the four screens, Island, Brief, Spaces | Disambiguation round-trips UI to loop to UI in a Playwright test |
 | **M7** | Web harness | Memory, Tools, Data and Traces panels; global controls; blank start | Every control in §9 works, with UI tests |
 | **M8** | Evals | Live scenario suite, LLM judge, Gemini-vs-Claude comparison report | All §10.5 scenarios pass on both providers, with results tracked over time |
-| **M9** | Cross-device | Firestore adapter so memory and reasoning are reachable from other surfaces | Two browser clients share one memory live |
+| **M9** | Cross-device | The harness server hosts one runtime and syncs every client over WebSocket; memory persists to a JSON file (no Firebase, per the 2026-09-30 decision). An IndexedDB adapter covers a browser-only harness. | Two browser clients share one memory live (Playwright test) |
 
 ---
 
@@ -508,7 +508,8 @@ agent-test-harness/
 | Primary model | **Claude Opus 5.5** (`claude-opus-5-5`) for every role, using the resting strategy in §4.5 |
 | Fallback chain | `claude-opus-5` → `gemini-3.8-flash` → `gemini-3.7-flash`. The Gemini IDs were checked against the live Gemini models list on 2026-09-30. |
 | API keys | Both are provided and both checked OK on 2026-09-30. They are stored as environment secrets or a gitignored `.env`, never in the repo. |
-| Persona service | Base URL `https://us-central1-aura-persona.cloudfunctions.net/`, using the HTTP endpoints `listPersona1`, `getPersona1`, `listDaysForPersona1` and `listObservations1` |
+| Persona service | Base URL `https://us-central1-aura-persona.cloudfunctions.net/`, using the HTTP endpoints `listPersona1`, `getPersona1`, `listDaysForPersona1` and `listObservations1`. Until it is reachable, three personas extracted from the persona repo's Firestore export (fixtures/personas) are used. |
+| Cross-device backend | No Firebase. The harness server runs one runtime and syncs clients over WebSocket (`ws`); state persists to a JSON file. |
 | "The document is archived" | A document is archived when its project is finished. Until then, each action is recorded as a `DocumentRevision`. |
 
 ### Still open
@@ -516,7 +517,6 @@ agent-test-harness/
 1. **Network access to the persona service.** The cloud dev environment's network policy blocks `us-central1-aura-persona.cloudfunctions.net`; this was checked again on 2026-09-30 from both the container and the web fetcher. It needs to be added to the allowed domains before `persona-sim` can run live. Until then it runs against exported fixtures.
 2. **`listObservations1` always returns `{}`** because of a missing `await` (§7). This needs a fix and a redeploy in `posttool/persona` before live persona playback will work.
 3. **Cheaper roles.** Opus 5.5 is the default everywhere. M8 will measure whether any role (router, judge) should move to a cheaper model. That is a decision for you, not something we change automatically.
-4. **Cross-device backend.** Firestore is the working choice because it matches the persona stack. Confirm, or name another.
-5. **Sandbox for generated code.** Web Worker plus `vm` is enough for a harness. A real device build would need proper isolation.
-6. **Swipe-to-dismiss "why?".** When the user swipes a topic away, the agent may quietly ask why and store the answer as a `TriggerOverride`. This UX pattern is in scope for M6 and M7.
-7. **"Nadav's drawing" and Loom.** Those references are outside this repo. Any visual spec from them should be added under `docs/`.
+4. **Sandbox for generated code.** Web Worker plus `vm` is enough for a harness. A real device build would need proper isolation.
+5. **Swipe-to-dismiss "why?".** Built as a signal: dismissing a Brief item tells the agent, and the agent decides whether to ask why and record a `TriggerOverride`. The UX of the question itself (how discreet it is) still needs design review.
+6. **"Nadav's drawing" and Loom.** Those references are outside this repo. Any visual spec from them should be added under `docs/`.

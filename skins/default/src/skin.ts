@@ -73,6 +73,14 @@ export class DefaultSkin {
       const text = item.component.elements.find((e) => e.text)?.text ?? item.reason ?? "";
       const card = h("button", { class: `brief-item${item.context ? " needs" : ""}` }, h("div", { class: "title" }, item.component.title ?? "Update"), h("div", { class: "line" }, text));
       card.onclick = () => this.openItem(item);
+      if (!item.context) {
+        const dismiss = h("span", { class: "dismiss", title: "Not now", "data-testid": "dismiss" }, "×");
+        dismiss.onclick = (e) => {
+          e.stopPropagation();
+          this.send({ type: "dismiss", itemId: item.id });
+        };
+        card.append(dismiss);
+      }
       list.append(card);
     }
     return list;

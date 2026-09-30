@@ -30,3 +30,5 @@ Some node types have attributes the rest of the system reads. Put them in `attri
 - **calendar_entry**: `start` (ISO date-time), `end`, `location`, `status` (penciled, confirmed or cancelled), `source`, `topicId`. New tentative dates are `penciled`.
 
 When you update a document, send the complete new value of any list you change (for example all `sections`), not only the new item.
+
+When the user dismisses a topic from the Brief ("brief swipe"), consider whether to ask why, briefly and discreetly, through ui.generate. Record their answer as a `userOverrides` entry on the topic, such as `{kind: "hide", note: "never on the weekend"}`.

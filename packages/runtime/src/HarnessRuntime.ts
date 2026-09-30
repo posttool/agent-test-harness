@@ -223,8 +223,13 @@ export class HarnessRuntime {
         return this.device.setLocked(m.action === "lock");
       case "seen":
         return this.memory.markSeen(m.topicId);
-      case "dismiss":
-        return this.device.dismiss(m.itemId);
+      case "dismiss": {
+        const item = [...this.device.snapshot().brief, ...this.device.snapshot().discover].find((i) => i.id === m.itemId);
+        this.device.dismiss(m.itemId);
+        // Swipe-to-dismiss (PLAN.md section 5.3): the agent may discreetly ask why and record an override.
+        if (item?.topicId) void this.sendSignal("user_text", "brief swipe", `The user swiped away "${item.component.title ?? "an item"}" (topic ${item.topicId}) from the Contextual Brief.`);
+        return;
+      }
       case "open_document":
         return void (await this.device.openDocument(m.documentId));
       case "clear":

@@ -165,6 +165,24 @@ describe("HarnessRuntime", () => {
     expect(snap.settings.theme).toBe("light");
   });
 
+  it("tells the agent when the user swipes a topic off the Brief", async () => {
+    const rt = await runtime();
+    script = {
+      SurfacePlan: [reply({ islandWords: null, brief: [{ topicId: "node_9", reason: "Study now", component: { kind: "brief_item", id: "b", title: "Academics", primaryActionLabel: null, elements: [] } }], discover: [], spaceDocumentIds: [], rationale: "r" })],
+      RouteDecision: [route("Brief swipe")],
+      NextStepDecision: [end("noted the dismissal")],
+    };
+    await rt.handle({ type: "refresh_surfaces" });
+    const item = (await rt.snapshot()).device.brief[0]!;
+    await rt.handle({ type: "dismiss", itemId: item.id });
+    await rt.idle();
+    const snap = await rt.snapshot();
+    expect(snap.device.brief).toEqual([]);
+    const signal = rt.traces.list({ kind: "signal" })[0]!.data.signal as { source: string; content: string };
+    expect(signal).toMatchObject({ source: "brief swipe" });
+    expect(signal.content).toContain('swiped away "Academics" (topic node_9)');
+  });
+
   it("rejects malformed commands", async () => {
     const rt = await runtime();
     await expect(rt.handle({ type: "teleport" })).rejects.toThrow();
