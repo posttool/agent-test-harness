@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>Brief Detail</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@200..700&amp;family=Geist+Mono:wght@400..600&amp;family=Manrope:wght@200..700&amp;family=Instrument+Sans:wght@400..700&amp;family=Fraunces:wght@200..700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#fff}a:hover{color:#fff}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 844px; overflow: hidden; border-radius: 54px; background: {{base}}; font-family: {{font}}; color: #fff; -webkit-font-smoothing: antialiased">
+
+<div style="position: absolute; left: -120px; top: 430px; width: 420px; height: 420px; border-radius: 50%; background: {{c1}}; filter: blur(70px); opacity: 0.85"></div>
+<div style="position: absolute; left: 150px; top: 60px; width: 380px; height: 380px; border-radius: 50%; background: {{c2}}; filter: blur(80px); opacity: 0.8"></div>
+<div style="position: absolute; left: 190px; top: 560px; width: 300px; height: 300px; border-radius: 50%; background: {{c3}}; filter: blur(60px); opacity: 0.8"></div>
+<div style="position: absolute; left: -60px; top: 150px; width: 160px; height: 160px; border-radius: 50%; background: {{c4}}; filter: blur(50px); opacity: 0.6"></div>
+<div style="position: absolute; left: 150px; top: 330px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle at 32% 28%, rgba(255,255,255,0.75), {{c2}} 38%, {{base}} 78%); box-shadow: 0 40px 80px rgba(0,0,0,0.45)"></div>
+<div style="position: absolute; left: 0; top: 0; width: 390px; height: 844px; background: rgba(0,0,0,0.3)"></div>
+
+<div style="position: absolute; top: 16px; left: 44px; font-size: 16px; font-weight: 600; letter-spacing: -0.2px; z-index: 15" data-skin-anchor="a8">{{bind.b.f_a8_0}}</div>
+<div style="position: absolute; top: 18px; right: 30px; display: flex; align-items: center; gap: 6px; z-index: 15">
+<svg width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx="1" fill="#fff"></rect><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="#fff"></rect><rect x="10" y="3" width="3" height="9" rx="1" fill="#fff"></rect><rect x="15" y="0" width="3" height="12" rx="1" fill="#fff"></rect></svg>
+<svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M1 4.2a10 10 0 0 1 14 0M3.4 6.8a6.5 6.5 0 0 1 9.2 0M5.8 9.3a3 3 0 0 1 4.4 0" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round"></path></svg>
+<svg width="27" height="13" viewBox="0 0 27 13" aria-hidden="true"><rect x="0.5" y="0.5" width="23" height="12" rx="3.8" fill="none" stroke="rgba(255,255,255,0.5)"></rect><rect x="2.5" y="2.5" width="16" height="8" rx="2" fill="#fff"></rect><rect x="25" y="4.5" width="1.6" height="4" rx="0.8" fill="rgba(255,255,255,0.5)"></rect></svg>
+</div>
+
+<div style="position: absolute; top: 11px; left: 0; right: 0; display: flex; justify-content: center; z-index: 30">
+<button aria-expanded="{{open}}" aria-label="Live activity: ride arriving in 4 minutes" onclick="{{toggle}}" style="position: relative; width: {{islandW}}px; height: {{islandH}}px; border-radius: {{islandR}}px; background: #000; border: 0; padding: 0; color: #fff; cursor: pointer; overflow: hidden; font-family: inherit; text-align: left; box-shadow: 0 10px 30px rgba(0,0,0,0.4); transition: width 0.5s cubic-bezier(0.2,0.9,0.25,1.1), height 0.5s cubic-bezier(0.2,0.9,0.25,1.1), border-radius 0.5s ease">
+<sc-if value="{{closed}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; align-items: center; justify-content: space-between; height: 37px; padding: 0 14px 0 12px">
+<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="color: {{accent}}"><path d="M5 16.5V12l2-5h10l2 5v4.5M4 16.5h16M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="8" cy="18.5" r="1.6" fill="currentColor"></circle><circle cx="16" cy="18.5" r="1.6" fill="currentColor"></circle></svg>
+<span style="font-family: 'Geist Mono', monospace; font-size: 13px; font-weight: 600; color: {{accent}}" data-skin-anchor="a29">{{bind.b.f_a29_1}}</span>
+</div>
+</sc-if>
+<sc-if value="{{open}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 14px; padding: 20px 22px">
+<div style="display: flex; align-items: center; gap: 12px">
+<div style="width: 44px; height: 44px; border-radius: 50%; background: {{accent}}; display: flex; align-items: center; justify-content: center; color: #1a0d05; flex-shrink: 0">
+<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 16.5V12l2-5h10l2 5v4.5M4 16.5h16M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="8" cy="18.5" r="1.6" fill="currentColor"></circle><circle cx="16" cy="18.5" r="1.6" fill="currentColor"></circle></svg>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1">
+<span style="font-size: 12px; color: rgba(255,255,255,0.6)" data-skin-anchor="a39">{{bind.b.f_a39_2}}</span>
+<span style="font-size: 15px; font-weight: 500" data-skin-anchor="a40">{{bind.b.f_a40_3}}</span>
+</div>
+<span style="font-family: 'Geist Mono', monospace; font-size: 26px; font-weight: 500; color: {{accent}}; letter-spacing: -1px" data-skin-anchor="a41">{{bind.b.f_a41_4}}</span>
+</div>
+<div style="height: 6px; border-radius: 3px; background: rgba(255,255,255,0.14); overflow: hidden">
+<div style="width: {{bind.b.f_a43_5}}; height: 6px; border-radius: 3px; background: {{accent}}" data-skin-anchor="a43"></div>
+</div>
+<div style="display: flex; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.6)">
+<span>1 Market St</span>
+<span>Studio 4</span>
+</div>
+</div>
+</sc-if>
+</button>
+</div>
+
+<div style="position: absolute; top: 60px; left: 16px; right: 16px; display: flex; align-items: center; justify-content: space-between; z-index: 20">
+<a href="Home.dc.html" aria-label="Close brief" style="width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; background: linear-gradient(160deg, rgba(255,255,255,0.28), rgba(255,255,255,0.07) 65%); border: 1px solid rgba(255,255,255,0.3); box-shadow: inset 0 1px 1px rgba(255,255,255,0.6), 0 8px 22px rgba(0,0,0,0.3); backdrop-filter: blur({{blur}}px) saturate(180%); -webkit-backdrop-filter: blur({{blur}}px) saturate(180%)">
+<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</a>
+<div style="display: flex; align-items: center; gap: 8px; height: 36px; padding: 0 14px 0 8px; border-radius: 999px; background: linear-gradient(160deg, rgba(255,255,255,0.24), rgba(255,255,255,0.06) 65%); border: 1px solid rgba(255,255,255,0.28); box-shadow: inset 0 1px 1px rgba(255,255,255,0.55); backdrop-filter: blur({{blur}}px) saturate(180%); -webkit-backdrop-filter: blur({{blur}}px) saturate(180%)">
+<span style="width: 22px; height: 22px; border-radius: 50%; background: {{accent}}; display: flex; align-items: center; justify-content: center; color: #1a0d05">
+<svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.1 6.4 6.4 2.1-6.4 2.1L12 19.5l-2.1-6.4L3.5 11l6.4-2.1z" fill="currentColor"></path></svg>
+</span>
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase">Brief</span>
+</div>
+<button aria-label="Share brief" style="width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0; background: linear-gradient(160deg, rgba(255,255,255,0.28), rgba(255,255,255,0.07) 65%); border: 1px solid rgba(255,255,255,0.3); box-shadow: inset 0 1px 1px rgba(255,255,255,0.6), 0 8px 22px rgba(0,0,0,0.3); backdrop-filter: blur({{blur}}px) saturate(180%); -webkit-backdrop-filter: blur({{blur}}px) saturate(180%)">
+<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5v11M7.5 8L12 3.5 16.5 8M5 13v5.5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V13" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+</div>
+
+<main style="position: absolute; top: 116px; left: 0; right: 0; bottom: 0; overflow-y: auto; scrollbar-width: none; z-index: 10; padding: 6px 16px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px">
+
+<header style="display: flex; flex-direction: column; gap: 8px; padding: 4px 6px 6px">
+<span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: rgba(255,255,255,0.65)" data-skin-anchor="a61">{{bind.b.f_a61_6}} · updated {{bind.b.f_a61_7}}</span>
+<h1 style="margin: 0; font-size: 34px; font-weight: 500; letter-spacing: -1.2px; line-height: 1.05" data-skin-anchor="a62">{{bind.b.f_a62_8}}</h1>
+<p style="margin: 0; font-size: 15px; line-height: 1.45; color: rgba(255,255,255,0.8)" data-skin-anchor="a63">{{bind.b.f_a63_9}}</p>
+</header>
+
+<section aria-label="Next up" style="display: flex; flex-direction: column; gap: 14px; border-radius: 28px; padding: 18px; background: linear-gradient(160deg, rgba(255,255,255,0.24), rgba(255,255,255,0.07) 65%); border: 1px solid rgba(255,255,255,0.28); box-shadow: inset 0 1px 1px rgba(255,255,255,0.55), 0 14px 36px rgba(0,0,0,0.28); backdrop-filter: blur({{blur}}px) saturate(180%); -webkit-backdrop-filter: blur({{blur}}px) saturate(180%)">
+<div style="display: flex; align-items: center; justify-content: space-between">
+<span style="font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: rgba(255,255,255,0.7)">Next up</span>
+<span style="font-family: 'Geist Mono', monospace; font-size: 11.5px; font-weight: 600; padding: 5px 9px; border-radius: 999px; background: {{accent}}; color: #1a0d05" data-skin-anchor="a67">{{bind.b.f_a67_10}}</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h2 style="margin: 0; font-size: 22px; font-weight: 500; letter-spacing: -0.5px" data-skin-anchor="a69">{{bind.b.f_a69_11}}</h2>
+<span style="font-size: 14px; color: rgba(255,255,255,0.72)" data-skin-anchor="a70">{{bind.b.f_a70_12}}</span>
+</div>
+<div style="display: flex; align-items: center; gap: 10px">
+<div style="display: flex">
+<span style="width: 30px; height: 30px; border-radius: 50%; background: #B69CFF; color: #1b1030; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(0,0,0,0.35)">M</span>
+<span style="width: 30px; height: 30px; border-radius: 50%; background: #7CF5C8; color: #062a1e; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(0,0,0,0.35); margin-left: -8px">J</span>
+<span style="width: 30px; height: 30px; border-radius: 50%; background: rgba(255,255,255,0.22); font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(0,0,0,0.35); margin-left: -8px">+2</span>
+</div>
+<span style="font-size: 13px; color: rgba(255,255,255,0.72)">Maya, Jon and 2 others</span>
+</div>
+<div style="font-size: 13.5px; line-height: 1.45; color: rgba(255,255,255,0.8); padding: 12px 14px; border-radius: 16px; background: rgba(0,0,0,0.18)" data-skin-anchor="a77">{{bind.b.f_a77_13}}</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+<button style="height: 44px; border-radius: 14px; border: 0; cursor: pointer; font-family: inherit; font-size: 14px; font-weight: 600; background: {{accent}}; color: #1a0d05" data-skin-anchor="a79" onclick="{{bind.on.on_a79}}">{{bind.b.f_a79_14}}</button>
+<button style="height: 44px; border-radius: 14px; cursor: pointer; font-family: inherit; font-size: 14px; font-weight: 500; color: #fff; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.22)" onclick="{{bind.on.on_a80}}" data-skin-anchor="a80">Open deck</button>
+</div>
+</section>
+
+<section aria-label="Today" style="display: flex; flex-direction: column; gap: 4px; border-radius: 28px; padding: 18px; background: linear-gradient(160deg, rgba(255,255,255,0.24), rgba(255,255,255,0.07) 65%); border: 1px solid rgba(255,255,255,0.28); box-shadow: inset 0 1px 1px rgba(255,255,255,0.55), 0 14px 36px rgba(0,0,0,0.28); backdrop-filter: blur({{blur}}px) saturate(180%); -webkit-backdrop-filter: blur({{blur}}px) saturate(180%)">
+<span style="font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 8px">Today</span>
+
+<div style="display: grid; grid-template-columns: 52px 14px 1fr; column-gap: 10px; align-items: start">
+<span style="font-family: 'Geist Mono', monospace; font-size: 12px; font-weight: 600; color: {{accent}}; padding-top: 1px" data-skin-anchor="a84">{{bind.b.f_a84_15}}</span>
+<div style="display: flex; flex-direction: column; align-items: center; align-self: stretch"><span style="width: 10px; height: 10px; border-radius: 50%; background: {{accent}}; box-shadow: 0 0 0 4px rgba(255,255,255,0.12); margin-top: 3px"></span><span style="width: 2px; flex-grow: 1; background: rgba(255,255,255,0.18); margin-top: 4px"></span></div>
+<span style="font-size: 14px; font-weight: 600; color: {{accent}}; padding-bottom: 16px">Now</span>
+</div>
+<sc-for list="{{bind.rows_a89}}" as="skinrow_a89" hint-placeholder-count="4"><div style="display: grid; grid-template-columns: 52px 14px 1fr; column-gap: 10px; align-items: start">
+<span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: rgba(255,255,255,0.7); padding-top: 1px" data-skin-anchor="a90">{{skinrow_a89.f0_a90}}</span>
+<div style="display: flex; flex-direction: column; align-items: center; align-self: stretch"><span style="width: 8px; height: 8px; border-radius: 50%; border: 2px solid #fff; margin-top: 3px"></span><span style="width: 2px; flex-grow: 1; background: rgba(255,255,255,0.18); margin-top: 4px"></span></div>
+<div style="display: flex; flex-direction: column; gap: 2px; padding-bottom: 16px"><span style="font-size: 15px; font-weight: 500" data-skin-anchor="a95">{{skinrow_a89.f1_a95}}</span><span style="font-size: 12.5px; color: rgba(255,255,255,0.66)" data-skin-anchor="a96">{{skinrow_a89.f2_a96}}</span></div>
+</div></sc-for>
+
+
+
+<div style="display: grid; grid-template-columns: 52px 14px 1fr; column-gap: 10px; align-items: start">
+<span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: rgba(255,255,255,0.7); padding-top: 1px">4:00</span>
+<div style="display: flex; flex-direction: column; align-items: center"><span style="width: 8px; height: 8px; border-radius: 50%; border: 2px solid #9ad8ff; margin-top: 3px"></span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 500">Rain begins</span><span style="font-size: 12.5px; color: rgba(255,255,255,0.66)">Heaviest 5 – 7 PM</span></div>
+</div>
+</section>
+
+<section aria-label="Weather" style="display: flex; flex-direction: column; gap: 14px; border-radius: 28px; padding: 18px; background: linear-gradient(160deg, rgba(255,255,255,0.24), rgba(255,255,255,0.07) 65%); border: 1px solid rgba(255,255,255,0.28); box-shadow: inset 0 1px 1px rgba(255,255,255,0.55), 0 14px 36px rgba(0,0,0,0.28); backdrop-filter: blur({{blur}}px) saturate(180%); -webkit-backdrop-filter: blur({{blur}}px) saturate(180%)">
+<div style="display: flex; align-items: flex-end; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: rgba(255,255,255,0.7)">Weather</span>
+<span style="font-size: 44px; font-weight: 300; letter-spacing: -2px; line-height: 1" data-skin-anchor="a132">{{bind.b.f_a132_16}}</span>
+</div>
+<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px; font-size: 13px; color: rgba(255,255,255,0.75)">
+<span data-skin-anchor="a134">{{bind.b.f_a134_17}}</span>
+<span data-skin-anchor="a135">H {{bind.b.f_a135_18}} · L {{bind.b.f_a135_19}}</span>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.12)">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 8px"><span style="font-size: 11.5px; color: rgba(255,255,255,0.7)" data-skin-anchor="a138">{{bind.b.f_a138_20}}</span><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="#FFD166"></circle><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4" stroke="#FFD166" stroke-width="1.8" stroke-linecap="round"></path></svg><span style="font-size: 14px; font-weight: 500" data-skin-anchor="a142">{{bind.b.f_a142_21}}</span></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 8px"><span style="font-size: 11.5px; color: rgba(255,255,255,0.7)" data-skin-anchor="a144">{{bind.b.f_a144_22}}</span><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="#FFD166"></circle><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4" stroke="#FFD166" stroke-width="1.8" stroke-linecap="round"></path></svg><span style="font-size: 14px; font-weight: 500" data-skin-anchor="a148">{{bind.b.f_a148_23}}</span></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 8px"><span style="font-size: 11.5px; color: rgba(255,255,255,0.7)" data-skin-anchor="a150">{{bind.b.f_a150_24}}</span><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8.5" r="3.2" fill="#FFD166"></circle><path d="M17 18.5H8.2a3.4 3.4 0 1 1 .8-6.7 4.6 4.6 0 0 1 8.8 1.4 2.7 2.7 0 0 1-.8 5.3z" fill="#fff"></path></svg><span style="font-size: 14px; font-weight: 500" data-skin-anchor="a154">{{bind.b.f_a154_25}}</span></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 8px"><span style="font-size: 11.5px; color: rgba(255,255,255,0.7)" data-skin-anchor="a156">{{bind.b.f_a156_26}}</span><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 14.5H7.2a3.8 3.8 0 1 1 .9-7.5A5.2 5.2 0 0 1 18 8.6a3 3 0 0 1-1 5.9z" fill="#fff"></path><path d="M8.5 18l-1 2.5M12.5 18l-1 2.5M16.5 18l-1 2.5" stroke="#9ad8ff" stroke-width="1.8" stroke-linecap="round"></path></svg><span style="font-size: 14px; font-weight: 500" data-skin-anchor="a160">{{bind.b.f_a160_27}}</span></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 8px"><span style="font-size: 11.5px; color: rgba(255,255,255,0.7)" data-skin-anchor="a162">{{bind.b.f_a162_28}}</span><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 14.5H7.2a3.8 3.8 0 1 1 .9-7.5A5.2 5.2 0 0 1 18 8.6a3 3 0 0 1-1 5.9z" fill="#fff"></path><path d="M8.5 18l-1 2.5M12.5 18l-1 2.5M16.5 18l-1 2.5" stroke="#9ad8ff" stroke-width="1.8" stroke-linecap="round"></path></svg><span style="font-size: 14px; font-weight: 500" data-skin-anchor="a166">{{bind.b.f_a166_29}}</span></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 8px"><span style="font-size: 11.5px; color: rgba(255,255,255,0.7)" data-skin-anchor="a168">{{bind.b.f_a168_30}}</span><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 16.5H7.2a3.8 3.8 0 1 1 .9-7.5A5.2 5.2 0 0 1 18 10.6a3 3 0 0 1-1 5.9z" fill="#fff"></path></svg><span style="font-size: 14px; font-weight: 500" data-skin-anchor="a171">{{bind.b.f_a171_31}}</span></div>
+</div>
+</section>
+
+<section aria-label="Waiting on you" style="display: flex; flex-direction: column; gap: 4px; border-radius: 28px; padding: 18px 18px 10px; background: linear-gradient(160deg, rgba(255,255,255,0.24), rgba(255,255,255,0.07) 65%); border: 1px solid rgba(255,255,255,0.28); box-shadow: inset 0 1px 1px rgba(255,255,255,0.55), 0 14px 36px rgba(0,0,0,0.28); backdrop-filter: blur({{blur}}px) saturate(180%); -webkit-backdrop-filter: blur({{blur}}px) saturate(180%)">
+<span style="font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 4px">Waiting on you</span>
+<sc-for list="{{bind.rows_a172}}" as="skinrow_a172" hint-placeholder-count="2"><div style="{{skinrow_a172.v0}}">
+<span style="{{skinrow_a172.v1}}" data-skin-anchor="a175">{{skinrow_a172.f0_a175}}</span>
+<div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1; min-width: 0">
+<span style="font-size: 15px; font-weight: 500" data-skin-anchor="a177">{{skinrow_a172.f1_a177}} · {{skinrow_a172.f2_a177}}</span>
+<span style="font-size: 13px; color: rgba(255,255,255,0.7)" data-skin-anchor="a178">{{skinrow_a172.f3_a178}}</span>
+</div>
+<button style="height: 34px; padding: 0 14px; border-radius: 999px; cursor: pointer; font-family: inherit; font-size: 13px; font-weight: 500; color: #fff; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.22)" data-skin-anchor="a179" onclick="{{skinrow_a172.on_a179}}">{{skinrow_a172.f4_a179}}</button>
+</div></sc-for>
+
+</section>
+
+<section aria-label="Suggested" style="display: flex; flex-direction: column; gap: 10px; padding: 6px 4px 0">
+<span style="font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: rgba(255,255,255,0.7); padding-left: 2px">Suggested</span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{actions}}" as="item" hint-placeholder-count="3">
+<button aria-pressed="{{item.done}}" onclick="{{item.pick}}" style="display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px 0 10px; border-radius: 999px; cursor: pointer; font-family: inherit; font-size: 13.5px; font-weight: 500; color: {{item.fg}}; background: {{item.bg}}; border: 1px solid rgba(255,255,255,0.28); box-shadow: inset 0 1px 1px rgba(255,255,255,0.5); backdrop-filter: blur({{blur}}px) saturate(180%); -webkit-backdrop-filter: blur({{blur}}px) saturate(180%); transition: background 0.25s ease">
+<span style="width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: {{item.dotBg}}">
+<sc-if value="{{item.done}}" hint-placeholder-val="{{ false }}">
+<svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</sc-if>
+<sc-if value="{{item.todo}}" hint-placeholder-val="{{ true }}">
+<svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path></svg>
+</sc-if>
+</span>
+{{item.label}}
+</button>
+</sc-for>
+</div>
+</section>
+
+<p style="margin: 8px 0 0; text-align: center; font-size: 12px; color: rgba(255,255,255,0.55)">Your brief updates as your day changes.</p>
+
+</main>
+
+<a href="Home.dc.html" aria-label="Back to home screen" style="position: absolute; left: 128px; right: 128px; bottom: 0; height: 14px; display: flex; align-items: center; justify-content: center; z-index: 20">
+<span style="width: 134px; height: 5px; border-radius: 3px; background: #fff"></span>
+</a>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;font&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Geist&quot;,&quot;Manrope&quot;,&quot;Instrument Sans&quot;,&quot;Fraunces&quot;],&quot;default&quot;:&quot;Manrope&quot;,&quot;section&quot;:&quot;Type&quot;},&quot;wallpaper&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Aurora&quot;,&quot;Ember&quot;,&quot;Glacier&quot;,&quot;Custom&quot;],&quot;default&quot;:&quot;Custom&quot;,&quot;section&quot;:&quot;Wallpaper&quot;},&quot;orb1&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#FF6A3D&quot;,&quot;#FF3D8B&quot;,&quot;#35D0FF&quot;,&quot;#FFB03A&quot;],&quot;default&quot;:&quot;#FF6A3D&quot;,&quot;section&quot;:&quot;Wallpaper&quot;},&quot;orb2&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#6D4CFF&quot;,&quot;#4B5DFF&quot;,&quot;#E0431F&quot;,&quot;#1FB57A&quot;],&quot;default&quot;:&quot;#6D4CFF&quot;,&quot;section&quot;:&quot;Wallpaper&quot;},&quot;orb3&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#12B8FF&quot;,&quot;#6FF2C4&quot;,&quot;#FFB03A&quot;,&quot;#FF3D8B&quot;],&quot;default&quot;:&quot;#12B8FF&quot;,&quot;section&quot;:&quot;Wallpaper&quot;},&quot;ground&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#07081A&quot;,&quot;#140604&quot;,&quot;#04111B&quot;,&quot;#0E0E10&quot;],&quot;default&quot;:&quot;#07081A&quot;,&quot;section&quot;:&quot;Wallpaper&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#FF8A4C&quot;,&quot;#7CF5C8&quot;,&quot;#B69CFF&quot;,&quot;#FFD166&quot;],&quot;default&quot;:&quot;#FF8A4C&quot;},&quot;glass&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:4,&quot;max&quot;:48,&quot;step&quot;:1,&quot;unit&quot;:&quot;px&quot;,&quot;default&quot;:22},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+class __Design extends DCLogic {
+  constructor(props) { super(props); this.state = { open: false, done: {} }; }
+  renderVals() {
+    const W = {
+      Aurora: { base: '#07081a', c1: '#ff6a3d', c2: '#6d4cff', c3: '#12b8ff', c4: '#ff3d8b' },
+      Ember: { base: '#140604', c1: '#ff4d1a', c2: '#e0431f', c3: '#ffb03a', c4: '#b0124f' },
+      Glacier: { base: '#04111b', c1: '#35d0ff', c2: '#4b5dff', c3: '#6ff2c4', c4: '#9ad8ff' }
+    };
+    const p = this.props;
+    const w = p.wallpaper === 'Custom'
+      ? { base: p.ground ?? '#07081a', c1: p.orb1 ?? '#ff6a3d', c2: p.orb2 ?? '#6d4cff', c3: p.orb3 ?? '#12b8ff', c4: p.orb1 ?? '#ff6a3d' }
+      : (W[p.wallpaper ?? 'Aurora'] || W.Aurora);
+    const F = {
+      'Geist': "'Geist', system-ui, sans-serif",
+      'Manrope': "'Manrope', system-ui, sans-serif",
+      'Instrument Sans': "'Instrument Sans', system-ui, sans-serif",
+      'Fraunces': "'Fraunces', Georgia, serif"
+    };
+    const accent = p.accent ?? '#FF8A4C';
+    const open = !!this.state.open;
+    const done = this.state.done || {};
+    const list = [
+      { id: 'deck', label: 'Review deck v3 now' },
+      { id: 'jacket', label: 'Remind me: jacket at 3:45' },
+      { id: 'mute', label: 'Mute until 11:15' },
+      { id: 'jon', label: 'Tell Jon “yes to Friday”' }
+    ];
+    return {
+      ...w,
+      font: F[p.font ?? 'Geist'] || F.Geist,
+      accent: accent,
+      blur: p.glass ?? 22,
+      open: open,
+      closed: !open,
+      islandW: open ? 362 : 200,
+      islandH: open ? 142 : 37,
+      islandR: open ? 42 : 19,
+      toggle: () => this.setState({ open: !open }),
+      actions: list.map((a) => {
+        const d = !!done[a.id];
+        return {
+          ...a,
+          done: d,
+          todo: !d,
+          bg: d ? accent : 'rgba(255,255,255,0.14)',
+          fg: d ? '#1a0d05' : '#fff',
+          dotBg: d ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.18)',
+          pick: () => this.setState({ done: { ...done, [a.id]: !d } })
+        };
+      })
+    };
+  }
+}
+
+// ---- Bound to the agent harness skin contract v1 (generated by npm run skin:bind; edit binding.json, not this block) ----
+const __SAMPLE = {"now":{"time":"9:41","date":"Wednesday, September 30"},"island":{"process":{"eta":"4 min","label":"Your ride","detail":"Grey sedan · 7KXW219","progress":"72%"}},"brief":{"updatedAt":"9:40","headline":"Focused morning, wet evening.","summary":"One meeting before noon, then a clear afternoon for deep work. Rain starts around 4 PM and lasts through the commute home.","items":[{"badge":"in 49m","id":"sample-a64","title":"Design review","line":"10:30 – 11:15 · Studio 4, floor 3","reason":"Agenda: deck v3 walkthrough, pricing page feedback. Maya asked you to review the deck first.","cta":"Directions"}]},"today":[{"id":"sample-a89-0","detail":"14 min drive · ride booked","title":"Leave for Studio 4","time":"10:05"},{"id":"sample-a89-1","detail":"45 min · Studio 4","title":"Design review","time":"10:30"},{"id":"sample-a89-2","detail":"Ground floor café","title":"Lunch with Priya","time":"12:30"},{"id":"sample-a89-3","detail":"2 hours · notifications muted","title":"Focus block","time":"2:00"}],"needs":{"weather":{"values":{"now":"18°","summary":"Partly cloudy","high":"21°","low":"14°","hour1":"10A","temp1":"18°","hour2":"12P","temp2":"20°","hour3":"2P","temp3":"21°","hour4":"4P","temp4":"17°","hour5":"6P","temp5":"15°","hour6":"8P","temp6":"14°"}}},"waiting":[{"id":"sample-a172-0","text":"Can you look at deck v3 before 10:30?","cta":"Reply","who":"Maya","when":"9:12"},{"id":"sample-a172-1","text":"Friday dinner still on? 7:30?","cta":"Reply","who":"Jon","when":"8:47"}]};
+const __NEEDS = ["weather"];
+function __get(o, path) { let v = o; for (const k of path.split(".")) { if (v === null || v === undefined) return undefined; v = v[k]; } return v; }
+function __variant(rows, i, n) {
+  if (!rows.length) return {};
+  const last = rows.length - 1;
+  const k = i === 0 ? 0 : i === n - 1 && last > 0 ? last : Math.max(Math.min(i, last - 1), Math.min(1, last));
+  return rows[k] || rows[last];
+}
+function __fmt(v, sample) {
+  if (v === null || v === undefined) return "";
+  const text = String(v);
+  if (String(sample).length === 1 && text.length > 1) return text.slice(0, 1).toUpperCase();
+  if (typeof v === "number" && String(sample).trim().endsWith("%") && v <= 1) return Math.round(v * 100) + "%";
+  return text;
+}
+class Component extends __Design {
+  componentDidMount() {
+    if (super.componentDidMount) super.componentDidMount();
+    if (this.props.skin && this.props.send) for (const id of __NEEDS) this.props.send({ type: "need", needId: id });
+  }
+  renderVals() {
+    const vals = super.renderVals() || {};
+    const s = this.props.skin || __SAMPLE;
+    const send = (c) => { if (c && this.props.send) this.props.send(c); };
+    return { ...vals, bind: {
+      b: { "f_a8_0": __fmt(__get(s, "now.time"), "9:41"), "f_a29_1": __fmt(__get(s, "island.process.eta"), "4 min"), "f_a39_2": __fmt(__get(s, "island.process.label"), "Your ride"), "f_a40_3": __fmt(__get(s, "island.process.detail"), "Grey sedan · 7KXW219"), "f_a41_4": __fmt(__get(s, "island.process.eta"), "4 min"), "f_a43_5": __fmt(__get(s, "island.process.progress"), "72%"), "f_a61_6": __fmt(__get(s, "now.date"), "Wednesday, September 30"), "f_a61_7": __fmt(__get(s, "brief.updatedAt"), "9:40"), "f_a62_8": __fmt(__get(s, "brief.headline"), "Focused morning, wet evening."), "f_a63_9": __fmt(__get(s, "brief.summary"), "One meeting before noon, then a clear afternoon for deep work. Rain starts around 4 PM and lasts through the commute home."), "f_a67_10": __fmt(__get(s, "brief.items.0.badge"), "in 49m"), "f_a69_11": __fmt(__get(s, "brief.items.0.title"), "Design review"), "f_a70_12": __fmt(__get(s, "brief.items.0.line"), "10:30 – 11:15 · Studio 4, floor 3"), "f_a77_13": __fmt(__get(s, "brief.items.0.reason"), "Agenda: deck v3 walkthrough, pricing page feedback. Maya asked you to review the deck first."), "f_a79_14": __fmt(__get(s, "brief.items.0.cta"), "Directions"), "f_a84_15": __fmt(__get(s, "now.time"), "9:41"), "f_a132_16": __fmt(__get(s, "needs.weather.values.now"), "18°"), "f_a134_17": __fmt(__get(s, "needs.weather.values.summary"), "Partly cloudy"), "f_a135_18": __fmt(__get(s, "needs.weather.values.high"), "21°"), "f_a135_19": __fmt(__get(s, "needs.weather.values.low"), "14°"), "f_a138_20": __fmt(__get(s, "needs.weather.values.hour1"), "10A"), "f_a142_21": __fmt(__get(s, "needs.weather.values.temp1"), "18°"), "f_a144_22": __fmt(__get(s, "needs.weather.values.hour2"), "12P"), "f_a148_23": __fmt(__get(s, "needs.weather.values.temp2"), "20°"), "f_a150_24": __fmt(__get(s, "needs.weather.values.hour3"), "2P"), "f_a154_25": __fmt(__get(s, "needs.weather.values.temp3"), "21°"), "f_a156_26": __fmt(__get(s, "needs.weather.values.hour4"), "4P"), "f_a160_27": __fmt(__get(s, "needs.weather.values.temp4"), "17°"), "f_a162_28": __fmt(__get(s, "needs.weather.values.hour5"), "6P"), "f_a166_29": __fmt(__get(s, "needs.weather.values.temp5"), "15°"), "f_a168_30": __fmt(__get(s, "needs.weather.values.hour6"), "8P"), "f_a171_31": __fmt(__get(s, "needs.weather.values.temp6"), "14°") },
+      on: { "on_a79": () => send((__get(s, "brief.items.0.id") ? { type: "act", itemId: __get(s, "brief.items.0.id") } : null)), "on_a80": () => send((__get(s, "brief.items.0.id") ? { type: "act", itemId: __get(s, "brief.items.0.id") } : null)) },
+      "rows_a89": (__get(s, "today") || []).map((it, i, arr) => ({ id: it.id, ...__variant([{},{},{},{}], i, arr.length), "f0_a90": s === __SAMPLE ? ["10:05","10:30","12:30","2:00"][i] : __fmt(__get(it, "time"), "10:05"), "f1_a95": s === __SAMPLE ? ["Leave for Studio 4","Design review","Lunch with Priya","Focus block"][i] : __fmt(__get(it, "title"), "Leave for Studio 4"), "f2_a96": s === __SAMPLE ? ["14 min drive · ride booked","45 min · Studio 4","Ground floor café","2 hours · notifications muted"][i] : __fmt(__get(it, "detail"), "14 min drive · ride booked") })),
+      "rows_a172": (__get(s, "waiting") || []).map((it, i, arr) => ({ id: it.id, ...__variant([{"v0":"display: flex; align-items: center; gap: 12px; padding: 10px 0","v1":"width: 38px; height: 38px; border-radius: 50%; background: #B69CFF; color: #1b1030; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0"},{"v0":"display: flex; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.12)","v1":"width: 38px; height: 38px; border-radius: 50%; background: #7CF5C8; color: #062a1e; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0"}], i, arr.length), "f0_a175": s === __SAMPLE ? ["M","J"][i] : __fmt(__get(it, "who"), "M"), "f1_a177": s === __SAMPLE ? ["Maya","Jon"][i] : __fmt(__get(it, "who"), "Maya"), "f2_a177": s === __SAMPLE ? ["9:12","8:47"][i] : __fmt(__get(it, "when"), "9:12"), "f3_a178": s === __SAMPLE ? ["Can you look at deck v3 before 10:30?","Friday dinner still on? 7:30?"][i] : __fmt(__get(it, "text"), "Can you look at deck v3 before 10:30?"), "f4_a179": s === __SAMPLE ? ["Reply","Reply"][i] : __fmt(__get(it, "cta"), "Reply"), "on_a179": () => send({ type: "act", itemId: it.id }) })),
+    } };
+  }
+}
+</script>
+
+
+</body></html>

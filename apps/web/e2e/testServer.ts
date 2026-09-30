@@ -36,8 +36,14 @@ claude.handler = (req: ProviderRequest): ScriptedReply => {
         return last?.kind === "step"
           ? { value: { action: "end", capability: null, instruction: null, rationale: "filled", summary: "Filled the weather" } }
           : { value: { action: "step", capability: "tools.use", instruction: "fill the weather need", rationale: "skin asked", summary: null } };
-      case "ToolInvocationPlan":
-        return { value: { toolId: "device", functionName: "fulfill_need", argsJson: JSON.stringify({ needId: "weather", values: { now: "14°C", high: "17°C", low: "9°C", summary: "Rain from 6pm" }, summary: "Rain from 6pm" }), argsFromMemory: [], documentId: null, rationale: "r" } };
+      case "ToolInvocationPlan": {
+        // Fill every field the skin declared ("Fields: a, b, c."), with a few known ones set.
+        const ask = req.context.find((b) => b.title?.startsWith("skin_need"))?.content ?? "";
+        const fields = (ask.split("Fields: ")[1] ?? "").split(".")[0]!.split(", ").filter(Boolean);
+        const known: Record<string, string> = { now: "14°C", high: "17°C", low: "9°C", summary: "Rain from 6pm" };
+        const values = Object.fromEntries(fields.map((f) => [f, known[f] ?? `${f}?`]));
+        return { value: { toolId: "device", functionName: "fulfill_need", argsJson: JSON.stringify({ needId: "weather", values, summary: "Rain from 6pm" }), argsFromMemory: [], documentId: null, rationale: "r" } };
+      }
     }
   }
   switch (req.schemaName) {

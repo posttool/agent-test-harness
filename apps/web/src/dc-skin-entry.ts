@@ -43,7 +43,8 @@ function start(m: Extract<HostMessage, { type: "package" }>): void {
   player = new DcPlayer(root, {
     artboards: m.artboards,
     tweaks: m.tweaks,
-    extraProps: { skin: view },
+    // Bound artboards read `skin` (the view model) and send taps through `send`.
+    extraProps: { skin: view, send: post },
     // Moving between the lock and home screens in the design locks or unlocks the phone.
     onNavigate: (_from, to) => {
       const s = manifest?.screens ?? {};
@@ -76,7 +77,7 @@ window.addEventListener("message", (e: MessageEvent<HostMessage>) => {
       // Unlocking only leaves the lock screen; it doesn't pull the user off another screen.
       if (want && (view.locked ? player.file !== want : player.file === s.lock)) player.show(want);
     }
-    player.setProps(null, { skin: view });
+    player.setProps(null, { skin: view, send: post });
   }
 });
 window.parent.postMessage({ type: "ready" }, "*");

@@ -89,20 +89,33 @@ test("plays the Liquid Glass Claude Design skin in a sandboxed frame", async ({ 
   const frame = page.getByTestId("experience");
   await expect(frame).toHaveAttribute("sandbox", "allow-scripts");
   const p = phone(page);
-  // The lock screen renders with the designer's own copy (S2: not bound to live data yet).
-  await expect(p.getByText("9:41")).toBeVisible();
-  await expect(p.getByText("Design review at 10:30", { exact: false })).toBeVisible();
+  // The lock screen renders the design (its static chrome is the designer's).
+  await expect(p.getByText("Swipe up to open")).toBeVisible();
   // The Dynamic Island expands through the design's own logic.
-  await p.getByRole("button", { name: "Live activity: ride arriving in 4 minutes" }).click();
-  await expect(p.getByText("Grey sedan · 7KXW219")).toBeVisible();
+  const island = p.locator("button[aria-expanded]");
+  await island.click();
+  await expect(island).toHaveAttribute("aria-expanded", "true");
   // Swiping to Home in the design unlocks the phone in the runtime.
   await p.getByRole("link", { name: "Swipe up to open home screen" }).click();
   await expect(p.locator('a[href="Main.dc.html"]')).toBeVisible();
-  await expect(p.getByText("Focused morning", { exact: false }).first()).toBeVisible();
   await expect(p.getByText("Swipe up to open")).toHaveCount(0);
   await page.getByTestId("skin-picker").selectOption("default");
   await expect(phone(page).getByTestId("nav-home")).toBeVisible();
   expect(problems).toEqual([]);
+});
+
+test("the bound Liquid Glass skin shows live harness data, not the designer's copy", async ({ page }) => {
+  await page.getByTestId("skin-picker").selectOption("liquid-glass");
+  const p = phone(page);
+  // The clock is the harness's virtual time; the designer's "9:41" and brief copy are gone.
+  const meta = (await page.locator(".experience-meta").innerText()).split("·")[1]!.trim();
+  await expect(p.getByText(meta.slice(11, 16), { exact: true }).first()).toBeVisible();
+  await expect(p.getByText("Design review at 10:30", { exact: false })).toHaveCount(0);
+  // Opening the Brief screen asks the agent for the weather (a skin need), which fills it in.
+  await p.getByRole("link", { name: "Open brief" }).click();
+  await expect(p.getByText("14°C").first()).toBeVisible();
+  // With no brief items, waiting messages or calendar, those lists are empty rather than sample copy.
+  await expect(p.getByText("Can you look at deck v3", { exact: false })).toHaveCount(0);
 });
 
 test("serves the Claude Design skin page with a strict content security policy", async ({ request }) => {

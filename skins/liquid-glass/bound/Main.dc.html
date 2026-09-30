@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>Lock Screen</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@200..700&amp;family=Geist+Mono:wght@400..600&amp;family=Manrope:wght@200..700&amp;family=Instrument+Sans:wght@400..700&amp;family=Fraunces:wght@200..700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#fff}a:hover{color:#fff}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 844px; overflow: hidden; border-radius: 54px; background: {{base}}; font-family: {{font}}; color: #fff; -webkit-font-smoothing: antialiased">
+
+<div style="position: absolute; left: -120px; top: 430px; width: 420px; height: 420px; border-radius: 50%; background: {{c1}}; filter: blur(70px); opacity: 0.85"></div>
+<div style="position: absolute; left: 150px; top: 60px; width: 380px; height: 380px; border-radius: 50%; background: {{c2}}; filter: blur(80px); opacity: 0.8"></div>
+<div style="position: absolute; left: 190px; top: 560px; width: 300px; height: 300px; border-radius: 50%; background: {{c3}}; filter: blur(60px); opacity: 0.8"></div>
+<div style="position: absolute; left: -60px; top: 150px; width: 160px; height: 160px; border-radius: 50%; background: {{c4}}; filter: blur(50px); opacity: 0.6"></div>
+<div style="position: absolute; left: 150px; top: 330px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle at 32% 28%, rgba(255,255,255,0.75), {{c2}} 38%, {{base}} 78%); box-shadow: 0 40px 80px rgba(0,0,0,0.45)"></div>
+<div style="position: absolute; left: 36px; top: 520px; width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.7), {{c1}} 45%, {{base}} 85%)"></div>
+
+<div style="position: absolute; top: 18px; right: 30px; display: flex; align-items: center; gap: 6px; z-index: 5">
+<svg width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx="1" fill="#fff"></rect><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="#fff"></rect><rect x="10" y="3" width="3" height="9" rx="1" fill="#fff"></rect><rect x="15" y="0" width="3" height="12" rx="1" fill="#fff"></rect></svg>
+<svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M1 4.2a10 10 0 0 1 14 0M3.4 6.8a6.5 6.5 0 0 1 9.2 0M5.8 9.3a3 3 0 0 1 4.4 0" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round"></path></svg>
+<svg width="27" height="13" viewBox="0 0 27 13" aria-hidden="true"><rect x="0.5" y="0.5" width="23" height="12" rx="3.8" fill="none" stroke="rgba(255,255,255,0.5)"></rect><rect x="2.5" y="2.5" width="16" height="8" rx="2" fill="#fff"></rect><rect x="25" y="4.5" width="1.6" height="4" rx="0.8" fill="rgba(255,255,255,0.5)"></rect></svg>
+</div>
+
+<div style="position: absolute; top: 11px; left: 0; right: 0; display: flex; justify-content: center; z-index: 20">
+<button aria-expanded="{{open}}" aria-label="{{bind.b.f_a21_0}}" onclick="{{toggle}}" style="position: relative; width: {{islandW}}px; height: {{islandH}}px; border-radius: {{islandR}}px; background: #000; border: 0; padding: 0; color: #fff; cursor: pointer; overflow: hidden; font-family: inherit; text-align: left; box-shadow: 0 10px 30px rgba(0,0,0,0.4); transition: width 0.5s cubic-bezier(0.2,0.9,0.25,1.1), height 0.5s cubic-bezier(0.2,0.9,0.25,1.1), border-radius 0.5s ease" data-skin-anchor="a21">
+<sc-if value="{{closed}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; align-items: center; justify-content: space-between; height: 37px; padding: 0 14px 0 12px">
+<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="color: {{accent}}"><path d="M5 16.5V12l2-5h10l2 5v4.5M4 16.5h16M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="8" cy="18.5" r="1.6" fill="currentColor"></circle><circle cx="16" cy="18.5" r="1.6" fill="currentColor"></circle></svg>
+<span style="font-family: 'Geist Mono', monospace; font-size: 13px; font-weight: 600; color: {{accent}}" data-skin-anchor="a28">{{bind.b.f_a28_1}}</span>
+</div>
+</sc-if>
+<sc-if value="{{open}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 14px; padding: 20px 22px">
+<div style="display: flex; align-items: center; gap: 12px">
+<div style="width: 44px; height: 44px; border-radius: 50%; background: {{accent}}; display: flex; align-items: center; justify-content: center; color: #1a0d05; flex-shrink: 0">
+<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 16.5V12l2-5h10l2 5v4.5M4 16.5h16M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="8" cy="18.5" r="1.6" fill="currentColor"></circle><circle cx="16" cy="18.5" r="1.6" fill="currentColor"></circle></svg>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1">
+<span style="font-size: 12px; color: rgba(255,255,255,0.6)" data-skin-anchor="a38">{{bind.b.f_a38_2}}</span>
+<span style="font-size: 15px; font-weight: 500" data-skin-anchor="a39">{{bind.b.f_a39_3}}</span>
+</div>
+<span style="font-family: 'Geist Mono', monospace; font-size: 26px; font-weight: 500; color: {{accent}}; letter-spacing: -1px" data-skin-anchor="a40">{{bind.b.f_a40_4}}</span>
+</div>
+<div style="height: 6px; border-radius: 3px; background: rgba(255,255,255,0.14); overflow: hidden">
+<div style="width: {{bind.b.f_a42_5}}; height: 6px; border-radius: 3px; background: {{accent}}" data-skin-anchor="a42"></div>
+</div>
+<div style="display: flex; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.6)">
+<span>1 Market St</span>
+<span>Studio 4</span>
+</div>
+</div>
+</sc-if>
+</button>
+</div>
+
+<div style="position: absolute; top: 76px; left: 0; right: 0; display: flex; flex-direction: column; align-items: center; z-index: 5">
+<div style="font-size: 18px; font-weight: 500; color: rgba(255,255,255,0.88); letter-spacing: 0.2px" data-skin-anchor="a47">{{bind.b.f_a47_6}}</div>
+<div style="font-size: 116px; font-weight: 250; line-height: 1; letter-spacing: -6px; margin-top: 2px; color: rgba(255,255,255,0.94); text-shadow: 0 4px 40px rgba(0,0,0,0.25)" data-skin-anchor="a48">{{bind.b.f_a48_7}}</div>
+</div>
+
+<a href="Brief.dc.html" aria-label="Open brief" style="text-decoration: none; color: #fff; position: absolute; top: 250px; left: 24px; right: 24px; z-index: 5; display: flex; align-items: flex-start; gap: 12px; padding: 14px 18px 15px 14px; border-radius: 26px; background: linear-gradient(160deg, rgba(255,255,255,0.26), rgba(255,255,255,0.07) 65%); border: 1px solid rgba(255,255,255,0.3); box-shadow: inset 0 1px 1px rgba(255,255,255,0.6), inset 0 -10px 20px rgba(255,255,255,0.04), 0 12px 32px rgba(0,0,0,0.28); backdrop-filter: blur({{blur}}px) saturate(180%); -webkit-backdrop-filter: blur({{blur}}px) saturate(180%)">
+<div style="width: 30px; height: 30px; border-radius: 50%; background: {{accent}}; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #1a0d05; margin-top: 1px">
+<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.1 6.4 6.4 2.1-6.4 2.1L12 19.5l-2.1-6.4L3.5 11l6.4-2.1z" fill="currentColor"></path></svg>
+</div>
+<div style="display: flex; flex-direction: column; gap: 3px">
+<span style="font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: rgba(255,255,255,0.7)">Brief</span>
+<span style="font-size: 15px; line-height: 1.35; font-weight: 450" data-skin-anchor="a55">{{bind.b.f_a55_8}}</span>
+</div>
+</a>
+
+<button aria-label="Flashlight" style="position: absolute; left: 46px; bottom: 50px; width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; cursor: pointer; z-index: 5; padding: 0; background: linear-gradient(160deg, rgba(255,255,255,0.28), rgba(255,255,255,0.06) 65%); border: 1px solid rgba(255,255,255,0.3); box-shadow: inset 0 1px 1px rgba(255,255,255,0.6), 0 8px 24px rgba(0,0,0,0.3); backdrop-filter: blur({{blur}}px) saturate(180%); -webkit-backdrop-filter: blur({{blur}}px) saturate(180%)">
+<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2.5h8V7l-2 3v11.5h-4V10L8 7zM8 7h8M12 13v2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+<button aria-label="Camera" style="position: absolute; right: 46px; bottom: 50px; width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; cursor: pointer; z-index: 5; padding: 0; background: linear-gradient(160deg, rgba(255,255,255,0.28), rgba(255,255,255,0.06) 65%); border: 1px solid rgba(255,255,255,0.3); box-shadow: inset 0 1px 1px rgba(255,255,255,0.6), 0 8px 24px rgba(0,0,0,0.3); backdrop-filter: blur({{blur}}px) saturate(180%); -webkit-backdrop-filter: blur({{blur}}px) saturate(180%)">
+<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.8"></rect><path d="M8.5 7l1.4-2.5h4.2L15.5 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path><circle cx="12" cy="13.5" r="3.4" fill="none" stroke="currentColor" stroke-width="1.8"></circle></svg>
+</button>
+
+<a href="Home.dc.html" aria-label="Swipe up to open home screen" style="position: absolute; left: 110px; right: 110px; bottom: 8px; height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 10px; text-decoration: none; z-index: 5">
+<span style="font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.72)">Swipe up to open</span>
+<span style="width: 134px; height: 5px; border-radius: 3px; background: #fff; margin-bottom: 0px"></span>
+</a>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;font&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Geist&quot;,&quot;Manrope&quot;,&quot;Instrument Sans&quot;,&quot;Fraunces&quot;],&quot;default&quot;:&quot;Manrope&quot;,&quot;section&quot;:&quot;Type&quot;},&quot;wallpaper&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Aurora&quot;,&quot;Ember&quot;,&quot;Glacier&quot;,&quot;Custom&quot;],&quot;default&quot;:&quot;Ember&quot;,&quot;section&quot;:&quot;Wallpaper&quot;},&quot;orb1&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#FF6A3D&quot;,&quot;#FF3D8B&quot;,&quot;#35D0FF&quot;,&quot;#FFB03A&quot;],&quot;default&quot;:&quot;#FF6A3D&quot;,&quot;section&quot;:&quot;Wallpaper&quot;},&quot;orb2&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#6D4CFF&quot;,&quot;#4B5DFF&quot;,&quot;#E0431F&quot;,&quot;#1FB57A&quot;],&quot;default&quot;:&quot;#6D4CFF&quot;,&quot;section&quot;:&quot;Wallpaper&quot;},&quot;orb3&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#12B8FF&quot;,&quot;#6FF2C4&quot;,&quot;#FFB03A&quot;,&quot;#FF3D8B&quot;],&quot;default&quot;:&quot;#12B8FF&quot;,&quot;section&quot;:&quot;Wallpaper&quot;},&quot;ground&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#07081A&quot;,&quot;#140604&quot;,&quot;#04111B&quot;,&quot;#0E0E10&quot;],&quot;default&quot;:&quot;#07081A&quot;,&quot;section&quot;:&quot;Wallpaper&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#FF8A4C&quot;,&quot;#7CF5C8&quot;,&quot;#B69CFF&quot;,&quot;#FFD166&quot;],&quot;default&quot;:&quot;#FF8A4C&quot;},&quot;glass&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:4,&quot;max&quot;:48,&quot;step&quot;:1,&quot;unit&quot;:&quot;px&quot;,&quot;default&quot;:22},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+class __Design extends DCLogic {
+  constructor(props) { super(props); this.state = { open: false }; }
+  renderVals() {
+    const W = {
+      Aurora: { base: '#07081a', c1: '#ff6a3d', c2: '#6d4cff', c3: '#12b8ff', c4: '#ff3d8b' },
+      Ember: { base: '#140604', c1: '#ff4d1a', c2: '#e0431f', c3: '#ffb03a', c4: '#b0124f' },
+      Glacier: { base: '#04111b', c1: '#35d0ff', c2: '#4b5dff', c3: '#6ff2c4', c4: '#9ad8ff' }
+    };
+    const p = this.props;
+    const w = p.wallpaper === 'Custom'
+      ? { base: p.ground ?? '#07081a', c1: p.orb1 ?? '#ff6a3d', c2: p.orb2 ?? '#6d4cff', c3: p.orb3 ?? '#12b8ff', c4: p.orb1 ?? '#ff6a3d' }
+      : (W[p.wallpaper ?? 'Aurora'] || W.Aurora);
+    const F = {
+      'Geist': "'Geist', system-ui, sans-serif",
+      'Manrope': "'Manrope', system-ui, sans-serif",
+      'Instrument Sans': "'Instrument Sans', system-ui, sans-serif",
+      'Fraunces': "'Fraunces', Georgia, serif"
+    };
+    const open = !!this.state.open;
+    return {
+      ...w,
+      font: F[p.font ?? 'Geist'] || F.Geist,
+      accent: this.props.accent ?? '#FF8A4C',
+      blur: this.props.glass ?? 22,
+      open: open,
+      closed: !open,
+      islandW: open ? 362 : 200,
+      islandH: open ? 142 : 37,
+      islandR: open ? 42 : 19,
+      toggle: () => this.setState({ open: !open })
+    };
+  }
+}
+
+// ---- Bound to the agent harness skin contract v1 (generated by npm run skin:bind; edit binding.json, not this block) ----
+const __SAMPLE = {"island":{"process":{"status":"Live activity: ride arriving in 4 minutes","eta":"4 min","label":"Your ride","detail":"Grey sedan · 7KXW219","progress":"72%"}},"now":{"date":"Wednesday, September 30","time":"9:41"},"brief":{"summary":"Design review at 10:30. Leave by 10:05 — rain after 4."}};
+const __NEEDS = [];
+function __get(o, path) { let v = o; for (const k of path.split(".")) { if (v === null || v === undefined) return undefined; v = v[k]; } return v; }
+function __variant(rows, i, n) {
+  if (!rows.length) return {};
+  const last = rows.length - 1;
+  const k = i === 0 ? 0 : i === n - 1 && last > 0 ? last : Math.max(Math.min(i, last - 1), Math.min(1, last));
+  return rows[k] || rows[last];
+}
+function __fmt(v, sample) {
+  if (v === null || v === undefined) return "";
+  const text = String(v);
+  if (String(sample).length === 1 && text.length > 1) return text.slice(0, 1).toUpperCase();
+  if (typeof v === "number" && String(sample).trim().endsWith("%") && v <= 1) return Math.round(v * 100) + "%";
+  return text;
+}
+class Component extends __Design {
+  componentDidMount() {
+    if (super.componentDidMount) super.componentDidMount();
+    if (this.props.skin && this.props.send) for (const id of __NEEDS) this.props.send({ type: "need", needId: id });
+  }
+  renderVals() {
+    const vals = super.renderVals() || {};
+    const s = this.props.skin || __SAMPLE;
+    const send = (c) => { if (c && this.props.send) this.props.send(c); };
+    return { ...vals, bind: {
+      b: { "f_a21_0": __fmt(__get(s, "island.process.status"), "Live activity: ride arriving in 4 minutes"), "f_a28_1": __fmt(__get(s, "island.process.eta"), "4 min"), "f_a38_2": __fmt(__get(s, "island.process.label"), "Your ride"), "f_a39_3": __fmt(__get(s, "island.process.detail"), "Grey sedan · 7KXW219"), "f_a40_4": __fmt(__get(s, "island.process.eta"), "4 min"), "f_a42_5": __fmt(__get(s, "island.process.progress"), "72%"), "f_a47_6": __fmt(__get(s, "now.date"), "Wednesday, September 30"), "f_a48_7": __fmt(__get(s, "now.time"), "9:41"), "f_a55_8": __fmt(__get(s, "brief.summary"), "Design review at 10:30. Leave by 10:05 — rain after 4.") },
+      on: {  },
+
+    } };
+  }
+}
+</script>
+
+
+</body></html>

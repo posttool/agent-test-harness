@@ -20,7 +20,8 @@
     "test:ui": "playwright test",
     "eval": "node packages/evals/src/cli.ts",
     "skin:install": "node scripts/install-skin.ts",
-    "skin:analyze": "node scripts/analyze-skin.ts"
+    "skin:analyze": "node scripts/analyze-skin.ts",
+    "skin:bind": "node scripts/bind-skin.ts"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
