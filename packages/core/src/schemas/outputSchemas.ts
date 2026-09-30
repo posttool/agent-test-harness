@@ -10,6 +10,7 @@ import { AmbientScriptSchema } from "../types/AmbientScript.ts";
 import { SurfacePlanSchema } from "../types/SurfacePlan.ts";
 import { JudgeVerdictSchema } from "../types/JudgeVerdict.ts";
 import { UiAnswerSchema } from "../types/UiAnswer.ts";
+import { LlmToolResultSchema } from "../types/LlmToolResult.ts";
 
 /**
  * Every schema a model is asked to produce. Each one must pass the provider parity
@@ -27,6 +28,7 @@ export const OUTPUT_SCHEMAS = {
   SurfacePlan: SurfacePlanSchema,
   JudgeVerdict: JudgeVerdictSchema,
   UiAnswer: UiAnswerSchema,
+  LlmToolResult: LlmToolResultSchema,
 } as const satisfies Record<string, z.ZodType>;
 
 export type OutputSchemaName = keyof typeof OUTPUT_SCHEMAS;

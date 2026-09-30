@@ -1,0 +1,12 @@
+{
+  "name": "Grocery list",
+  "description": "Keeps a shared grocery list the agent can add to from messages and show at the store.",
+  "source": "generated_code",
+  "endpoint": null,
+  "code": "let items = [];\nasync function add_item(args) { if (!items.includes(args.item)) items.push(args.item); return { items }; }\nasync function remove_item(args) { items = items.filter((i) => i !== args.item); return { items }; }\nasync function list_items() { return { items }; }",
+  "functions": [
+    { "name": "add_item", "description": "Add an item to the list", "paramsJsonSchema": "{\"type\":\"object\",\"properties\":{\"item\":{\"type\":\"string\"}},\"required\":[\"item\"]}", "returnsJsonSchema": "{\"type\":\"object\"}", "oversight": "auto_notify", "longRunning": false },
+    { "name": "remove_item", "description": "Remove an item from the list", "paramsJsonSchema": "{\"type\":\"object\",\"properties\":{\"item\":{\"type\":\"string\"}},\"required\":[\"item\"]}", "returnsJsonSchema": "{\"type\":\"object\"}", "oversight": "auto_from_memory", "longRunning": false },
+    { "name": "list_items", "description": "Show the list", "paramsJsonSchema": "{\"type\":\"object\",\"properties\":{}}", "returnsJsonSchema": "{\"type\":\"object\"}", "oversight": "auto_from_memory", "longRunning": false }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Ride hailing (simulated)",
+  "description": "Orders and cancels rides. Rides are long-running: progress arrives as tool_progress signals.",
+  "source": "generated_code",
+  "endpoint": null,
+  "code": "let rides = {};\nlet n = 0;\nasync function order_ride(args) { const id = 'ride-' + (++n); rides[id] = { ...args, status: 'requested' }; return { rideId: id, etaMinutes: 6, price: 18.5 }; }\nasync function cancel_ride(args) { if (rides[args.rideId]) rides[args.rideId].status = 'cancelled'; return { rideId: args.rideId, cancelled: true }; }",
+  "functions": [
+    { "name": "order_ride", "description": "Order a ride from pickup to destination", "paramsJsonSchema": "{\"type\":\"object\",\"properties\":{\"pickup\":{\"type\":\"string\"},\"destination\":{\"type\":\"string\"}},\"required\":[\"pickup\",\"destination\"]}", "returnsJsonSchema": "{\"type\":\"object\"}", "oversight": "confirm", "longRunning": true },
+    { "name": "cancel_ride", "description": "Cancel a ride", "paramsJsonSchema": "{\"type\":\"object\",\"properties\":{\"rideId\":{\"type\":\"string\"}},\"required\":[\"rideId\"]}", "returnsJsonSchema": "{\"type\":\"object\"}", "oversight": "confirm", "longRunning": false }
+  ]
+}

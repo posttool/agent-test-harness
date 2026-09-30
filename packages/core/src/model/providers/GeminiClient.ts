@@ -25,7 +25,7 @@ export class GeminiClient implements ProviderClient {
   private readonly ai: GoogleGenAI;
 
   constructor(options: GeminiClientOptions = {}) {
-    const apiKey = options.apiKey ?? process.env.GEMINI_API_KEY;
+    const apiKey = options.apiKey ?? (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.GEMINI_API_KEY;
     this.ai = new GoogleGenAI({
       ...(apiKey ? { apiKey } : {}),
       httpOptions: { retryOptions: { attempts: 1 }, ...(options.baseUrl ? { baseUrl: options.baseUrl } : {}) },

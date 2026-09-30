@@ -1,0 +1,10 @@
+{
+  "name": "Practice tutor",
+  "description": "Writes practice questions and checks answers for any school subject.",
+  "source": "llm",
+  "endpoint": null,
+  "code": "You are a patient tutor for a student preparing for a test. Write clear practice questions at the right level, with answers kept separate.",
+  "functions": [
+    { "name": "practice_questions", "description": "Write practice questions on a topic", "paramsJsonSchema": "{\"type\":\"object\",\"properties\":{\"topic\":{\"type\":\"string\"},\"count\":{\"type\":\"integer\"}},\"required\":[\"topic\"]}", "returnsJsonSchema": "{\"type\":\"object\",\"properties\":{\"questions\":{\"type\":\"array\"}}}", "oversight": "auto_from_memory", "longRunning": false }
+  ]
+}

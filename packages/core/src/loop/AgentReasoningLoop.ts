@@ -18,6 +18,8 @@ export interface CapabilityContext {
   session: ReasoningSession;
   step: ReasoningStep;
   triggerId: string;
+  /** Hands UI to the device and returns its uiRequestId. Pausing is up to the effect. */
+  showUi: (request: UiRequest, where?: { documentId?: string | null; topicId?: string | null }) => string;
 }
 
 export interface EffectResult {
@@ -41,6 +43,10 @@ export interface LoopOptions {
   contextProviders?: Record<string, ContextProvider>;
   /** Called whenever the agent wants UI shown (the Device tool renders it). */
   onUiRequest?: (request: UiRequest, context: UiContext) => void;
+  /** Called when UI feedback resumes a session; returned blocks are added to its context (e.g. an approved tool's result). */
+  onResume?: (session: ReasoningSession, signal: Signal) => Promise<ContextBlock[]> | ContextBlock[];
+  /** Resolves signals addressed to a session (e.g. tool progress to the session that started it). */
+  addressedSession?: (signal: Signal) => Promise<string | null> | string | null;
   sessions?: SessionManager;
   traces?: TraceStore;
   clock?: Clock;
@@ -82,6 +88,7 @@ export class AgentReasoningLoop {
       clock: this.clock,
       ids: this.ids,
       prompt: options.prompts.router,
+      ...(options.addressedSession ? { addressedSession: options.addressedSession } : {}),
     });
     // Stable across calls, so providers can cache it.
     this.decisionPrompt = [
@@ -97,6 +104,15 @@ export class AgentReasoningLoop {
 
     if (trigger.decision === "resume") {
       await this.sessions.exclusive(session.id, async () => this.resume(session, signal, trigger.id));
+    } else if (trigger.decision === "addressed") {
+      this.sessions.appendContext(session.id, {
+        kind: "signal",
+        title: `${signal.kind} from ${signal.source} at ${signal.occurredAt}`,
+        content: signal.content,
+      });
+      const current = this.sessions.require(session.id);
+      if (current.status === "paused") return current;
+      this.sessions.update(session.id, { status: "active" });
     } else {
       this.sessions.appendContext(session.id, {
         kind: "signal",
@@ -111,7 +127,7 @@ export class AgentReasoningLoop {
     return this.sessions.exclusive(session.id, () => this.run(session.id, trigger.id));
   }
 
-  private resume(session: ReasoningSession, signal: Signal, triggerId: string): void {
+  private async resume(session: ReasoningSession, signal: Signal, triggerId: string): Promise<void> {
     const stepId = session.awaiting?.stepId;
     if (stepId) this.sessions.updateStep(stepId, { status: "ok", finishedAt: isoAt(this.clock) });
     this.sessions.appendContext(session.id, {
@@ -119,6 +135,8 @@ export class AgentReasoningLoop {
       title: "The user answered",
       content: JSON.stringify({ said: signal.content, ...signal.data }),
     });
+    const extra = (await this.options.onResume?.(session, signal)) ?? [];
+    if (extra.length) this.sessions.appendContext(session.id, ...extra);
     this.sessions.update(session.id, { status: "active", awaiting: null });
     this.traces.append({ kind: "session_resumed", triggerId, sessionId: session.id, stepId: stepId ?? null, data: { signal } });
   }
@@ -204,7 +222,12 @@ export class AgentReasoningLoop {
       const output: unknown = result.value;
       const effect = this.options.effects?.[spec.id] ?? (spec.id === "ui.generate" ? this.showUi : undefined);
       const current = this.sessions.updateStep(step.id, { output });
-      const effectResult = (await effect?.(output, { session: this.sessions.require(sessionId), step: current, triggerId })) ?? {};
+      const showUi: CapabilityContext["showUi"] = (request, where) => {
+        const uiRequestId = this.ids.next("ui");
+        this.options.onUiRequest?.(request, { sessionId, uiRequestId, stepId: step.id, documentId: where?.documentId ?? null, topicId: where?.topicId ?? null });
+        return uiRequestId;
+      };
+      const effectResult = (await effect?.(output, { session: this.sessions.require(sessionId), step: current, triggerId, showUi })) ?? {};
 
       this.sessions.appendContext(sessionId, {
         kind: "step",
@@ -236,8 +259,7 @@ export class AgentReasoningLoop {
   /** Built-in effect for ui.generate: hand the request to the device, pause if it blocks. */
   private readonly showUi: CapabilityEffect = (output, ctx) => {
     const request = output as UiRequest;
-    const uiRequestId = this.ids.next("ui");
-    this.options.onUiRequest?.(request, { sessionId: ctx.session.id, uiRequestId, stepId: ctx.step.id, documentId: null, topicId: null });
+    const uiRequestId = ctx.showUi(request);
     return request.blocking ? { awaitUi: { uiRequestId }, note: `Shown to the user as ${uiRequestId}; waiting for the answer.` } : { note: `Shown as ${uiRequestId}.` };
   };
 

@@ -18,6 +18,8 @@ export interface RouteResult {
  * resumes that session directly. Every other signal is routed by a model call (P1).
  */
 export interface TriggerRouterDeps {
+  /** Resolves signals explicitly addressed to a session (tool progress for the call it started). */
+  addressedSession?: (signal: Signal) => Promise<string | null> | string | null;
   runner: ModelPolicyRunner;
   sessions: SessionManager;
   traces: TraceStore;
@@ -48,6 +50,12 @@ export class TriggerRouter {
         triggerId,
         data: { message: "UI feedback did not match a paused session; routing it like any other signal", sessionId: signal.sessionId },
       });
+    }
+
+    const addressed = await this.deps.addressedSession?.(signal);
+    const addressedSession = addressed ? sessions.get(addressed) : undefined;
+    if (addressedSession) {
+      return this.bind(triggerId, signal, addressedSession, "addressed", "Progress for a process this session started");
     }
 
     const open = sessions.open();

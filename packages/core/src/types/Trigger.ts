@@ -6,7 +6,7 @@ export const TriggerSchema = z.object({
   signalId: z.string(),
   sessionId: z.string(),
   routedAt: z.string(),
-  decision: z.enum(["new", "continue", "resume"]),
+  decision: z.enum(["new", "continue", "resume", "addressed"]),
   rationale: z.string(),
 });
 

@@ -19,6 +19,7 @@ export * from "./HarnessSettings.ts";
 export * from "./IslandState.ts";
 export * from "./JudgeVerdict.ts";
 export * from "./LifecycleStage.ts";
+export * from "./LlmToolResult.ts";
 export * from "./MemoryEdge.ts";
 export * from "./MemoryEvent.ts";
 export * from "./MemoryFact.ts";
