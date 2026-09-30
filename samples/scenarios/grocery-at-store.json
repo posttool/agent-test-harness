@@ -1,0 +1,16 @@
+{
+  "id": "grocery-at-store",
+  "title": "The grocery list shows up at the store",
+  "user": "Dana, 34, lives with her partner Sam and their son Leo. She shops at FreshMart on the way home from work. She prefers short answers.",
+  "start": "2026-05-20T08:00:00Z",
+  "steps": [
+    { "atMinute": 0, "kind": "message", "source": "WhatsApp: Sam", "content": "Can you grab oat milk and eggs on the way home? We're out." },
+    { "atMinute": 60, "kind": "user_text", "source": "home input bar", "content": "Also add bread to the list." },
+    { "atMinute": 240, "kind": "message", "source": "WhatsApp: Leo", "content": "mom can we get strawberries 🍓" },
+    { "atMinute": 540, "kind": "location", "source": "location", "content": "Arriving at FreshMart grocery store" }
+  ],
+  "rubric": [
+    "Memory holds a grocery list (or equivalent) with oat milk, eggs, bread and strawberries.",
+    "At the end the user is at FreshMart, and the Contextual Brief shows the grocery list or a clear call to action to see it."
+  ]
+}

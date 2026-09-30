@@ -1,0 +1,17 @@
+{
+  "id": "sofa-nudge",
+  "title": "A stalled sofa purchase gets a nudge",
+  "user": "Priya, 29. Has been looking at the Article Sven sofa for weeks but thinks it is too expensive at $1,899. Her mom visits on June 20 and she wants a sofa by then.",
+  "start": "2026-06-01T20:00:00Z",
+  "steps": [
+    { "atMinute": 0, "kind": "vision", "source": "laptop screen", "content": "Browser: Article.com — Sven 88\" sofa, Charme Tan, $1,899. Viewed for 6 minutes." },
+    { "atMinute": 1440, "kind": "vision", "source": "phone screen", "content": "Browser: Article.com — Sven 88\" sofa product page again, reviews tab." },
+    { "atMinute": 1500, "kind": "user_text", "source": "home input bar", "content": "Mom is visiting June 20, I really need a real sofa before then." },
+    { "atMinute": 4320, "kind": "vision", "source": "laptop screen", "content": "Browser: Article.com — Sven 88\" sofa page, 4th visit this week. Left without adding to cart." }
+  ],
+  "rubric": [
+    "Memory has a sofa purchase topic that knows the Sven sofa, the price concern and the June 20 deadline.",
+    "The topic's progress is marked stalled, or the agent otherwise recognizes the user keeps returning without deciding.",
+    "The Brief or Discover offers help to move it forward (for example cheaper similar options, a deal alert, or a decision nudge)."
+  ]
+}

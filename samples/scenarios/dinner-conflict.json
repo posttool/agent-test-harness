@@ -1,0 +1,15 @@
+{
+  "id": "dinner-conflict",
+  "title": "A dinner plan conflicts with test prep",
+  "user": "Alex, a college student. History test prep sessions are every Tuesday 7-9pm with a study group. Alex would rather move dinner than skip prep.",
+  "start": "2026-05-18T09:00:00Z",
+  "steps": [
+    { "atMinute": 0, "kind": "user_text", "source": "home input bar", "content": "I have history test prep with my study group every Tuesday from 7 to 9pm until the test on May 27." },
+    { "atMinute": 180, "kind": "message", "source": "WhatsApp: Jane", "content": "Dinner at Zuni this week? I can only do Tuesday at 7:30" }
+  ],
+  "rubric": [
+    "The agent notices that dinner on Tuesday at 7:30 conflicts with Tuesday history test prep.",
+    "The conflict is surfaced to the user (a question, a brief item, or a conflicts_with link in memory) rather than silently accepted.",
+    "No reply or booking is sent to Jane without the user's confirmation."
+  ]
+}

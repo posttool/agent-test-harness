@@ -269,6 +269,11 @@ export class HarnessRuntime {
     return this.dispatch(this.signal("user_text", source, text));
   }
 
+  /** Sends any kind of signal (messages, location, vision…), as evals and tests do. */
+  sendSignal(kind: Signal["kind"], source: string, content: string): Promise<ReasoningSession | null> {
+    return this.dispatch(this.signal(kind, source, content));
+  }
+
   sendFeedback(feedback: UiFeedback, said = ""): Promise<ReasoningSession | null> {
     this.device.resolve(feedback.context.uiRequestId);
     return this.dispatch({

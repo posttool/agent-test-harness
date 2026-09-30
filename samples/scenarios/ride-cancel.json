@@ -1,0 +1,17 @@
+{
+  "id": "ride-cancel",
+  "title": "A ride is ordered, tracked, then cancelled",
+  "user": "Marco, 41. Lives at 12 Elm Street and works at 500 Market Street. Approves ride orders when asked. Decides to walk instead once the ride is on its way.",
+  "start": "2026-05-21T08:10:00Z",
+  "tools": ["Ride hailing (simulated)"],
+  "steps": [
+    { "atMinute": 0, "kind": "user_text", "source": "home input bar", "content": "Get me a ride to work, I'm at home." },
+    { "atMinute": 4, "kind": "user_text", "source": "home input bar", "content": "Actually cancel the ride, it's nice out, I'll walk." }
+  ],
+  "settleMinutes": 5,
+  "rubric": [
+    "The ride was ordered with the ride tool from home (12 Elm Street) to work (500 Market Street) after the user's approval.",
+    "Progress from the ride reached the agent (a process or status in memory or the document).",
+    "The ride was cancelled with cancel_ride after the user asked, and nothing else was ordered."
+  ]
+}

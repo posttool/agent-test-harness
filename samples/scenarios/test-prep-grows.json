@@ -1,0 +1,17 @@
+{
+  "id": "test-prep-grows",
+  "title": "The test prep document grows",
+  "user": "Jamie, 16, a student. The chemistry mid-term is on June 12. Jamie is fine with stoichiometry but struggles with equilibrium, and wants practice questions.",
+  "start": "2026-06-01T16:00:00Z",
+  "steps": [
+    { "atMinute": 0, "kind": "message", "source": "Gmail: Ms. Karen Ho", "content": "Chemistry mid-term on Friday June 12 covers stoichiometry, equilibrium and acids & bases. Revision packet attached." },
+    { "atMinute": 120, "kind": "user_text", "source": "home input bar", "content": "I'm ok with stoichiometry but equilibrium makes no sense to me." },
+    { "atMinute": 1500, "kind": "message", "source": "WhatsApp: Chloe", "content": "want to study acids and bases together thursday after school?" },
+    { "atMinute": 1620, "kind": "user_text", "source": "home input bar", "content": "Did all the acids and bases problems in the packet, felt good." }
+  ],
+  "rubric": [
+    "Memory has a chemistry test prep topic with the June 12 date and a document for it.",
+    "The document tracks progress per area and reflects the updates: stoichiometry fine, equilibrium weak, acids and bases practiced.",
+    "The study session with Chloe on Thursday is recorded (on the calendar or in the document)."
+  ]
+}
