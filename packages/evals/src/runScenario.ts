@@ -90,7 +90,9 @@ export async function runScenario(scenario: Scenario, target: EvalTarget, deps: 
     `## Memory\n${await renderMemory(rt.memory)}`,
     `## Contextual Brief\n${device.brief.map((b) => `- ${b.component.title}: ${b.reason ?? ""} ${b.component.elements.map((e) => e.text ?? e.items.join(", ")).join(" ")}`).join("\n") || "(empty)"}`,
     `## Spaces\n${device.spaces.map((s) => `- ${s.component.title}`).join("\n") || "(empty)"}`,
-    `## Tool calls\n${snap.tools.calls.map((c) => `- ${c.toolId}.${c.functionName} ${JSON.stringify(c.args)} → ${c.status}`).join("\n") || "(none)"}`,
+    `## Tools installed\n${snap.tools.definitions.map((t) => `- ${t.name} [${t.id}] (${t.source})`).join("\n")}`,
+    `## Tool calls\n${snap.tools.calls.map((c) => `- ${c.toolId}.${c.functionName} ${JSON.stringify(c.args)} → ${c.status}${c.result ? ` ${JSON.stringify(c.result).slice(0, 200)}` : ""}`).join("\n") || "(none)"}`,
+    `## Approvals asked of the user\n${snap.tools.approvals.map((a) => `- ${a.toolId}.${a.functionName} ${a.argsJson} → ${a.status}`).join("\n") || "(none)"}`,
     `## Sessions\n${snap.sessions.map((s) => `- ${s.title} [${s.status}] ${s.summary ?? s.error ?? ""}`).join("\n")}`,
   ].join("\n\n");
 

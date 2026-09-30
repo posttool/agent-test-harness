@@ -153,6 +153,7 @@ export class HarnessRuntime {
       onResume: tools.onResume,
       onUiRequest: (request, context) => void this.device.show(request, context),
       addressedSession: (signal) => this.subscriptions.sessionFor(signal.subscriptionId),
+      decisionContext: async () => [{ kind: "note", title: "Tools you can use (via tools.use)", content: await this.toolSummary() }],
       sessions: this.sessions,
       traces: this.traces,
       clock: this.clock,
@@ -294,6 +295,7 @@ export class HarnessRuntime {
     this.stopPersonaState();
     await this.ambient.clear();
     this.bridge.clear();
+    (this.o.sandbox as { reset?: () => void } | undefined)?.reset?.();
     await this.o.storage.clear();
     await this.saveSettings();
     this.sessions.clear();
@@ -402,6 +404,12 @@ export class HarnessRuntime {
   }
 
   // ---------- internals ----------
+
+  /** A short tool list for next-step decisions, so the loop uses installed tools before inventing new ones. */
+  private async toolSummary(): Promise<string> {
+    const tools = await this.registry.list();
+    return tools.map((t) => `- ${t.name} [${t.id}]: ${t.functions.map((f) => f.name).join(", ")}`).join("\n");
+  }
 
   private requireWeb(): WebBackend {
     if (!this.o.web) throw new Error("No web backend is configured");

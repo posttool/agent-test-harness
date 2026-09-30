@@ -97,6 +97,7 @@ export class SubscriptionManager {
     await this.storage.put("subscriptions", subscription);
     await this.storage.put("toolCalls", { ...call, subscriptionId });
     await this.ambient.addSource(source);
+    await this.recordProcess(subscription, `${tool.name}: ${fn.name}`, { status: "starting", detail: script.value.description, args: call.args, result });
     await this.updateDocument(subscription, { status: "starting", detail: script.value.description, label: `${tool.name}: ${fn.name}` });
     return subscription;
   }
@@ -108,6 +109,7 @@ export class SubscriptionManager {
     const eventStatus = typeof event.data.status === "string" ? event.data.status : "running";
     const status = STATUS_BY_EVENT[eventStatus] ?? "running";
     await this.updateDocument(subscription, { status, detail: event.content });
+    await this.recordProcess(subscription, null, { status, detail: event.content });
     if (status === "complete" || status === "failed") {
       const ended: Subscription = { ...subscription, status: status === "complete" ? "completed" : "failed", updatedAt: isoAt(this.clock) };
       await this.storage.put("subscriptions", ended);
@@ -121,6 +123,25 @@ export class SubscriptionManager {
   async sessionFor(subscriptionId: string | null): Promise<string | null> {
     if (!subscriptionId) return null;
     return (await this.get(subscriptionId))?.sessionId ?? null;
+  }
+
+  /**
+   * Every running process is an active_process node in memory (PLAN.md section 4.2), linked to
+   * its document when there is one, so progress is visible even without a document.
+   */
+  private async recordProcess(subscription: Subscription, label: string | null, update: Record<string, unknown> & { status: string; detail: string }): Promise<void> {
+    if (!this.memory) return;
+    const ctx = { sessionId: subscription.sessionId, actor: "tool" as const };
+    const existing = (await this.memory.nodes()).find((n) => n.type === "active_process" && n.attributes.subscriptionId === subscription.id);
+    const event = await this.memory.recordEvent("mutation", `Process ${label ?? existing?.title ?? subscription.functionName}: ${update.status}`, ctx);
+    const history = [...(Array.isArray(existing?.attributes.history) ? existing.attributes.history : []), { at: isoAt(this.clock), status: update.status, detail: update.detail }].slice(-20);
+    const attributes = { subscriptionId: subscription.id, toolId: subscription.toolId, functionName: subscription.functionName, ...update, history };
+    if (existing) {
+      await this.memory.updateNode(existing.id, { summary: `${update.status}: ${update.detail}`, attributes }, event.id, ctx);
+      return;
+    }
+    const node = await this.memory.createNode({ type: "active_process", title: label ?? subscription.functionName, summary: `${update.status}: ${update.detail}`, attributes }, event.id, ctx);
+    if (subscription.documentId && (await this.memory.node(subscription.documentId))) await this.memory.link("executing_for", node.id, subscription.documentId, event.id, ctx);
   }
 
   private async updateDocument(subscription: Subscription, update: { status: ProcessStatus["status"]; detail: string; label?: string }): Promise<void> {

@@ -62,6 +62,9 @@ describe("HarnessRuntime", () => {
     expect(snap.memory.topics.map((t) => t.title)).toEqual(["Grocery list"]);
     expect(snap.sessions[0]).toMatchObject({ status: "ended", summary: "Saved oat milk" });
     expect(snap.device.island).toEqual({ active: false, words: null });
+    const decision = claude.calls.find((c) => c.schemaName === "NextStepDecision")!;
+    expect(decision.context.at(-1)).toMatchObject({ title: "Tools you can use (via tools.use)" });
+    expect(decision.context.at(-1)!.content).toContain("- Web [web]: search, fetch");
     const writeCall = claude.calls.find((c) => c.schemaName === "MemoryMutationPlan")!;
     expect(writeCall.context.map((b) => b.title)).toEqual(expect.arrayContaining(["Memory graph", "Now"]));
   });
@@ -168,7 +171,7 @@ describe("HarnessRuntime", () => {
   it("tells the agent when the user swipes a topic off the Brief", async () => {
     const rt = await runtime();
     script = {
-      SurfacePlan: [reply({ islandWords: null, brief: [{ topicId: "node_9", reason: "Study now", component: { kind: "brief_item", id: "b", title: "Academics", primaryActionLabel: null, elements: [] } }], discover: [], spaceDocumentIds: [], rationale: "r" })],
+      SurfacePlan: [reply({ islandWords: "", brief: [{ topicId: "node_9", documentId: null, title: "Academics", line: "Test Friday", callToAction: "Study", reason: "Study now" }], discover: [], spaceDocumentIds: [], rationale: "r" })],
       RouteDecision: [route("Brief swipe")],
       NextStepDecision: [end("noted the dismissal")],
     };

@@ -4,5 +4,6 @@
  * arguments and returns its JSON-serializable result.
  */
 export interface CodeSandbox {
-  run(code: string, functionName: string, args: Record<string, unknown>, timeoutMs: number): Promise<unknown>;
+  /** `stateKey` (the tool id) keeps the tool's top-level state between calls. */
+  run(code: string, functionName: string, args: Record<string, unknown>, timeoutMs: number, stateKey?: string): Promise<unknown>;
 }

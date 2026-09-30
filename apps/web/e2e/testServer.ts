@@ -26,7 +26,7 @@ const choice = {
   },
 };
 claude.handler = (req: ProviderRequest): ScriptedReply => {
-  const last = req.context.at(-1);
+  const last = req.context.filter((b) => !b.title?.startsWith("Tools you can use")).at(-1);
   switch (req.schemaName) {
     case "RouteDecision":
       return { value: { action: "new", sessionId: null, title: "Sweater for my sister", rationale: "new request" }, latencyMs: 0 };
@@ -39,7 +39,7 @@ claude.handler = (req: ProviderRequest): ScriptedReply => {
     case "UiRequest":
       return { value: choice };
     case "SurfacePlan":
-      return { value: { islandWords: null, brief: [], discover: [], spaceDocumentIds: [], rationale: "nothing yet" } };
+      return { value: { islandWords: "", brief: [], discover: [], spaceDocumentIds: [], rationale: "nothing yet" } };
     default:
       throw new Error(`test server has no reply for ${req.schemaName}`);
   }

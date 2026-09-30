@@ -163,7 +163,7 @@ export class ToolExecutor {
       }
       case "generated_code": {
         if (!this.o.sandbox) throw new Error("No code sandbox is configured");
-        return this.o.sandbox.run(tool.code ?? "", fn.name, args, timeout);
+        return this.o.sandbox.run(tool.code ?? "", fn.name, args, timeout, tool.id);
       }
       case "llm": {
         if (!this.o.runner) throw new Error("No model runner is configured");

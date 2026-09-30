@@ -30,11 +30,11 @@ describe("runScenario (scripted)", () => {
     const judge = new ScriptedProviderClient("claude");
     let asked = false;
     agent.handler = (req: ProviderRequest): ScriptedReply => {
-      const last = req.context.at(-1);
+      const last = req.context.filter((b) => !b.title?.startsWith("Tools you can use")).at(-1);
       if (req.schemaName === "RouteDecision") return { value: { action: "new", sessionId: null, title: "t", rationale: "r" } };
       if (req.schemaName === "UiRequest")
         return { value: { purpose: "disambiguation", surface: "intent_space", blocking: true, question: "Color?", rationale: "r", component: { kind: "choice_group", id: "c", title: "Color", primaryActionLabel: null, elements: [{ kind: "choice", id: "color", label: null, text: null, items: ["Blue", "Red"], value: null, url: null, progress: null, fieldType: null }] } } };
-      if (req.schemaName === "SurfacePlan") return { value: { islandWords: null, brief: [], discover: [], spaceDocumentIds: [], rationale: "r" } };
+      if (req.schemaName === "SurfacePlan") return { value: { islandWords: "", brief: [], discover: [], spaceDocumentIds: [], rationale: "r" } };
       if (!asked && last?.kind === "signal") {
         asked = true;
         return { value: { action: "step", capability: "ui.generate", instruction: "ask", rationale: "r", summary: null } };

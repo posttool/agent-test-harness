@@ -195,8 +195,14 @@ export class DeviceTool {
     const plan = result.value;
     const documents = await this.memory.documents();
     const pending = (list: SurfaceItem[]) => list.filter((i) => i.context !== null);
-    this.state.brief = [...pending(this.state.brief), ...plan.brief.map((b) => this.item(b.component, null, { topicId: b.topicId, reason: b.reason }))];
-    this.state.discover = plan.discover.map((b) => this.item(b.component, null, { topicId: b.topicId, reason: b.reason }));
+    const card = (b: SurfacePlan["brief"][number], kind: UiComponentSpec["kind"]) =>
+      this.item(
+        { kind, id: this.ids.next("brief"), title: b.title, primaryActionLabel: b.callToAction, elements: [el("text", "line", { text: b.line })] },
+        null,
+        { topicId: b.topicId, documentId: b.documentId, reason: b.reason },
+      );
+    this.state.brief = [...pending(this.state.brief), ...plan.brief.map((b) => card(b, "brief_item"))];
+    this.state.discover = plan.discover.map((b) => card(b, "card"));
     const docs = plan.spaceDocumentIds.flatMap((id) => documents.filter((d) => d.id === id && !d.archivedAt));
     this.state.spaces = [...pending(this.state.spaces), ...docs.map((d) => this.item(documentComponent(d), null, { documentId: d.id, topicId: d.topicId }))];
     if (!this.state.island.active) this.state.island = { active: false, words: null };

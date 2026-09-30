@@ -46,6 +46,13 @@ describe("provider parity check", () => {
     expect(problems).toContain('$.i: uses unsupported keyword "minimum"');
   });
 
+  it("enforces Claude's limit of 16 union-typed parameters", () => {
+    const many = z.object(Object.fromEntries(Array.from({ length: 17 }, (_, i) => [`f${i}`, z.string().nullable()])));
+    expect(findParityViolations(toProviderJsonSchema(many))[0]).toContain("17 union-typed parameters");
+    const ok = z.object(Object.fromEntries(Array.from({ length: 16 }, (_, i) => [`f${i}`, z.string().nullable()])));
+    expect(findParityViolations(toProviderJsonSchema(ok))).toEqual([]);
+  });
+
   it("flags recursive schemas", () => {
     type Node = { children: Node[] };
     const NodeSchema: z.ZodType<Node> = z.lazy(() => z.object({ children: z.array(NodeSchema) }));

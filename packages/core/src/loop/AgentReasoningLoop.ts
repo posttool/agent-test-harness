@@ -45,6 +45,8 @@ export interface LoopOptions {
   onUiRequest?: (request: UiRequest, context: UiContext) => void;
   /** Called when UI feedback resumes a session; returned blocks are added to its context (e.g. an approved tool's result). */
   onResume?: (session: ReasoningSession, signal: Signal) => Promise<ContextBlock[]> | ContextBlock[];
+  /** Extra context for every next-step decision (e.g. the tool catalog). */
+  decisionContext?: () => Promise<ContextBlock[]> | ContextBlock[];
   /** Resolves signals addressed to a session (e.g. tool progress to the session that started it). */
   addressedSession?: (signal: Signal) => Promise<string | null> | string | null;
   sessions?: SessionManager;
@@ -158,7 +160,7 @@ export class AgentReasoningLoop {
           schemaName: "NextStepDecision",
           schema: NextStepDecisionSchema,
           system: this.decisionPrompt,
-          context: session.context,
+          context: [...session.context, ...((await this.options.decisionContext?.()) ?? [])],
         });
         decision = result.value;
         this.traces.append({ kind: "decision", triggerId, sessionId, data: { decision, model: result.model, attempts: result.attempts, usage: result.usage } });

@@ -111,9 +111,12 @@ describe("ToolExecutor", () => {
     expect(await executor.execute({ ...invoke("device", "notify"), argsJson: "[1]" }, ctx)).toMatchObject({ kind: "error", error: "argsJson must be a JSON object." });
   });
 
-  it("runs generated code in a sandbox with no ambient permissions", async () => {
+  it("runs generated code in a sandbox with no ambient permissions, keeping each tool's state between calls", async () => {
     const tool = await registry.registerProposal(cartTool, null, "generate_code");
     expect(await executor.execute(invoke(tool.id, "add_to_cart", { item: "oat milk" }), ctx)).toMatchObject({ kind: "ok", result: { items: ["oat milk"] } });
+    expect(await executor.execute(invoke(tool.id, "add_to_cart", { item: "eggs" }), ctx)).toMatchObject({ kind: "ok", result: { items: ["oat milk", "eggs"] } });
+    const twin = await registry.registerProposal(cartTool, null, "generate_code");
+    expect(await executor.execute(invoke(twin.id, "add_to_cart", { item: "bread" }), ctx)).toMatchObject({ kind: "ok", result: { items: ["bread"] } });
     expect(await executor.execute(invoke(tool.id, "sneaky"), ctx)).toMatchObject({ kind: "ok", result: "undefined,undefined,undefined" });
     expect(await executor.execute(invoke(tool.id, "forever"), ctx)).toMatchObject({ kind: "error", error: expect.stringContaining("timed out") });
   });
@@ -247,6 +250,10 @@ describe("SubscriptionManager", () => {
     expect((await memory.documents())[0]!.processes[0]).toMatchObject({ status: "running", detail: "Driver Ana is 4 minutes away" });
     const ended = await subs.onEvent({ id: "e2", sourceId: sources[0]!.id, kind: "tool_progress", at: "t", content: "Arrived at work", data: { status: "complete" } }, sub.id);
     expect(ended!.status).toBe("completed");
+    const process = (await memory.nodes()).find((n) => n.type === "active_process")!;
+    expect(process).toMatchObject({ title: "Rides: order", attributes: { status: "complete", subscriptionId: sub.id } });
+    expect((process.attributes.history as unknown[]).length).toBe(3);
+    expect((await memory.edges()).some((e) => e.type === "executing_for" && e.from === process.id && e.to === doc)).toBe(true);
     expect(removed).toEqual([sources[0]!.id]);
     expect((await memory.revisions(doc)).map((r) => r.actor)).toContain("tool");
   });

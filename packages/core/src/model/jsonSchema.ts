@@ -74,11 +74,28 @@ export function toProviderJsonSchema(schema: z.ZodType): JsonSchema {
   return normalize(raw) as JsonSchema;
 }
 
+/** Claude compiles structured outputs with at most this many union-typed (e.g. nullable) parameters. */
+export const MAX_UNION_PARAMETERS = 16;
+
+/** Counts parameters whose schema is a union (anyOf or a type array), as Claude does. */
+export function countUnionParameters(schema: unknown): number {
+  if (Array.isArray(schema)) return schema.reduce<number>((n, s) => n + countUnionParameters(s), 0);
+  if (!isObject(schema)) return 0;
+  const here = Array.isArray(schema.anyOf) || Array.isArray(schema.type) ? 1 : 0;
+  return here + Object.entries(schema).reduce((n, [, v]) => n + countUnionParameters(v), 0);
+}
+
 /**
  * Returns every reason a converted schema would be rejected by at least one provider.
  * An empty list means the schema is safe to use as a model output schema.
  */
 export function findParityViolations(schema: JsonSchema, path = "$"): string[] {
+  const unions = path === "$" ? countUnionParameters(schema) : 0;
+  const tooMany = unions > MAX_UNION_PARAMETERS ? [`$: ${unions} union-typed parameters; Claude allows at most ${MAX_UNION_PARAMETERS}`] : [];
+  return [...tooMany, ...structuralViolations(schema, path)];
+}
+
+function structuralViolations(schema: JsonSchema, path: string): string[] {
   const problems: string[] = [];
   for (const keyword of FORBIDDEN_KEYWORDS) {
     if (Object.hasOwn(schema, keyword)) problems.push(`${path}: uses unsupported keyword "${keyword}"`);
@@ -93,14 +110,14 @@ export function findParityViolations(schema: JsonSchema, path = "$"): string[] {
       if (!required.includes(key)) problems.push(`${path}.${key}: every property must be required (use nullable instead)`);
     }
     for (const [key, child] of Object.entries(props)) {
-      if (isObject(child)) problems.push(...findParityViolations(child, `${path}.${key}`));
+      if (isObject(child)) problems.push(...structuralViolations(child, `${path}.${key}`));
     }
     if (Object.keys(props).length === 0) problems.push(`${path}: object has no properties (free-form objects are not allowed)`);
   }
-  if (isObject(schema.items)) problems.push(...findParityViolations(schema.items, `${path}[]`));
+  if (isObject(schema.items)) problems.push(...structuralViolations(schema.items, `${path}[]`));
   if (Array.isArray(schema.anyOf)) {
     schema.anyOf.forEach((variant, i) => {
-      if (isObject(variant)) problems.push(...findParityViolations(variant, `${path}.anyOf[${i}]`));
+      if (isObject(variant)) problems.push(...structuralViolations(variant, `${path}.anyOf[${i}]`));
     });
   }
   return problems;
