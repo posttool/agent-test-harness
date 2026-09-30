@@ -365,6 +365,21 @@ If a function is `longRunning` (ordering a ride, a delivery, a build), calling i
 - **Vibe-coded sources:** the user describes a stream, and the LLM writes a source definition that is checked against a schema and run in the same sandbox as generated tools.
 - **Tool-owned sources:** the tool layer creates and deletes sources for long-running processes (§6.5).
 
+### Persona service contract
+
+These are the HTTP GET endpoints (CORS enabled) under `PERSONA_BASE_URL` (`https://us-central1-aura-persona.cloudfunctions.net/`), as defined in `posttool/persona` `functions/index.js`:
+
+| Endpoint | Query | Returns |
+|---|---|---|
+| `listPersona1` | none | `[{id, name, occupation, city, age, image, hobbies, goals_this_week, family, apps}]` |
+| `getPersona1` | `id` | the full persona document plus `id` and `days: [{id, date}]` |
+| `listDaysForPersona1` | `id` | `[{id, date}]`, ordered by date |
+| `listObservations1` | `id`, `date` | `[{id, date, time, device, type, senderApp, data}]`, ordered by `time` (**see the bug below**) |
+
+**Known bug (persona repo):** `listObservations1` calls the async `_getObservations(...)` without `await`, so it sends `JSON.stringify(<Promise>)` and **always returns `{}`**. The fix is one word, `let response = await _getObservations(...)`, and then the function needs redeploying. Until that ships, `persona-sim` treats a non-array response as an error and uses exported fixtures.
+
+`persona-sim` validates each response with a Zod schema (P1: the responses are data, not instructions) and turns observations into `AmbientEvent`s on the virtual clock, using `date` + `time`.
+
 ### Persona simulation
 Choosing an Aura persona clears memory, tools and subscriptions. The `persona-sim` adapter then pulls that persona's days and observations and plays them back in order as ambient events on the virtual clock. "Clear memory" stops the simulation and resets everything. Personas also produce **test fixtures** (§10).
 
@@ -498,9 +513,10 @@ agent-test-harness/
 
 ### Still open
 
-1. **Network access to the persona service.** The cloud dev environment's network policy currently blocks `us-central1-aura-persona.cloudfunctions.net`. It needs to be added to the allowed domains before `persona-sim` can run live. Until then it runs against exported fixtures.
-2. **Cheaper roles.** Opus 5.5 is the default everywhere. M8 will measure whether any role (router, judge) should move to a cheaper model. That is a decision for you, not something we change automatically.
-3. **Cross-device backend.** Firestore is the working choice because it matches the persona stack. Confirm, or name another.
-4. **Sandbox for generated code.** Web Worker plus `vm` is enough for a harness. A real device build would need proper isolation.
-5. **Swipe-to-dismiss "why?".** When the user swipes a topic away, the agent may quietly ask why and store the answer as a `TriggerOverride`. This UX pattern is in scope for M6 and M7.
-6. **"Nadav's drawing" and Loom.** Those references are outside this repo. Any visual spec from them should be added under `docs/`.
+1. **Network access to the persona service.** The cloud dev environment's network policy blocks `us-central1-aura-persona.cloudfunctions.net`; this was checked again on 2026-09-30 from both the container and the web fetcher. It needs to be added to the allowed domains before `persona-sim` can run live. Until then it runs against exported fixtures.
+2. **`listObservations1` always returns `{}`** because of a missing `await` (§7). This needs a fix and a redeploy in `posttool/persona` before live persona playback will work.
+3. **Cheaper roles.** Opus 5.5 is the default everywhere. M8 will measure whether any role (router, judge) should move to a cheaper model. That is a decision for you, not something we change automatically.
+4. **Cross-device backend.** Firestore is the working choice because it matches the persona stack. Confirm, or name another.
+5. **Sandbox for generated code.** Web Worker plus `vm` is enough for a harness. A real device build would need proper isolation.
+6. **Swipe-to-dismiss "why?".** When the user swipes a topic away, the agent may quietly ask why and store the answer as a `TriggerOverride`. This UX pattern is in scope for M6 and M7.
+7. **"Nadav's drawing" and Loom.** Those references are outside this repo. Any visual spec from them should be added under `docs/`.
