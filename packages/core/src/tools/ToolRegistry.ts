@@ -12,14 +12,14 @@ function parseSchema(text: string, label: string): Record<string, unknown> {
   let schema: unknown;
   try {
     schema = JSON.parse(text);
-  } catch {
-    throw new Error(`${label} is not valid JSON`);
+  } catch (error) {
+    throw new Error(`${label} is not valid JSON`, { cause: error });
   }
   if (typeof schema !== "object" || schema === null || Array.isArray(schema)) throw new Error(`${label} must be a JSON Schema object`);
   try {
     ajv.compile(schema);
   } catch (error) {
-    throw new Error(`${label} is not a valid JSON Schema: ${error instanceof Error ? error.message : String(error)}`);
+    throw new Error(`${label} is not a valid JSON Schema: ${error instanceof Error ? error.message : String(error)}`, { cause: error });
   }
   return schema as Record<string, unknown>;
 }
