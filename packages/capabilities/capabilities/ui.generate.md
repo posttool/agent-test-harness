@@ -3,6 +3,7 @@ id: ui.generate
 title: Generate UI
 role: device
 outputSchema: UiRequest
+activity: Asking
 whenToUse: The agent needs to ask the user something, show a document, or put an item in the contextual brief.
 ---
 ## Instructions

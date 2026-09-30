@@ -5,6 +5,7 @@ import { ToolProposalSchema } from "./ToolProposal.ts";
 export const ToolDiscoveryResultSchema = z.object({
   strategy: z.enum(["recall", "web_search", "wrap_api", "wrap_mcp", "llm_tool", "generate_code", "none"]),
   toolId: z.string().nullable().describe("An existing tool to use, when recalling."),
+  searchQuery: z.string().nullable().describe("What to search the web for, when the strategy is web_search."),
   proposal: ToolProposalSchema.nullable(),
   rationale: z.string(),
 });

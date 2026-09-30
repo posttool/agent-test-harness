@@ -6,6 +6,7 @@ export const ToolInvocationPlanSchema = z.object({
   functionName: z.string(),
   argsJson: z.string().describe("Arguments as a JSON object string."),
   argsFromMemory: z.array(z.string()).describe("Memory node ids the arguments were filled from."),
+  documentId: z.string().nullable().describe("The document node this call moves forward, if any."),
   rationale: z.string(),
 });
 

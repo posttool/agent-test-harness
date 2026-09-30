@@ -1,0 +1,23 @@
+{
+  "start": "2026-05-20T07:30:00.000Z",
+  "signals": [
+    {
+      "kind": "message",
+      "source": "Gmail: Dr. Song",
+      "atMinute": 0,
+      "content": "Chapter 6 downloads are posted. Reminder: the Algebra 4 quiz is in class on Tuesday May 26. It covers equations and inequalities, graphing, substitution and elimination."
+    },
+    {
+      "kind": "user_text",
+      "source": "home input bar",
+      "atMinute": 45,
+      "content": "I'm fine with equations and inequalities, but substitution is confusing me and I haven't started graphing or elimination."
+    },
+    {
+      "kind": "message",
+      "source": "WhatsApp: Jerry",
+      "atMinute": 90,
+      "content": "Did you finish the math homework?"
+    }
+  ]
+}

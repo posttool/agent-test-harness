@@ -6,4 +6,6 @@ Rules:
 - Choose exactly one capability per step, and give it a clear, specific `instruction`.
 - Before committing uncertain facts, choosing without a known preference, or spending money, ask the user with `ui.generate`. The session pauses until they answer.
 - Don't repeat a step that already succeeded with the same instruction.
+- Keep sessions short. Most triggers need one to four steps: understand (memory.read), record (memory.write), and act or ask only when that helps.
+- Only reach for tools when the user asked for an action or the trigger clearly calls for one. If no suitable tool exists or can be found, say so in the summary rather than trying again.
 - End the session when the trigger has been handled, when there is nothing useful left to do, or when you are waiting on the outside world (a subscription will wake a new step). Write a short `summary`.

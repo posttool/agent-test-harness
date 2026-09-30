@@ -3,6 +3,7 @@ id: tools.discover
 title: Discover a tool
 role: loop
 outputSchema: ToolDiscoveryResult
+activity: Finding tools
 whenToUse: The task needs an action or data source, and it is not yet clear which tool provides it.
 ---
 ## Instructions

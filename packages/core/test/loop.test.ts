@@ -19,9 +19,9 @@ import {
 type Script = Partial<Record<string, ScriptedReply[]>>;
 
 const caps: CapabilitySpec[] = [
-  { id: "memory.write", title: "Write", role: "memoryMerge", outputSchema: "MemoryMutationPlan", whenToUse: "new info", instructions: "WRITE" },
-  { id: "memory.read", title: "Read", role: "loop", outputSchema: "MemoryReadResult", whenToUse: "need facts", instructions: "READ" },
-  { id: "ui.generate", title: "UI", role: "device", outputSchema: "UiRequest", whenToUse: "ask the user", instructions: "UI" },
+  { id: "memory.write", title: "Write", role: "memoryMerge", outputSchema: "MemoryMutationPlan", whenToUse: "new info", activity: "Saving", instructions: "WRITE" },
+  { id: "memory.read", title: "Read", role: "loop", outputSchema: "MemoryReadResult", whenToUse: "need facts", activity: "Remembering", instructions: "READ" },
+  { id: "ui.generate", title: "UI", role: "device", outputSchema: "UiRequest", whenToUse: "ask the user", activity: "Asking", instructions: "UI" },
 ];
 
 const route = (action: "new" | "continue", sessionId: string | null = null, title: string | null = "Dinner plans") => ({

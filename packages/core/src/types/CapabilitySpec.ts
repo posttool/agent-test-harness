@@ -8,6 +8,8 @@ export const CapabilitySpecSchema = z.object({
   role: ModelRoleSchema,
   outputSchema: z.string(),
   whenToUse: z.string(),
+  /** One or two words for the Dynamic Island while this capability runs. */
+  activity: z.string().default("Thinking"),
   instructions: z.string(),
 });
 

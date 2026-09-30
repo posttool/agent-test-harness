@@ -1,0 +1,116 @@
+{
+  "image": "https://firebasestorage.googleapis.com/v0/b/aura-persona.firebasestorage.app/o/qTXNdC9mTcMkrj8EZTYu%2F6400940982%2Fpic.jpg?alt=media&token=4a122f48-f3bf-4130-bce4-848b11ff592f",
+  "occupation": "Cultural Events Coordinator for a local heritage organization",
+  "city": "Pointe-à-Pitre, Guadeloupe",
+  "friends": [
+    {
+      "name": "Elodie Bertrand",
+      "relation": "Fellow artist and designer"
+    },
+    {
+      "name": "Javier Morales",
+      "relation": "Community organizer"
+    },
+    {
+      "name": "Rémy Gauthier",
+      "relation": "Childhood friend, small business owner"
+    }
+  ],
+  "economic_status": "Middle class",
+  "hobbies": [
+    "Exploring nature trails and waterfalls across the island",
+    "Learning and practicing traditional Creole cooking techniques",
+    "Photography, especially focusing on local architecture and vibrant street scenes",
+    "Attending live Gwoka music and dance performances",
+    "Gardening tropical plants"
+  ],
+  "colleagues": [
+    {
+      "name": "Dominique Lemaire",
+      "relation": "Director of Heritage Organization"
+    },
+    {
+      "name": "Antoine Petit",
+      "relation": "Junior Events Assistant"
+    },
+    {
+      "name": "Valerie Rousseau",
+      "relation": "Marketing and Communications Lead"
+    }
+  ],
+  "goals_this_week": [
+    "Finalize the program and artist lineup for the upcoming 'Festival du Patrimoine Créole'",
+    "Meet with local artisans to discuss their participation in the next exhibition",
+    "Prepare a grant application for a new youth cultural exchange program",
+    "Take a refreshing swim at Plage de Grande Anse after work one day"
+  ],
+  "goals_in_life": [
+    "Make a lasting contribution to the preservation and dynamic evolution of Guadeloupean culture",
+    "Foster a strong, inclusive community that celebrates diversity and shared heritage",
+    "Achieve a balanced life, rich in meaningful work, personal growth, and connection to the natural beauty of the Caribbean",
+    "Support Lila in pursuing their passion and finding fulfillment in their career"
+  ],
+  "name": "Camille Dubois",
+  "family": [
+    {
+      "name": "Samira 'Sam' Khan",
+      "relation": "Partner"
+    },
+    {
+      "name": "Lila Dubois-Khan",
+      "relation": "Child, 20 years old, studying marine biology"
+    },
+    {
+      "name": "Marc Dubois",
+      "relation": "Older Sibling"
+    }
+  ],
+  "goals_this_year": [
+    "Successfully execute the annual Creole Heritage Festival, increasing attendance by 15%",
+    "Develop and launch a new digital archive project for Guadeloupean oral histories",
+    "Collaborate with a museum in metropolitan France on a joint cultural exchange initiative",
+    "Spend more quality time exploring the less-visited parts of Basse-Terre with Sam"
+  ],
+  "age": 48,
+  "apps_and_services": [
+    {
+      "app": "WhatsApp",
+      "usage": "frequent (for personal and professional communication)"
+    },
+    {
+      "app": "Instagram",
+      "usage": "frequent (for promoting cultural events, connecting with artists, and sharing personal photography)"
+    },
+    {
+      "app": "Spotify",
+      "usage": "frequent (for listening to local music, podcasts, and curated playlists)"
+    },
+    {
+      "app": "Google Maps / Waze",
+      "usage": "frequent (for navigating around the island for meetings and personal trips)"
+    },
+    {
+      "app": "Local Bank App (e.g., Crédit Mutuel)",
+      "usage": "frequent (for managing finances and paying bills)"
+    },
+    {
+      "app": "Netflix",
+      "usage": "moderate (for relaxing with international and French content)"
+    },
+    {
+      "app": "Facebook",
+      "usage": "moderate (for joining community groups, event promotion, and staying connected with extended family)"
+    },
+    {
+      "app": "Trello",
+      "usage": "frequent (for project management and organizing event logistics)"
+    }
+  ],
+  "id": "qTXNdC9mTcMkrj8EZTYu",
+  "days": [
+    {
+      "id": "7omPJkGDodhzjkeDVqpJ",
+      "date": "2025-11-07"
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "colleagues": null,
+  "image": "https://firebasestorage.googleapis.com/v0/b/aura-persona.firebasestorage.app/o/pvxHKBrxJoVRodbpw45y%2F5925132802%2Fpic.jpg?alt=media&token=01e814e6-7076-4154-aece-113b81fb42cf",
+  "occupation": "High School Student",
+  "city": "Rome",
+  "friends": [
+    {
+      "name": "Chiara Bianchi",
+      "relation": "Close friend (the planner who tries to keep Luca grounded)"
+    },
+    {
+      "name": "Matteo Esposito",
+      "relation": "Close friend (equally impulsive, partner in crime for adventures)"
+    },
+    {
+      "name": "Elena Ricci",
+      "relation": "Close friend (artistic, shares Luca's love for creative expression)"
+    }
+  ],
+  "economic_status": "Middle-class (parents are professionals)",
+  "hobbies": [
+    "Spontaneous photography walks around Rome, especially at night",
+    "Trying out new, obscure cafes and gelaterias with friends",
+    "DIY fashion experiments (cutting up old clothes, painting sneakers)",
+    "Attending impromptu street performances or open mic nights",
+    "Learning new TikTok dances for a few hours, then moving on",
+    "Dabbling in digital art or music production (briefly)",
+    "Exploring hidden alleys and forgotten corners of the city"
+  ],
+  "goals_this_week": [
+    "Find the coolest vintage outfit for Saturday's party (last minute, of course)",
+    "Convince friends to go on a late-night adventure to a 'haunted' ruin",
+    "Experiment with a new hair color (again, probably temporary and impulsive)",
+    "Learn to play that one obscure indie song on the ukulele by Friday (and likely forget it by Sunday)",
+    "Perfect a new latte art design at the local cafe just because"
+  ],
+  "goals_in_life": [
+    "Never settle for boring or predictable routines",
+    "Experience everything life has to offer, even if just for a moment",
+    "Find a way to express their ever-changing identity and creativity without limits",
+    "Become someone truly unique and unforgettable, leaving a mark wherever they go",
+    "Live life as a continuous, exciting experiment"
+  ],
+  "name": "Luca Rossi",
+  "family": [
+    {
+      "name": "Marco Rossi",
+      "relation": "Father (Architect)"
+    },
+    {
+      "name": "Sofia Rossi",
+      "relation": "Mother (Teacher)"
+    },
+    {
+      "name": "Giulia Rossi",
+      "relation": "Younger Sibling (14)"
+    }
+  ],
+  "goals_this_year": [
+    "Take a spontaneous train trip to a random Italian city for a weekend with friends",
+    "Master one impressive skill for at least a month (e.g., skateboarding, rollerblading, latte art) before getting bored",
+    "Start a collaborative art project with friends that may or may not be finished by December",
+    "Get into a major art/design school (even if they change their mind about attending later)",
+    "Redecorate their room's aesthetic completely at least three times"
+  ],
+  "age": 17,
+  "apps_and_services": [
+    {
+      "app": "TikTok",
+      "usage": "Frequent (for trends, dances, short creative bursts, and finding inspiration)"
+    },
+    {
+      "app": "Instagram",
+      "usage": "Frequent (for sharing spontaneous photos, fashion experiments, and aesthetic curation)"
+    },
+    {
+      "app": "WhatsApp",
+      "usage": "Frequent (for group chats with friends, making last-minute plans, and sharing memes)"
+    },
+    {
+      "app": "Spotify",
+      "usage": "Frequent (discovering new music genres constantly, creating hyper-specific playlists)"
+    },
+    {
+      "app": "Google Maps",
+      "usage": "Frequent (for finding new places on a whim, navigating spontaneous detours, getting lost and found in Rome)"
+    },
+    {
+      "app": "Glovo/Deliveroo",
+      "usage": "Occasional (for spontaneous late-night snack or dessert orders)"
+    },
+    {
+      "app": "VSCO/Lightroom Mobile",
+      "usage": "Frequent (for editing photos on the go, achieving a specific aesthetic for posts)"
+    },
+    {
+      "app": "Pinterest",
+      "usage": "Frequent (for fashion, art, aesthetic inspiration, and mood boards that change weekly)"
+    }
+  ],
+  "id": "pvxHKBrxJoVRodbpw45y",
+  "days": [
+    {
+      "id": "czqdGIw6DH3WaJbLy7AG",
+      "date": "2025-11-07"
+    }
+  ]
+}

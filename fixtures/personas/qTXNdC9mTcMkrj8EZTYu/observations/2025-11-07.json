@@ -1,0 +1,2401 @@
+[
+  {
+    "date": "2025-11-07",
+    "data": "display time 06:15, heart rate 68 bpm",
+    "time": "06:15:00",
+    "type": "screen",
+    "device": "watch",
+    "id": "aW6QznZ3SytKOM3Exffh"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Elodie Bertrand just posted a new photo.",
+    "sender": "Elodie Bertrand",
+    "senderApp": "Instagram",
+    "time": "06:17:45",
+    "type": "notification",
+    "device": "phone",
+    "id": "scXpdCuWbccWBY1j3aYj"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Sounds of fresh fruit being sliced, coffee machine whirring, dishes clinking softly in the kitchen.",
+    "time": "06:45:12",
+    "type": "audio",
+    "device": "phone",
+    "id": "KIsfUqSNKOdQsS2Dtot3"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille: \"Bonjou, Sam! Did you sleep well? This mango is perfect this morning.\"",
+    "time": "06:45:38",
+    "type": "audio",
+    "device": "phone",
+    "id": "cRrXKf50EHaLybJVYpei"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey maman! Quick question for you later, before I head to the lab. Love you!",
+    "sender": "Lila Dubois-Khan",
+    "senderApp": "WhatsApp",
+    "time": "06:45:55",
+    "type": "notification",
+    "device": "watch",
+    "id": "TVZv2p46GB8BEV7CgL33"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Samira: \"Oui, très bien, merci. That coffee smells amazing. And yes, I'm still keen on the Gwoka concert tonight. What time should we aim to leave?\"",
+    "time": "06:46:20",
+    "type": "audio",
+    "device": "phone",
+    "id": "VreP2nWNuaHXhSY9CtD0"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Transaction Alert: Your direct deposit of €X,XXX.XX has been processed.",
+    "sender": "Crédit Mutuel",
+    "senderApp": "Local Bank App (e.g., Crédit Mutuel)",
+    "time": "06:46:55",
+    "type": "notification",
+    "device": "phone",
+    "id": "V0Lo4paB7JseNNXeQupR"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille: \"Maybe around 7 PM? That gives us time to relax a bit after dinner. I was thinking of making that new fish stew recipe tonight.\"",
+    "time": "06:47:30",
+    "type": "audio",
+    "device": "phone",
+    "id": "iRz0z1aBb5TCLGzfvhWS"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Coucou Camille! Saw that sunrise pic from yesterday, magnifique! Big day today for the festival prep, no?",
+    "sender": "Elodie Bertrand",
+    "senderApp": "WhatsApp",
+    "time": "06:47:58",
+    "type": "notification",
+    "device": "watch",
+    "id": "ao1STW3QgRs1155kTjhc"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Samira: \"Sounds wonderful, both the stew and the concert! I can help you with the prep when I get home.\"",
+    "time": "06:48:25",
+    "type": "audio",
+    "device": "phone",
+    "id": "lifXHtWgR9ZpNW4iBStH"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "user picks up phone, screen turns on",
+    "time": "07:31:15",
+    "type": "wake",
+    "device": "phone",
+    "id": "09cmdOpRS0IYbcPtgyB8"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Bonjour Camille, quick reminder re: the festival artist contracts. Can we touch base before 9:30?",
+    "sender": "Dominique Lemaire",
+    "senderApp": "WhatsApp",
+    "time": "07:31:20",
+    "type": "notification",
+    "device": "phone",
+    "id": "HtAPezbFBGeP8h065BRy"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "",
+    "time": "07:31:25",
+    "type": "biometric unlock",
+    "device": "phone",
+    "id": "34xiMtwc4yat3yoILvh3"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "taps WhatsApp icon",
+    "time": "07:31:28",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "kcdo1Rh5mTRCTEP04m11"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "WhatsApp opens to chat list",
+    "time": "07:31:30",
+    "type": "screen",
+    "device": "phone",
+    "id": "bBhqCVboxdyAwSpuegDb"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "scrolling through WhatsApp chats",
+    "time": "07:31:45",
+    "type": "screen",
+    "device": "phone",
+    "id": "pDpsuMRsBn94W9YCtewR"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Good morning my love! Did you remember to take out the plantain from the freezer for tonight?",
+    "sender": "Samira 'Sam' Khan",
+    "senderApp": "WhatsApp",
+    "time": "07:31:55",
+    "type": "notification",
+    "device": "phone",
+    "id": "X7gR5pdBUuaBGdt5u0tR"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille opens chat with Dominique",
+    "time": "07:32:10",
+    "type": "screen",
+    "device": "phone",
+    "id": "bDqBmbE25N8NHLQPKfhP"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "typing message in WhatsApp to Dominique: 'Oui, bien sûr! I'll come to your office around 8:55. A bientôt.'",
+    "time": "07:32:30",
+    "type": "text input",
+    "device": "phone",
+    "id": "ojBXDeOjM6W6jOCzDoB9"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille sends message to Dominique",
+    "time": "07:32:35",
+    "type": "screen",
+    "device": "phone",
+    "id": "JxAGmlgAQDBoTruNrckU"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille opens chat with Samira",
+    "time": "07:32:45",
+    "type": "screen",
+    "device": "phone",
+    "id": "ZZoq3cRdWlsVNF6lYS9d"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "typing message in WhatsApp to Samira: 'Yes, just took it out! 😉 Have a great day, chérie.'",
+    "time": "07:32:55",
+    "type": "text input",
+    "device": "phone",
+    "id": "Hf0CfdfDC5DzkiYJLTWD"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille sends message to Samira",
+    "time": "07:33:00",
+    "type": "screen",
+    "device": "phone",
+    "id": "VbC52GB5dXwamxLgRF6Y"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "WhatsApp returns to chat list. Camille glances at other messages.",
+    "time": "07:33:10",
+    "type": "screen",
+    "device": "phone",
+    "id": "lOxSDyjhIW0OWjwPimw6"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "",
+    "time": "07:33:25",
+    "type": "lock",
+    "device": "phone",
+    "id": "UAVapoUqXffQl19iktvB"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Car door opens and closes, engine starts.",
+    "time": "08:00:15",
+    "type": "ambient",
+    "device": "phone",
+    "id": "sd73xEJbiY8oYnzzkkPz"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Connected to Car Audio - Peugeot 3008",
+    "senderApp": "Bluetooth",
+    "time": "08:00:30",
+    "type": "agent/app notification",
+    "device": "phone",
+    "id": "yuMWMGJpLPyv42AgTjQa"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey Google, play my 'Gwoka Vibes' playlist on Spotify.",
+    "time": "08:00:45",
+    "type": "direct command",
+    "device": "phone",
+    "id": "Fn9NfkZnaa5uQaMyH7Bi"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<Upbeat Gwoka music by Akiyo begins playing, sounds of engine idling then accelerating>",
+    "time": "08:00:55",
+    "type": "audio",
+    "device": "car infotainment",
+    "id": "VKGoSnm4aRpFswNQzqXC"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<Gwoka music continues, ambient sounds of light traffic, car driving>",
+    "time": "08:02:10",
+    "type": "audio",
+    "device": "car infotainment",
+    "id": "GKidyG9i6iJetQ4YZetS"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Reminder: Artist contracts for Festival du Patrimoine Créole need final review by EOD.",
+    "sender": "Dominique Lemaire",
+    "senderApp": "Trello",
+    "time": "08:05:30",
+    "type": "notification",
+    "device": "watch",
+    "id": "FDDdB4oQOdWiDuRzl6z0"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Reminder: Artist contracts for Festival du Patrimoine Créole need final review by EOD.",
+    "sender": "Dominique Lemaire",
+    "senderApp": "Trello",
+    "time": "08:05:35",
+    "type": "notification",
+    "device": "phone",
+    "id": "bVoXdH1eWjtNMkK1aJ1Z"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<Gwoka music playing, sound of an occasional scooter passing>",
+    "time": "08:08:10",
+    "type": "audio",
+    "device": "car infotainment",
+    "id": "YhQ95WSBfmsfF5vgR4zr"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Morning, mon amour! Thinking about grabbing fresh fish for dinner tonight. Any preference?",
+    "sender": "Samira Khan",
+    "senderApp": "WhatsApp",
+    "time": "08:12:05",
+    "type": "notification",
+    "device": "phone",
+    "id": "absBsifkhLb5r6KTqeVL"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Morning, mon amour! Thinking about grabbing fresh fish for dinner tonight. Any preference?",
+    "sender": "Samira Khan",
+    "senderApp": "WhatsApp",
+    "time": "08:12:10",
+    "type": "notification",
+    "device": "watch",
+    "id": "VjQUG7C7WtyjLjw2N170"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<Gwoka music playing, sounds of intermittent car horns from nearby traffic>",
+    "time": "08:15:40",
+    "type": "audio",
+    "device": "car infotainment",
+    "id": "H3Hu8lQNng9u6jCCD3cU"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Slight congestion reported ahead on N1. Arriving at office in approximately 20 minutes.",
+    "senderApp": "Google Maps",
+    "time": "08:20:15",
+    "type": "agent/app notification",
+    "device": "phone",
+    "id": "feK2LO9nxkAqg3iMGKkU"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<Gwoka music playing, sound of turn signal as Camille navigates a roundabout>",
+    "time": "08:25:30",
+    "type": "audio",
+    "device": "car infotainment",
+    "id": "INuc3ClrPTlTnCCMCl1d"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "New post: Sneak peek of our upcoming exhibition venue! Check it out!",
+    "sender": "GuadeloupeHeritageOrg",
+    "senderApp": "Instagram",
+    "time": "08:30:00",
+    "type": "notification",
+    "device": "phone",
+    "id": "5yqZ0ef2ezLMSx1aFHUq"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "New post: Sneak peek of our upcoming exhibition venue! Check it out!",
+    "sender": "GuadeloupeHeritageOrg",
+    "senderApp": "Instagram",
+    "time": "08:30:05",
+    "type": "notification",
+    "device": "watch",
+    "id": "6yr57tgqc0ScJbVRAeHK"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<Gwoka music playing, street sounds of Pointe-à-Pitre becoming more prominent, engine revving slightly>",
+    "time": "08:35:10",
+    "type": "audio",
+    "device": "car infotainment",
+    "id": "VSeGZMQWyE9PwHwagevn"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Upcoming: Meeting with Dominique and Antoine in 15 minutes.",
+    "senderApp": "Calendar",
+    "time": "08:38:45",
+    "type": "agent/app notification",
+    "device": "phone",
+    "id": "bPa1LQawNrhZSvya36Pu"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<Gwoka music fades slightly as Camille approaches her destination, sound of parking the car, engine turns off>",
+    "time": "08:40:00",
+    "type": "audio",
+    "device": "car infotainment",
+    "id": "5mm70PFrS2h0KfHmZfcW"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Sounds of an office environment: distant keyboard clicks, faint conversation in French Creole, hum of air conditioning.",
+    "time": "08:45:05",
+    "type": "ambient audio",
+    "device": "phone",
+    "id": "ygunkCzhQtndP6ZYuMuD"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Did you remember to take out the mahjong set for tonight? My sister's really looking forward to it!",
+    "sender": "Samira 'Sam' Khan",
+    "senderApp": "WhatsApp",
+    "time": "08:45:12",
+    "type": "notification",
+    "device": "watch",
+    "id": "rOF48eQILGdYr1Ni9MiL"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "biometric unlock",
+    "time": "08:45:25",
+    "type": "wake",
+    "device": "phone",
+    "id": "yrGTZIzDsW5BakoIVTdu"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "opened WhatsApp, typed 'Yes, it's ready! See you later. 😉'",
+    "time": "08:45:30",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "IjOr6Jj2jcc0hKrJ3wDh"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "",
+    "time": "08:45:40",
+    "type": "lock",
+    "device": "phone",
+    "id": "SryrLPeDmpKHfHvZMvoa"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "lid opened, screen on",
+    "time": "08:46:01",
+    "type": "wake",
+    "device": "laptop",
+    "id": "saBoQZqkunfXFEhrkKqq"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "login screen",
+    "time": "08:46:08",
+    "type": "screen",
+    "device": "laptop",
+    "id": "ijkkZgjorVmWOxbbZRmu"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille: 'Ouvre Trello, s'il te plaît.'",
+    "time": "08:46:15",
+    "type": "direct command",
+    "device": "laptop",
+    "id": "OC1wJXXk1Q85UU8WHFrG"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Trello application launched, displaying 'Festival du Patrimoine Créole' board.",
+    "time": "08:46:18",
+    "type": "screen",
+    "device": "laptop",
+    "id": "XGWTxEapdGySap8gc3z5"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "scrolling through Trello board, opening cards related to artist lineup",
+    "time": "08:46:35",
+    "type": "touch surface",
+    "device": "laptop",
+    "id": "RDro9f5Ll3x6spOqJAMP"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "keyboard input: adding a comment to an artist card: 'Check availability for soundcheck on Nov 15th.'",
+    "time": "08:47:02",
+    "type": "touch surface",
+    "device": "laptop",
+    "id": "J4lYeDI5jz2MjqyMOjdo"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "navigating to 'Grant Applications' Trello board",
+    "time": "08:47:30",
+    "type": "screen",
+    "device": "laptop",
+    "id": "UhknnZjeNn0U2uNUiifE"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "opening 'Youth Cultural Exchange Program Grant' card, reviewing checklist",
+    "time": "08:47:45",
+    "type": "touch surface",
+    "device": "laptop",
+    "id": "Z3w3KVDI7IvYJHLdeWSR"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Antoine Petit commented on card 'Festival du Patrimoine Créole - Marketing Strategy': 'Valerie shared the updated social media calendar, awaiting your approval.'",
+    "sender": "Antoine Petit",
+    "senderApp": "Trello",
+    "time": "08:48:05",
+    "type": "notification",
+    "device": "phone",
+    "id": "zs5yWk5ptKARxISX1fqi"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille hums a Gwoka melody softly to herself while reviewing tasks.",
+    "time": "08:48:15",
+    "type": "ambient audio",
+    "device": "laptop",
+    "id": "BVnGheh1O9ZNxp4hFcwR"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "dragging a Trello card ('Meet local artisans') to 'In Progress' column.",
+    "time": "08:48:40",
+    "type": "touch surface",
+    "device": "laptop",
+    "id": "CMpXBzIh4virgaDa7ww7"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Elodie Bertrand posted a new photo: 'New design concept for the festival banner! ✨ What do you think, @camille.dubois.culture?'",
+    "sender": "elodie.b_art",
+    "senderApp": "Instagram",
+    "time": "08:49:01",
+    "type": "notification",
+    "device": "phone",
+    "id": "e5246Gn768loEbfNBraI"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Trello board 'Festival du Patrimoine Créole - Artist Lineup' open, displaying various artist cards and task lists.",
+    "time": "09:30:05",
+    "type": "screen",
+    "device": "laptop",
+    "id": "VfwpM6e4ExaOLVP8pyuo"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Dominique: \"Bonjour Camille, Antoine. Let's dive right into the artist lineup. We really need to lock this in today, especially the main stage acts.\"",
+    "time": "09:30:45",
+    "type": "audio",
+    "device": "laptop",
+    "id": "fAnlPGOVYhiJ41FfcFvh"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille: \"Agreed. So, 'Ti'Bandana' for Friday evening is confirmed. Antoine, what's the latest on the 'Racine Karayib' dance troupe for Saturday's early slot?\"",
+    "time": "09:31:30",
+    "type": "audio",
+    "device": "laptop",
+    "id": "gcULlibOJHnn8M87XuSp"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille navigates Trello, clicking on the 'Racine Karayib' artist card and adding a note: 'Check Antoine for update on Saturday slot'.",
+    "time": "09:32:15",
+    "type": "type",
+    "device": "laptop",
+    "id": "cgQ5ySH03RX4vVkQG960"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hi Camille, just confirming if you have finalized the keynote speaker for the youth workshop series? Need to get the bio for the website update!",
+    "sender": "Valerie Rousseau",
+    "senderApp": "WhatsApp",
+    "time": "09:33:00",
+    "type": "notification",
+    "device": "phone",
+    "id": "t7E4AsXdkW8EXSsP9YFT"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Youth workshop keynote speaker?",
+    "sender": "Valerie Rousseau",
+    "senderApp": "WhatsApp",
+    "time": "09:33:30",
+    "type": "notification",
+    "device": "watch",
+    "id": "hWlP2ebBKjaMDKa8YXcm"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Antoine: \"Their manager is pushing for a higher fee, a bit above our allocated budget for that slot. I've sent a counter-offer but no response yet.\"",
+    "time": "09:34:10",
+    "type": "audio",
+    "device": "laptop",
+    "id": "0BlEwaZ7CzbihYRHqaGA"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Dominique: \"We absolutely need a strong, traditional Gwoka presence. What about 'Les Héritiers'? They were fantastic last year, their authentic sound resonates with our festival's core.\" ",
+    "time": "09:34:55",
+    "type": "audio",
+    "device": "laptop",
+    "id": "PgaXmG9WN6LnvYmePlF4"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille quickly searches Trello for artist cards tagged 'Gwoka' and 'Les Héritiers', pulling up their details.",
+    "time": "09:35:40",
+    "type": "type",
+    "device": "laptop",
+    "id": "8CijmQHcmuHOe9UzJkCz"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Trello card 'Les Héritiers - Gwoka Ensemble' displayed, showing their contact, previous fees, and available dates.",
+    "time": "09:36:20",
+    "type": "screen",
+    "device": "laptop",
+    "id": "gv2JSD9ocVIx3eUluLi0"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille: \"Their fee is well within our budget, and they're available on Saturday evening, which is perfect for drawing a crowd. I think we should go with them.\"",
+    "time": "09:37:05",
+    "type": "audio",
+    "device": "laptop",
+    "id": "bhhs9mvuXKmxqx8BQ7lO"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "New post: 'Stunning capture of the colourful streets of Pointe-à-Pitre!'",
+    "sender": "LocalArchitectureFan",
+    "senderApp": "Instagram",
+    "time": "09:37:45",
+    "type": "notification",
+    "device": "phone",
+    "id": "DCDEB891BTrJPWOVhTJr"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Dominique: \"Agreed. Let's provisionally book 'Les Héritiers' for Saturday evening. Antoine, can you draft the offer and get it sent today?\"",
+    "time": "09:38:15",
+    "type": "audio",
+    "device": "laptop",
+    "id": "UQoYxpqk3MgORgFg8epd"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille updates the Trello card for 'Les Héritiers': changes status to 'Provisionally Booked - Offer Pending'.",
+    "time": "09:38:50",
+    "type": "type",
+    "device": "laptop",
+    "id": "4wRlWUd8L8mgbpXrS3KL"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Dominique: \"Now, for Sunday's closing act... we need something impactful, a real grand finale. What are our options for a larger, high-energy ensemble?\"",
+    "time": "09:39:30",
+    "type": "audio",
+    "device": "laptop",
+    "id": "PDcw5U7ofVIYEJ9t0lRZ"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille scrolls through Trello, filtering for 'Main Stage' and 'Large Ensemble' options, reviewing potential acts.",
+    "time": "09:40:15",
+    "type": "type",
+    "device": "laptop",
+    "id": "GQOcWXRegibbXeGeDUNe"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Antoine: \"I'm concerned about the staging requirements for 'Tambours de la Liberté'. We're already tight on technical crew, and their setup is complex.\"",
+    "time": "09:40:55",
+    "type": "audio",
+    "device": "laptop",
+    "id": "DqTu5tjF2v6WnWfrXqhK"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Reminder: Review budget figures for Youth Cultural Exchange Grant Application due this week.",
+    "sender": "Trello Bot",
+    "senderApp": "Trello",
+    "time": "09:41:40",
+    "type": "notification",
+    "device": "phone",
+    "id": "QxeXDrtmIAZvncBBY3DO"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille taps her watch to dismiss the Trello notification.",
+    "time": "09:42:15",
+    "type": "touch surface",
+    "device": "watch",
+    "id": "JXqSBLz98NJIAckKXIqb"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille: \"Antoine, let's re-evaluate their technical rider. Perhaps we can simplify certain aspects. Their energy and message are exactly what we need for the finale of the festival.\"",
+    "time": "09:42:50",
+    "type": "audio",
+    "device": "laptop",
+    "id": "DjQYmeHOLMlOMXZd49dS"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "opens grant application document template (e.g., Google Docs or Word)",
+    "time": "11:00:05",
+    "type": "screen",
+    "device": "laptop",
+    "id": "FNeusxT9IHSFjHqJWUb3"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "opens Trello board for 'Youth Cultural Exchange Program' to review grant requirements and tasks",
+    "time": "11:00:35",
+    "type": "screen",
+    "device": "laptop",
+    "id": "dHyVB6zDH94ffwlNM6GK"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Spotify: 'Caribbean Focus Zone' playlist starts playing softly",
+    "time": "11:01:00",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "E8ZbzDA3oXYcLUEHAOaA"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "typing sounds, occasional mouse clicks as Camille begins drafting",
+    "time": "11:01:05",
+    "type": "audio",
+    "device": "laptop",
+    "id": "m5t2zYrupSEmXTYyDGik"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hi Camille, just double-checking if we're all set for the artist briefing on Monday?",
+    "sender": "Antoine Petit",
+    "senderApp": "WhatsApp",
+    "time": "11:05:12",
+    "type": "notification",
+    "device": "phone",
+    "id": "4cbXngJLtyehghDxW7Mz"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "typing sounds continue, focused and consistent",
+    "time": "11:05:30",
+    "type": "audio",
+    "device": "laptop",
+    "id": "Q5G6UZWTlmiX7Ra0V1OJ"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille: 'Agent, remind me to check the specific dates for 'Festival du Patrimoine Créole' when I'm reviewing the grant budget later.'",
+    "time": "11:10:40",
+    "type": "audio",
+    "device": "laptop",
+    "id": "4xv2qIKVB42bO1uTI9Sv"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Agent: 'Reminder set: Check Festival du Patrimoine Créole dates when reviewing grant budget.'",
+    "time": "11:10:45",
+    "type": "audio",
+    "device": "laptop",
+    "id": "SmwNlkxA7XZ9omssCvN2"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "typing sounds, a brief pause, then more vigorous typing",
+    "time": "11:12:45",
+    "type": "audio",
+    "device": "laptop",
+    "id": "boMkTOz1Jez7O17CdEv1"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Valerie Rousseau moved card 'Draft Marketing Plan' to 'In Review' on 'Festival du Patrimoine Créole' board.",
+    "senderApp": "Trello",
+    "time": "11:15:00",
+    "type": "notification",
+    "device": "phone",
+    "id": "xP3wN82q73HyKOhmwiWm"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "typing sounds, occasional adjustment of posture",
+    "time": "11:20:10",
+    "type": "audio",
+    "device": "laptop",
+    "id": "XDHV7BPmO7T4ev5mzhUz"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Just posted a sneak peek of the new textile patterns! What do you think for the banner concept? #CreoleArt",
+    "sender": "Elodie Bertrand",
+    "senderApp": "Instagram",
+    "time": "11:25:30",
+    "type": "notification",
+    "device": "phone",
+    "id": "ohvQlfHsh4i1X7eFHrUD"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "typing sounds, focused on the narrative section of the grant",
+    "time": "11:28:15",
+    "type": "audio",
+    "device": "laptop",
+    "id": "Oa8uanhjJeayHtEgxNor"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille: 'Agent, search for 'Guadeloupe cultural youth exchange programs impact statistics' online.'",
+    "time": "11:32:01",
+    "type": "audio",
+    "device": "laptop",
+    "id": "835kxNcgg2u04wbbJhO1"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "web browser opens, displaying search results for 'Guadeloupe cultural youth exchange programs impact statistics'",
+    "time": "11:32:05",
+    "type": "screen",
+    "device": "laptop",
+    "id": "hqp3mHYyaTBpUCDDkW3p"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Sounds of a bustling street in Pointe-à-Pitre: chatter in Creole and French, the distant rumble of traffic, upbeat Zouk music playing from a nearby shop, and the sizzle of food preparation.",
+    "time": "12:30:12",
+    "type": "audio",
+    "device": "phone",
+    "id": "Bp5VaOZ89VP0SYWXh3wW"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille (to vendor): Bonjour! Un bokit poulet-crudités, s'il vous plaît. Et une petite eau. (Hello! A chicken and salad bokit, please. And a small water.)",
+    "time": "12:31:05",
+    "type": "audio",
+    "device": "phone",
+    "id": "XB1TXhokAAqBY8nUcaxl"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille, quick check on the final artisan contact list for the exhibition. Did the ceramicist confirm their availability?",
+    "sender": "Antoine Petit",
+    "senderApp": "WhatsApp",
+    "time": "12:31:58",
+    "type": "notification",
+    "device": "watch",
+    "id": "YWdQQy206a6poiA914sj"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "lift to wake",
+    "time": "12:32:02",
+    "type": "wake",
+    "device": "phone",
+    "id": "vfjqNN8RgYmX4qHHnlxk"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "WhatsApp notification from Antoine Petit displayed on lock screen.",
+    "time": "12:32:04",
+    "type": "screen",
+    "device": "phone",
+    "id": "N4ZMfXjHyGEZA8JKv4EW"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey Siri, open camera.",
+    "time": "12:33:10",
+    "type": "direct command",
+    "device": "phone",
+    "id": "veu6Szj5LILrE3LHB7rU"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camera app open, showing a vibrant street scene with colorful market stalls and people.",
+    "time": "12:33:13",
+    "type": "screen",
+    "device": "phone",
+    "id": "BHE7rP3pxMwmWcLvIPPI"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "shutter tap",
+    "time": "12:33:48",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "T2aYpeJnoMrLv08Gwky9"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camera shutter sound.",
+    "time": "12:33:50",
+    "type": "audio",
+    "device": "phone",
+    "id": "YZB0J7PlSYuvAId56Izd"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Elodie Bertrand commented on your recent photo: 'Loving that angle, Camille! Captures the energy perfectly.'",
+    "sender": "Instagram",
+    "senderApp": "Instagram",
+    "time": "12:34:00",
+    "type": "notification",
+    "device": "watch",
+    "id": "Z5bS9qWdNdAZpcCHfogP"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Local Bank App (e.g., Crédit Mutuel) payment interface open.",
+    "time": "12:35:15",
+    "type": "screen",
+    "device": "phone",
+    "id": "A5cO25NBEt1jILtzYm10"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Transaction confirmed: 8.50 EUR paid to 'Chez Manman Bokit'.",
+    "sender": "Crédit Mutuel",
+    "senderApp": "Local Bank App (e.g., Crédit Mutuel)",
+    "time": "12:35:40",
+    "type": "notification",
+    "device": "phone",
+    "id": "aMW3Kj4ne0Cdlreiln0K"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Ambient sounds of the street continue: distant Gwoka drumming, seagulls, and children's laughter.",
+    "time": "12:36:55",
+    "type": "audio",
+    "device": "phone",
+    "id": "I9XsD19iMiJBbmbVeq5K"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey, thinking about dinner. How about that new poisson braisé recipe we talked about? I can pick up the fish later.",
+    "sender": "Samira 'Sam' Khan",
+    "senderApp": "WhatsApp",
+    "time": "12:37:45",
+    "type": "notification",
+    "device": "phone",
+    "id": "K9R0Bi4VaAofxZXTzIBV"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Dominique Lemaire updated 'Festival du Patrimoine Créole' board: 'Artist contract for 'Les Voix des Antilles' moved to 'Approved''.",
+    "sender": "Trello",
+    "senderApp": "Trello",
+    "time": "12:40:20",
+    "type": "notification",
+    "device": "watch",
+    "id": "1uNCEPD7HDNcL4v4liHy"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "A nearby radio starts playing a classic Kassav' tune, adding to the vibrant street atmosphere.",
+    "time": "12:42:30",
+    "type": "audio",
+    "device": "phone",
+    "id": "NnEfusm435KsZc4K7hAv"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "New event posted: 'Evening of Traditional Storytelling at Maison Créole' this Saturday. Don't miss out!",
+    "sender": "Guadeloupean Heritage Society",
+    "senderApp": "Facebook",
+    "time": "12:45:05",
+    "type": "notification",
+    "device": "phone",
+    "id": "sYfmpxKoyRmtUgkdD41j"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "user picks up phone from table/pocket",
+    "time": "13:30:05",
+    "type": "wake",
+    "device": "phone",
+    "id": "gMqc6XSPzHiE8pLayZhc"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey Google, open Google Maps.",
+    "time": "13:30:15",
+    "type": "audio",
+    "device": "phone",
+    "id": "mFcQ6P433nBKRMCrQmV0"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Assistant: Opening Google Maps.",
+    "time": "13:30:18",
+    "type": "audio",
+    "device": "phone",
+    "id": "XrPzfHA6nk42rp2ofzW2"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Google Maps app opens, showing current location near Pointe-à-Pitre",
+    "time": "13:30:25",
+    "type": "screen",
+    "device": "phone",
+    "id": "DJz8Z1h79timKrpUwsDQ"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Navigate to artisan's workshop Sainte-Anne.",
+    "time": "13:30:30",
+    "type": "audio",
+    "device": "phone",
+    "id": "Ok4DQz3Y2DH0wAOX6MdO"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Assistant: Getting directions to artisan's workshop, Sainte-Anne. Looks like a 35-minute drive. Starting route now.",
+    "time": "13:30:34",
+    "type": "audio",
+    "device": "phone",
+    "id": "6I0OgmhjzI5YyxfUynNW"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Google Maps: Head southeast on Rue Henri IV toward Rue Léonard. Then turn left.",
+    "time": "13:30:40",
+    "type": "audio",
+    "device": "phone",
+    "id": "OPj3wAQQ3gn8gZe5iPnt"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "engine starting, car door closing",
+    "time": "13:30:55",
+    "type": "audio",
+    "device": "car",
+    "id": "1aip8OGNuhM2ZlJEL6HJ"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Google Maps: In 200 meters, turn left onto Boulevard Chanzy.",
+    "time": "13:31:10",
+    "type": "audio",
+    "device": "phone",
+    "id": "bBirWA6fkd4nZhJip3jD"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Bonjour Camille! Quick question re: next month's community outreach. Have you confirmed the venue in Basse-Terre yet? Trying to finalize some dates. Thx!",
+    "sender": "Javier Morales",
+    "senderApp": "WhatsApp",
+    "time": "13:31:25",
+    "type": "notification",
+    "device": "phone",
+    "id": "wEkgCbXQ4irigHuG5q3G"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "ambient traffic sounds, light Creole music playing softly from car radio/speakers",
+    "time": "13:31:40",
+    "type": "audio",
+    "device": "car",
+    "id": "vmWKzZOapfscEp04GXaT"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Google Maps: Continue straight for 5 kilometers.",
+    "time": "13:32:10",
+    "type": "audio",
+    "device": "phone",
+    "id": "OawGLs8CfOzDwhuO0SiU"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Reminder: Update 'Grant Application - Youth Exchange' card with budget draft notes by end of day.",
+    "senderApp": "Trello",
+    "time": "13:32:30",
+    "type": "notification",
+    "device": "watch",
+    "id": "UTcjba5BJByHsPKDH1Cd"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "sound of car driving, distant street chatter, tropical birdsong",
+    "time": "13:33:00",
+    "type": "audio",
+    "device": "car",
+    "id": "1krNez1OjDuq9F2vRYbj"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Artisan: ...et cette pièce, je l'ai sculptée dans du bois de gommier, c'est assez rare maintenant.",
+    "time": "14:15:12",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "SJTri7lPXBtwF4GLVouI"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille: C'est magnifique, la texture est si unique. Et les détails, c'est impressionnant.",
+    "time": "14:15:25",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "Is4uRUutdQWe7ml2BOmB"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille, could you share the updated draft program for social media promo by EOD?",
+    "sender": "Valerie Rousseau",
+    "senderApp": "WhatsApp",
+    "time": "14:16:40",
+    "type": "notification",
+    "device": "watch",
+    "id": "VTzJzOp1ibmm08w2UZ50"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Artisan: Pour l'exposition, j'ai pensé à un présentoir en forme de vague, pour évoquer la mer qui nous entoure.",
+    "time": "14:17:05",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "lS2B2N1CCQrQPdw1bqPg"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille: Ah, j'aime l'idée! Ça mettrait bien en valeur vos poteries. Est-ce que vous avez des dimensions en tête pour ce présentoir?",
+    "time": "14:17:15",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "CYT6RbvsutYmZaBsmktS"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Antoine Petit marked 'Contact Gwoka performers' as complete in 'Festival du Patrimoine Créole' board.",
+    "senderApp": "Trello",
+    "time": "14:18:30",
+    "type": "notification",
+    "device": "phone",
+    "id": "xBHYoEvUwVVDkuOxilQ8"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Artisan: Oui, je pensais à environ un mètre cinquante de long sur soixante centimètres de profondeur.",
+    "time": "14:19:10",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "SRIJ0IbZVwde4yHaLyRS"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille: D'accord, je note ça. Ça devrait parfaitement s'intégrer dans l'espace que nous avons réservé.",
+    "time": "14:19:33",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "ILG5lR6WZZBg7XEwZ2v3"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Elodie Bertrand and 2 others liked your recent photo.",
+    "senderApp": "Instagram",
+    "time": "14:20:55",
+    "type": "notification",
+    "device": "watch",
+    "id": "zdYscL0O7bsn6l3aqmys"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille: Et pour la logistique de transport des œuvres? Nous avons un service de livraison qui peut venir chercher les pièces.",
+    "time": "14:21:40",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "cGm7VM07989oBcnxs4eP"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Artisan: C'est parfait, je préférerais que ce soit pris en charge. J'aurai une quinzaine de pièces prêtes d'ici la fin du mois.",
+    "time": "14:22:05",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "TanwYpX6hUhpR4qCva1j"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Thinking of making accras tonight, good idea? Pick up fresh limes?",
+    "sender": "Samira 'Sam' Khan",
+    "senderApp": "WhatsApp",
+    "time": "14:23:15",
+    "type": "notification",
+    "device": "phone",
+    "id": "c28dK1N9snKeOOCxYMkB"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Incoming Call",
+    "sender": "Elodie Bertrand",
+    "senderApp": "Phone",
+    "time": "15:30:05",
+    "type": "notification",
+    "device": "watch",
+    "id": "EPoMuQ8Y6cDL5W1yZGe5"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Incoming Call",
+    "sender": "Elodie Bertrand",
+    "senderApp": "Phone",
+    "time": "15:30:07",
+    "type": "notification",
+    "device": "car infotainment system",
+    "id": "QGc2qaasG8RJZSsFoLw2"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Answer call from Elodie Bertrand",
+    "time": "15:30:10",
+    "type": "audio",
+    "device": "car infotainment system",
+    "id": "BImSG923nGKKcb1Pv4Jr"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Elodie: 'Camille, sorry to call unexpectedly, but I have a major roadblock with the festival banner design. I really need your eyes on this urgently.'",
+    "time": "15:30:11",
+    "type": "audio",
+    "device": "car infotainment system",
+    "id": "REGeFATwNWYGzTtTkyxc"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille: 'A roadblock? Okay, slow down. I'm driving right now. Can you tell me what the issue is, quickly?'",
+    "time": "15:30:25",
+    "type": "audio",
+    "device": "car infotainment system",
+    "id": "fU9A29CzVVYcAk98bC3w"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Elodie: 'It's a layout problem, and I'm worried about the color contrast against the background. I just sent you a mock-up on WhatsApp. It would be much easier if you could see it.'",
+    "time": "15:30:35",
+    "type": "audio",
+    "device": "car infotainment system",
+    "id": "xEJDh7RcUWzdx3QcPv7o"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Elodie Bertrand sent an image.",
+    "sender": "Elodie Bertrand",
+    "senderApp": "WhatsApp",
+    "time": "15:30:40",
+    "type": "notification",
+    "device": "watch",
+    "id": "Ug5j7uv7eiH4bMgga3iB"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille: 'Alright, I see it on my watch. I can't properly review it while driving. I'll pull over at the next safe spot. Give me a minute.'",
+    "time": "15:30:45",
+    "type": "audio",
+    "device": "car infotainment system",
+    "id": "RaumHhgn72iWYKw9shI9"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille: 'Okay, I've pulled over. Let me open this up now.'",
+    "time": "15:31:30",
+    "type": "audio",
+    "device": "phone",
+    "id": "02128qNkQJGUhJnykeZ0"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "biometric unlock",
+    "time": "15:31:35",
+    "type": "wake",
+    "device": "phone",
+    "id": "fK3SYEwOWbXlkUPQ6oGT"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "open WhatsApp, navigate to chat with Elodie Bertrand",
+    "time": "15:31:40",
+    "type": "screen",
+    "device": "phone",
+    "id": "kE6uLKZFV5ONY8Ag13db"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "viewing image sent by Elodie Bertrand (festival banner design)",
+    "time": "15:31:45",
+    "type": "screen",
+    "device": "phone",
+    "id": "0yJiBFnG1653casZ7GDQ"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille: 'Hmm, I see what you mean. The 'Festival du Patrimoine Créole' title feels a bit lost. Have you tried a different font weight or perhaps a darker shade of blue? Also, the 'Gwoka' dancers feel a little too static.'",
+    "time": "15:32:00",
+    "type": "audio",
+    "device": "phone",
+    "id": "e9wWdSuGkcRAoIO2351w"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "typing message in WhatsApp",
+    "time": "15:32:45",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "zlt4O4W4M4MIQ8R6GwS7"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Try making the title font heavier or a darker blue for contrast. The dancers need more dynamism – maybe a slight blur effect to show movement?",
+    "sender": "Camille Dubois",
+    "senderApp": "WhatsApp",
+    "time": "15:32:55",
+    "type": "notification",
+    "device": "phone",
+    "id": "45OB4kCpUaoRRfqrTRgX"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "typing message in WhatsApp",
+    "time": "15:33:05",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "W8UjHc7XI5CFCXXqnOnq"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "What about adding a subtle, vibrant background pattern inspired by madras fabric? It could tie into the heritage theme more.",
+    "sender": "Camille Dubois",
+    "senderApp": "WhatsApp",
+    "time": "15:33:15",
+    "type": "notification",
+    "device": "phone",
+    "id": "AHxzqLtROavQ2JQyzScO"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille: 'Let me know if those suggestions help, Elodie. I need to get back on the road now. Good luck!'",
+    "time": "15:33:20",
+    "type": "audio",
+    "device": "phone",
+    "id": "r45rD6z8fNovdgeqqKJU"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "End call",
+    "time": "15:33:25",
+    "type": "audio",
+    "device": "car infotainment system",
+    "id": "gto12kpxJiJ5vIILd03a"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "incoming call",
+    "sender": "Elodie Bertrand",
+    "time": "15:59:15",
+    "type": "call incoming",
+    "device": "phone",
+    "id": "7i2KCn5aQUFpgTaDm02Z"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<Phone ringtone: a melodic, slightly Caribbean-inspired tune>",
+    "time": "15:59:20",
+    "type": "audio",
+    "device": "phone",
+    "id": "05o3YqXz7Kve7AwizmvM"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Accept call",
+    "time": "15:59:45",
+    "type": "direct command",
+    "device": "phone",
+    "id": "BxDkuEqALnRZV2j1yRYh"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<Sound of car indicators, then engine shutting off. Ambient sounds of distant traffic, light breeze, faint chirping birds. Camille: 'Salut Elodie, non je suis juste en train de me garer. Qu'est-ce qu'il y a avec le design de la bannière?'>",
+    "time": "16:00:05",
+    "type": "audio",
+    "device": "phone",
+    "id": "G53xbrHQBGGeqGJxgePx"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<Elodie's voice on speakerphone, describing a design concept briefly. Camille: 'Ah oui, je vois... tu as envoyé ça sur WhatsApp?'",
+    "time": "16:01:00",
+    "type": "audio",
+    "device": "phone",
+    "id": "RhW0a4SpWhQfn4MyUsU0"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Ouvre WhatsApp",
+    "time": "16:01:30",
+    "type": "direct command",
+    "device": "phone",
+    "id": "iSom3YSI14A3trQpXAML"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "WhatsApp opened, chat with Elodie Bertrand. An image of a festival banner design is displayed.",
+    "time": "16:01:45",
+    "type": "screen",
+    "device": "phone",
+    "id": "C1Odgrwnk0jjLCBDuRI6"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<Camille talking to Elodie, looking at the screen: 'Oui, je vois. Le dégradé est intéressant, mais le texte 'Festival du Patrimoine Créole' pourrait être plus percutant. As-tu essayé une police un peu plus audacieuse?'>",
+    "time": "16:02:15",
+    "type": "audio",
+    "device": "phone",
+    "id": "41zpind0GrVrZHRsEfKE"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Enregistrer message vocal à Elodie Bertrand",
+    "time": "16:03:00",
+    "type": "direct command",
+    "device": "phone",
+    "id": "MWn2MfAoz68Far2xldLN"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<Camille recording voice message: 'Je pense qu'un petit ajustement sur la typographie pour le titre principal, et peut-être un léger contraste supplémentaire pour les images des danseurs. Envoie-moi une autre version quand tu auras le temps.'>",
+    "time": "16:03:05",
+    "type": "audio",
+    "device": "phone",
+    "id": "YGSa3aE3V9Yb4oiqdBNv"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Voice message sent to Elodie Bertrand in WhatsApp.",
+    "time": "16:03:25",
+    "type": "screen",
+    "device": "phone",
+    "id": "HsNjH64ddgbsUfucrsaK"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Raccrocher",
+    "time": "16:03:40",
+    "type": "direct command",
+    "device": "phone",
+    "id": "GucNRYD4VstUaHqlsWJN"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Call ended. WhatsApp chat with Elodie Bertrand still open.",
+    "time": "16:03:45",
+    "type": "screen",
+    "device": "phone",
+    "id": "JQV4JvYps9WuFqoBXgmj"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey Camille, est-ce que tu seras dispo pour discuter du projet de jardin communautaire la semaine prochaine?",
+    "sender": "Javier Morales",
+    "senderApp": "WhatsApp",
+    "time": "16:04:05",
+    "type": "notification",
+    "device": "phone",
+    "id": "lJfbxQfZ8Fja8OdELMBH"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Ferme WhatsApp",
+    "time": "16:04:15",
+    "type": "direct command",
+    "device": "phone",
+    "id": "neMfcPiIEGiU03WbvwFb"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Home screen displayed.",
+    "time": "16:04:20",
+    "type": "screen",
+    "device": "phone",
+    "id": "i7SiatBQUr1nDhvejyPg"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Ouvre Google Maps",
+    "time": "16:04:30",
+    "type": "direct command",
+    "device": "phone",
+    "id": "p5q9c31jKpnjjTdmXHvy"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Google Maps showing route to office. Estimated arrival time updated, showing a slight delay.",
+    "time": "16:04:40",
+    "type": "screen",
+    "device": "phone",
+    "id": "vPTymyR2v2LYqXIOaVTk"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<Sound of car engine starting. Google Maps voice navigation begins: 'Reprendre la route. Tourner à droite au prochain carrefour...'>",
+    "time": "16:04:50",
+    "type": "audio",
+    "device": "phone",
+    "id": "EFYuS50sbNZNOEqLpohs"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "screen on",
+    "time": "16:45:12",
+    "type": "wake",
+    "device": "laptop",
+    "id": "aGTi6a7ZzqLsmuOZreFW"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "login credentials entered",
+    "time": "16:45:25",
+    "type": "keyboard",
+    "device": "laptop",
+    "id": "xIVt97UJtYxxJGQwDzg6"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "open web browser, navigate to email client",
+    "time": "16:45:40",
+    "type": "screen",
+    "device": "laptop",
+    "id": "7w2Ji0J6J7Y4pABFOodg"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "scrolling through inbox, opening email from Antoine Petit",
+    "time": "16:46:05",
+    "type": "screen",
+    "device": "laptop",
+    "id": "fECMsHQzIcZbWGp4EqpS"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille, did you manage to get final numbers from the artisan in Sainte-Anne? Dominique is asking.",
+    "sender": "Antoine Petit",
+    "senderApp": "WhatsApp",
+    "time": "16:46:45",
+    "type": "notification",
+    "device": "phone",
+    "id": "siz8x3tSdgIjUzEHlHC9"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "typing email response to Antoine Petit confirming artisan details",
+    "time": "16:47:02",
+    "type": "keyboard",
+    "device": "laptop",
+    "id": "akFzXXigGzhiYatohERP"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Your post for 'Festival du Patrimoine Créole' is gaining traction! 50 new likes.",
+    "sender": "Pointe-à-Pitre Community Events",
+    "senderApp": "Facebook",
+    "time": "16:47:35",
+    "type": "notification",
+    "device": "phone",
+    "id": "Y5RwJkiEq16m03DB7qyA"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "closing email client, opening Trello application",
+    "time": "16:48:00",
+    "type": "screen",
+    "device": "laptop",
+    "id": "uGUxkq5hVZZM8nUaz7oE"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "navigating to 'Festival du Patrimoine Créole' board",
+    "time": "16:48:25",
+    "type": "screen",
+    "device": "laptop",
+    "id": "fBJXP08y9xCfHUA274Lf"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "updating 'Meet with artisans for exhibition' card, adding notes from Sainte-Anne meeting",
+    "time": "16:48:50",
+    "type": "keyboard",
+    "device": "laptop",
+    "id": "VSEghwcOBvq4SQTSH2SR"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "dragging 'Finalize artist lineup' card from 'In Progress' to 'Done' column",
+    "time": "16:49:15",
+    "type": "screen",
+    "device": "laptop",
+    "id": "M8tTkfu1yzx5R6U3GqpS"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "adding a new task card: 'Draft budget for youth exchange program grant'",
+    "time": "16:49:40",
+    "type": "keyboard",
+    "device": "laptop",
+    "id": "a1PWYkAGTaJemhyx3A3K"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Agent, please add a reminder for me to send the festival banner design feedback to Elodie first thing tomorrow.",
+    "time": "16:50:10",
+    "type": "audio",
+    "device": "laptop",
+    "id": "HpmlqYQzOnx5VODLscEW"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey, just wondering if you had a chance to look at those banner mock-ups I sent? No rush!",
+    "sender": "Elodie Bertrand",
+    "senderApp": "Instagram",
+    "time": "16:50:45",
+    "type": "notification",
+    "device": "phone",
+    "id": "EzIJgDf7CTM3JFMKIUJZ"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "scrolling through 'Grant Applications' board, reviewing 'Youth Cultural Exchange Program' checklist",
+    "time": "16:51:10",
+    "type": "screen",
+    "device": "laptop",
+    "id": "dfiAfY1Km0VlDfel8lSz"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Movement detected: brisk walking. Heart rate: 72 bpm.",
+    "time": "17:45:00",
+    "type": "ambient observation",
+    "device": "watch",
+    "id": "ATCjviV3elinTJN7HWjH"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Bluetooth connected to 'CarLink'.",
+    "time": "17:45:52",
+    "type": "ambient observation",
+    "device": "phone",
+    "id": "MqcF0bOGVWSznomHMkB3"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "CarLink connected. Playing Spotify.",
+    "time": "17:46:18",
+    "type": "screen",
+    "device": "car speaker",
+    "id": "KAdI9SCduVTB90AvAaYn"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Now playing: 'Mizik Péyi' playlist on Spotify.",
+    "time": "17:46:23",
+    "type": "audio",
+    "device": "car speaker",
+    "id": "IYIBSdaSZAVtufFwsDu9"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey Google, navigate to Plage de Grande Anse.",
+    "time": "17:47:05",
+    "type": "voice command",
+    "device": "phone",
+    "id": "k5ZcvG07n2ZJMDUo01bk"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Plage de Grande Anse, Deshaies. The fastest route is 45 minutes. Starting navigation.",
+    "time": "17:47:11",
+    "type": "audio",
+    "device": "car speaker",
+    "id": "zmIdhymfpiAUlmYAJ1kU"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Google Maps displaying route to Plage de Grande Anse.",
+    "time": "17:47:15",
+    "type": "screen",
+    "device": "phone",
+    "id": "sKZ941PlbBlKLkhmXFcD"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "In 200 meters, turn right onto N1.",
+    "time": "17:48:10",
+    "type": "audio",
+    "device": "car speaker",
+    "id": "apOix8Axo8jWeTFtMrYh"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey ma chérie, rough day? Thinking of you. What time are you thinking for dinner?",
+    "sender": "Samira Khan",
+    "senderApp": "WhatsApp",
+    "time": "17:55:35",
+    "type": "notification",
+    "device": "phone",
+    "id": "pIyJzwR6O98aUGVUcS77"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Continue straight for five kilometers.",
+    "time": "18:05:15",
+    "type": "audio",
+    "device": "car speaker",
+    "id": "LasZpTRcxmTA7oqaWWHQ"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Love that festival banner sketch you sent earlier! So vibrant! ✨",
+    "sender": "Elodie Bertrand",
+    "senderApp": "Instagram",
+    "time": "18:15:50",
+    "type": "notification",
+    "device": "phone",
+    "id": "DogSM7tFn3hfYfwKJLLZ"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "In 800 meters, your destination will be on your left.",
+    "time": "18:20:05",
+    "type": "audio",
+    "device": "car speaker",
+    "id": "S4CysMxBOObSAKoQe7dJ"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "You have arrived at your destination.",
+    "time": "18:25:02",
+    "type": "audio",
+    "device": "car speaker",
+    "id": "xhmlWh0JwoCLok4u2Zz8"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Google Maps: Destination Reached. Park nearby.",
+    "time": "18:25:07",
+    "type": "screen",
+    "device": "phone",
+    "id": "d0gDIWxlfwdiRQ0XqcIT"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille taps screen to dismiss navigation and close Google Maps.",
+    "time": "18:25:22",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "pqR4QW6O3qTdhv8QPEwh"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille opens Spotify to pause music.",
+    "time": "18:25:32",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "7RIrBjN56A7mAlyVcCAT"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Music paused.",
+    "time": "18:25:37",
+    "type": "audio",
+    "device": "car speaker",
+    "id": "XlGjR445kuDStBwWWqcA"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "user picks up phone",
+    "time": "19:02:30",
+    "type": "wake",
+    "device": "phone",
+    "id": "GDgefjhFEihBflc9lmw5"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "biometric unlock",
+    "time": "19:02:45",
+    "type": "wake",
+    "device": "phone",
+    "id": "WIZRrj5LzsKsbYP0T8N6"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "open camera app",
+    "time": "19:03:00",
+    "type": "screen",
+    "device": "phone",
+    "id": "Z1nOwS7ZgkB48y6x80kr"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<shutter sound>",
+    "time": "19:03:35",
+    "type": "audio",
+    "device": "phone",
+    "id": "VeQIJsUslbEzD6mcxGk6"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "",
+    "time": "19:03:35",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "AFjm2jBuloXMRASc0ycR"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "",
+    "time": "19:03:45",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "joH7T5gryb5MreqgbxLb"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<shutter sound>",
+    "time": "19:03:45",
+    "type": "audio",
+    "device": "phone",
+    "id": "f6morhMe5gHTLag8xxm2"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<shutter sound>",
+    "time": "19:04:15",
+    "type": "audio",
+    "device": "phone",
+    "id": "iDDty064RffBreAV7ozH"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "",
+    "time": "19:04:15",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "vGUr9Ii2JJtGNdQFCEHz"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Sound of gentle waves, distant laughter and conversation from the beach, birdsong",
+    "time": "19:04:30",
+    "type": "audio",
+    "device": "phone",
+    "id": "8NUUqkYFrqM3swU9x5rs"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "viewing camera roll, scrolling through sunset photos",
+    "time": "19:05:00",
+    "type": "screen",
+    "device": "phone",
+    "id": "vJnmpncQouFKeWxv4xpG"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Task 'Festival Logistics - Vendor Permits' updated: 'Waiting on approval'",
+    "sender": "Antoine Petit",
+    "senderApp": "Trello",
+    "time": "19:05:15",
+    "type": "notification",
+    "device": "phone",
+    "id": "BKEdcCvDuvyRn1BTrpAa"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "open Instagram app",
+    "time": "19:06:00",
+    "type": "screen",
+    "device": "phone",
+    "id": "sCsVm2ennA2IyfwMOSPC"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "selected photo for new post",
+    "time": "19:06:45",
+    "type": "screen",
+    "device": "phone",
+    "id": "728NNxLZBQvfF58OEDxj"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "applying 'Clarendon' filter, adding caption 'Golden hour magic at Grande Anse after a revitalizing swim! ✨ #Guadeloupe #SunsetLover #CreoleLife'",
+    "time": "19:07:15",
+    "type": "screen",
+    "device": "phone",
+    "id": "jTWKDWWd9cYf3wVCFXp7"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "",
+    "time": "19:07:15",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "3TG6bjw8zp2gHAJV9rsb"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "added location 'Plage de Grande Anse, Guadeloupe'",
+    "time": "19:07:45",
+    "type": "screen",
+    "device": "phone",
+    "id": "z2VxU8F1CZSyDniRQOuR"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "",
+    "time": "19:08:15",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "7sQ1aYXnZ66DNZzFIrdg"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Instagram post published",
+    "time": "19:08:15",
+    "type": "screen",
+    "device": "phone",
+    "id": "U6NE7dX7VU9qdsGvsO3x"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey Camille, quick question about that banner design – do you prefer the hibiscus or bougainvillea motif?",
+    "sender": "Elodie Bertrand",
+    "senderApp": "WhatsApp",
+    "time": "19:08:30",
+    "type": "notification",
+    "device": "phone",
+    "id": "iEeztixFJ2IhaYDC433N"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<sound of keys jingling, door closing>",
+    "time": "19:30:05",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "27OcqrHWaApdFsj51o0E"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "phone placed on kitchen counter with a soft thud",
+    "time": "19:30:15",
+    "type": "ambient",
+    "device": "phone",
+    "id": "GnETLS1J8JRIq9wqcvsA"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey Maman! Just finished my dive today, saw some amazing parrotfish! How was your swim?",
+    "sender": "Lila Dubois-Khan",
+    "senderApp": "WhatsApp",
+    "time": "19:30:45",
+    "type": "notification",
+    "device": "phone",
+    "id": "BYsLOxp3q2o9PKJMgM3T"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Love the sunset pic from Grande Anse! Did you get a chance to look at the banner draft? No rush!",
+    "sender": "Elodie Bertrand",
+    "senderApp": "Instagram",
+    "time": "19:31:10",
+    "type": "notification",
+    "device": "phone",
+    "id": "qIjinEIWK9UwwW7rYxlt"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<Camille's voice>: Sam, tu es là? J'ai eu une journée bien remplie!",
+    "time": "19:31:40",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "IkJcssI8ihczA9fRfKzh"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<Samira's voice>: Oui, je suis dans le salon! Comment c'était, la baignade?",
+    "time": "19:32:05",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "T5NXSRAcHnFnPBFQfraM"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<Camille's voice>: Merveilleux, ça m'a vidé la tête. On fait quoi pour le dîner ce soir? J'ai une idée pour un nouveau Colombo de poulet...",
+    "time": "19:32:30",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "E9JI1GHVmn3KY1lHmBTB"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<Samira's voice>: Oh, j'adore! Je peux t'aider avec les légumes. Tu veux de la musique?",
+    "time": "19:33:15",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "zvr5SffAHNhT7ghEsVZr"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<Camille's voice>: Oui, s'il te plaît, mets-moi un peu de Kwak. C'est sur ma playlist 'Créole Kitchen Jams' sur Spotify.",
+    "time": "19:33:40",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "NfuWWlrDlTsm7hNNpIGb"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<Samira's voice>: Ok, Google, joue la playlist 'Créole Kitchen Jams' sur Spotify.",
+    "time": "19:33:55",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "RdLS0buN94Dj5HSpqHWc"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Playing 'Créole Kitchen Jams' on Spotify.",
+    "senderApp": "Google Assistant",
+    "time": "19:34:00",
+    "type": "agent/app notification",
+    "device": "home speaker",
+    "id": "MKC5QiyLqZFVmcKAIU08"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<upbeat Gwoka music begins playing>",
+    "time": "19:34:05",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "VR6NhqxP48pBIKrGw7C3"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<sounds of knives chopping vegetables on a cutting board>",
+    "time": "19:35:20",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "l4vWMQOJZrGcls0Zjclr"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Camille, le marché de St-François a de superbes légumes racines demain si tu as besoin pour ton Colombo!",
+    "sender": "Rémy Gauthier",
+    "senderApp": "WhatsApp",
+    "time": "19:35:55",
+    "type": "notification",
+    "device": "phone",
+    "id": "PtISJk154yxiILxo86vh"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "screen lights up with a new notification, but Camille does not interact with it directly",
+    "time": "19:36:30",
+    "type": "wake",
+    "device": "phone",
+    "id": "cOqmp4geFhzctkbUJfTO"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<sound of a pan heating up, sizzling as ingredients are added>",
+    "time": "19:37:00",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "9XPvs9Gfv3Y8LKavqAvE"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "C'était comment ta journée aujourd'hui, Sam? As-tu eu des nouvelles de ta sœur?",
+    "time": "20:30:45",
+    "type": "audio",
+    "device": "phone",
+    "id": "LvKkuh53uP5lSb2k3quO"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Bien remplie, mais j'ai réussi à avancer sur le projet X. Et toi, comment s'est passée la réunion avec l'artisan? J'espère que tu as trouvé de belles pièces.",
+    "time": "20:31:30",
+    "type": "audio",
+    "device": "phone",
+    "id": "vPm9GIzbq77pATZMNx3Z"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Très bien, leur travail est magnifique. On a discuté de leur stand pour l'expo. Ah, et Lila m'a envoyé un message ce matin, elle disait qu'elle avait un peu de temps ce soir, on devrait l'appeler.",
+    "time": "20:32:15",
+    "type": "audio",
+    "device": "phone",
+    "id": "RxFouHKXyujLprBQQz7d"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "phone picked up",
+    "time": "20:33:05",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "tbHyoXVCQHoQ5CxDENVj"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey Google, appelle Lila sur WhatsApp",
+    "time": "20:33:10",
+    "type": "audio",
+    "device": "phone",
+    "id": "FXfaOhZeWYsClQe9teQp"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "WhatsApp video call initiating with Lila Dubois-Khan",
+    "time": "20:33:15",
+    "type": "screen",
+    "device": "phone",
+    "id": "HYvWxq8soFGaWHVF8PwZ"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Salut Lila! Comment ça va les études? Le projet sur les coraux avance bien? On a pensé à toi en préparant le dîner, on a fait des accras!",
+    "time": "20:33:25",
+    "type": "audio",
+    "device": "phone",
+    "id": "DZYyNte6O8tcMqYC3cEr"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Oui, j'ai vu ta photo de la Plage de Grande Anse, magnifique! Tu as bien fait de prendre ce moment pour toi après le travail. Et Samira est là aussi, elle te salue!",
+    "time": "20:35:00",
+    "type": "audio",
+    "device": "phone",
+    "id": "c9cJJvTF7jb4IhgMMBmw"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "On espère que tout va bien, on t'embrasse fort! Rappelle-nous quand tu as des nouvelles de ton projet de recherche.",
+    "time": "20:36:45",
+    "type": "audio",
+    "device": "phone",
+    "id": "ZFk6HHrDLOeyKD2Lzip8"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "WhatsApp video call ended with Lila Dubois-Khan",
+    "time": "20:37:30",
+    "type": "screen",
+    "device": "phone",
+    "id": "dQSZvQIaIVGrzpOzIbBP"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Salut Camille, juste une question rapide sur l'emplacement de la bannière du festival, quand tu auras un moment. Pas urgent, mais j'aimerais avoir ton avis.",
+    "sender": "Antoine Petit",
+    "senderApp": "WhatsApp",
+    "time": "20:37:45",
+    "type": "notification",
+    "device": "phone",
+    "id": "yYDZCeX3bBdYWS5CLg1K"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "C'était sympa de la voir! Elle a l'air contente et passionnée par ses études. C'est bien de prendre de ses nouvelles régulièrement.",
+    "time": "20:38:15",
+    "type": "audio",
+    "device": "phone",
+    "id": "nNhqe8MUY59k14ZyeuFt"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "biometric unlock",
+    "time": "21:45:18",
+    "type": "wake",
+    "device": "phone",
+    "id": "ryBEXFn3PhCzfAKOsKjJ"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "open Instagram app",
+    "time": "21:45:25",
+    "type": "screen",
+    "device": "phone",
+    "id": "rknp5G0j10Co2qJESQoh"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "scrolling Instagram feed",
+    "time": "21:45:40",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "itItTeisJabHaMSK0tvD"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "accessing camera roll, selecting sunset photo from Grande Anse",
+    "time": "21:46:32",
+    "type": "screen",
+    "device": "phone",
+    "id": "PAArlPYnYMoyUEy8kZNv"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "typing caption: \"Pure bliss after a long day! 🌅 Plage de Grande Anse delivering magic as always. #Guadeloupe #SunsetVibes #IslandLife\"",
+    "time": "21:46:55",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "C9vJGVm7fnWqE6y8la8Z"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Instagram post published",
+    "time": "21:47:15",
+    "type": "screen",
+    "device": "phone",
+    "id": "9cKf5DlOBuEMAMxZ4d4w"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "❤️ Ton coucher de soleil est magnifique, Camille!",
+    "sender": "Elodie Bertrand",
+    "senderApp": "Instagram",
+    "time": "21:47:20",
+    "type": "notification",
+    "device": "phone",
+    "id": "kKAzf8igx6KObBjzvloe"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey Camille, juste pour confirmer notre rdv la semaine pro, même heure?",
+    "sender": "Javier Morales",
+    "senderApp": "WhatsApp",
+    "time": "21:47:35",
+    "type": "notification",
+    "device": "phone",
+    "id": "aFDbrNWz5VHqZwAZnVRH"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Superbe cliché Camille! Parfait pour la promotion de notre belle île 🇬🇵",
+    "sender": "guadeloupe_culture_events",
+    "senderApp": "Instagram",
+    "time": "21:48:10",
+    "type": "notification",
+    "device": "phone",
+    "id": "jCeVpfCmdXJBQAN8RAak"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Nouvel événement publié: Soirée Contes Créoles Traditionnels",
+    "sender": "Guadeloupe Heritage Collective",
+    "senderApp": "Facebook",
+    "time": "21:50:05",
+    "type": "notification",
+    "device": "phone",
+    "id": "J20taWS9nv7MGUgxkDl2"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "swiping to home screen",
+    "time": "21:55:10",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "Qlv7TR6cdhMgd1Jof7bU"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "open Netflix app",
+    "time": "21:55:25",
+    "type": "screen",
+    "device": "phone",
+    "id": "TSINJVi86LPbxpFZMlYE"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Netflix app: casting to Living Room TV",
+    "time": "21:55:40",
+    "type": "screen",
+    "device": "phone",
+    "id": "SzBf9H5TOOMnak2vNc38"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Netflix app opened, Camille's profile selected",
+    "time": "21:55:45",
+    "type": "screen",
+    "device": "TV",
+    "id": "aq10c6p4fD3RUaLai6dl"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "navigating Netflix interface via remote control function on phone",
+    "time": "21:56:10",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "1Y4LzQcfpE0QT4kfqhL0"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "selecting \"Lupin\" S4 E3",
+    "time": "21:56:30",
+    "type": "screen",
+    "device": "TV",
+    "id": "AYPOqKhwPfiFcltM6Ez4"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Netflix episode started",
+    "time": "21:56:45",
+    "type": "screen",
+    "device": "TV",
+    "id": "Rpusw3OTE9Ob49WfREeR"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "television audio: \"...Ceci est un coup monté. Nous devons trouver qui est derrière tout ça.\" [Dramatic French dialogue from TV show]",
+    "time": "21:57:05",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "POfvCpM8aYJ3bkqUiMI0"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Salut Maman, j’ai une super nouvelle à te raconter demain ! Trop hâte !",
+    "sender": "Lila Dubois-Khan",
+    "senderApp": "WhatsApp",
+    "time": "22:05:30",
+    "type": "notification",
+    "device": "phone",
+    "id": "zrITqjx7uTJ8bzUKrM02"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "television audio: \"[Upbeat, suspenseful background music, followed by a sudden sound effect]\"",
+    "time": "22:15:00",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "B058h5sSM2LOKYRfswwc"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Presque fini mon chapitre, j'arrive bientôt. Du popcorn?",
+    "sender": "Samira Khan",
+    "senderApp": "WhatsApp",
+    "time": "22:20:45",
+    "type": "notification",
+    "device": "watch",
+    "id": "9SlQqAtLYnsV8dTAe2i8"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "device placed gently on bedside table",
+    "time": "22:45:03",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "j3QWgsfLqZ6ftlxyuhnk"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "faint rustle of bedcovers, sound of a physical book being opened",
+    "time": "22:45:15",
+    "type": "ambient audio",
+    "device": "phone",
+    "id": "qoVGwpIvxtkycBONzHI2"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Sleep well, my love. Dream of waterfalls. ❤️",
+    "sender": "Samira 'Sam' Khan",
+    "senderApp": "WhatsApp",
+    "time": "22:45:30",
+    "type": "notification",
+    "device": "watch",
+    "id": "IlaZXAEu6za7R0Yfrx9W"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Just finished my last chapter for marine bio! Hope you had a great day Maman. See you soon. x",
+    "sender": "Lila Dubois-Khan",
+    "senderApp": "WhatsApp",
+    "time": "22:45:35",
+    "type": "notification",
+    "device": "phone",
+    "id": "e5PqLFhoH623sbcOIGeA"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "phone screen briefly illuminates then darkens as notification dismissed",
+    "time": "22:46:00",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "BkBaxhPC6h173RZVYAK9"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "distant chirping of crickets, sound of a gentle night breeze through an open window",
+    "time": "22:46:45",
+    "type": "ambient audio",
+    "device": "home speaker",
+    "id": "fPgIhWRI68e4va3Aedyl"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "slowed breathing, occasional soft rustle of sheets",
+    "time": "22:50:10",
+    "type": "ambient audio",
+    "device": "phone",
+    "id": "NcclbprUvAzfJnlVHiwQ"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "deep, regular breathing indicating sleep",
+    "time": "22:52:00",
+    "type": "ambient audio",
+    "device": "watch",
+    "id": "A6YiTlVfmP2mCmgCO8H9"
+  }
+]

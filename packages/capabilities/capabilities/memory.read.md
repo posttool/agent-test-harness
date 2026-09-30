@@ -3,6 +3,7 @@ id: memory.read
 title: Read from memory
 role: loop
 outputSchema: MemoryReadResult
+activity: Remembering
 whenToUse: The task needs what we already know about the user's world, such as preferences, people, routines, active documents or upcoming dates.
 ---
 ## Instructions

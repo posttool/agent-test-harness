@@ -1,0 +1,2149 @@
+[
+  {
+    "date": "2025-11-07",
+    "data": "<gentle melody alarm>",
+    "time": "06:45:00",
+    "type": "audio",
+    "device": "phone",
+    "id": "tgEX0EhnlBXdehsOinmI"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "dismiss alarm",
+    "time": "06:45:03",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "R0Hq8c6jECsQqWZgb6yY"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "biometric unlock",
+    "time": "06:45:06",
+    "type": "wake",
+    "device": "phone",
+    "id": "TgPji33NAENmykzRe9yq"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "lock screen with notifications displayed",
+    "time": "06:45:08",
+    "type": "screen",
+    "device": "phone",
+    "id": "CrVARpFzCw9qndQXZ9xy"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Morning! Don't forget your Chem notes, love.",
+    "sender": "Karen Cheung",
+    "senderApp": "WhatsApp",
+    "time": "06:45:10",
+    "type": "notification",
+    "device": "phone",
+    "id": "g1gI1Jb80fg85a8CgxIi"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey, did you finish that character concept? I'm stuck on mine lol",
+    "sender": "Chloe Wong",
+    "senderApp": "WhatsApp",
+    "time": "06:45:11",
+    "type": "notification",
+    "device": "phone",
+    "id": "kTFjFwDdZF47FP3k8WKU"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "open WhatsApp app",
+    "time": "06:45:13",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "afUTm4Vv9e2qAjdHmYyV"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "WhatsApp chat list, scrolling through recent messages",
+    "time": "06:45:15",
+    "type": "screen",
+    "device": "phone",
+    "id": "1PmwwtYN7MNvg66zYdLp"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "switch to Instagram app",
+    "time": "06:45:25",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "kK9Xzshf91N63iRhodc5"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Instagram feed, displaying new art posts",
+    "time": "06:45:27",
+    "type": "screen",
+    "device": "phone",
+    "id": "Q0Lm3Wcy63NoHhOG9HcY"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "scroll Instagram feed",
+    "time": "06:45:45",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "MQsysrpJElyqchPZilg2"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Instagram - viewing a fan art post",
+    "time": "06:46:10",
+    "type": "screen",
+    "device": "phone",
+    "id": "KavEG5xjLfLpLGVyO4Be"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "scroll Instagram feed",
+    "time": "06:46:30",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "duW2DVHflOyx7jFLabiT"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "distant voices of family members, '...pop quiz, it's not fair!'",
+    "time": "06:46:55",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "NkBAuvkp62RZqTJpTKv5"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Maya: Ugh, a pop quiz on a Friday? This is so unfair! / Mother: Maya, calm down and eat your toast. / Father: Jamie, are you ready for school?",
+    "time": "07:05:18",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "ILa3mDxSWlwYcHGkkPDC"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey! Saw a cool art challenge online, reminds me of your style. Link later? Good luck with Chem today!",
+    "sender": "Chloe Wong",
+    "senderApp": "WhatsApp",
+    "time": "07:06:05",
+    "type": "notification",
+    "device": "phone",
+    "id": "E0OL6pMwQfhMTFGEqTbK"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie: Yeah, almost done. Maya, it's just one quiz, you'll manage. / Maya: Easy for you to say! / Mother: David, did you remember to buy milk yesterday?",
+    "time": "07:06:52",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "vgFOp0bRvfxIPe67mk1G"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey, play some study beats.",
+    "time": "07:30:15",
+    "type": "command",
+    "device": "home speaker",
+    "id": "OXveXiDVOnGT6aYF7wiP"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Now playing 'Lo-fi Study Beats' playlist.",
+    "time": "07:30:20",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "0oohcbzkaK1qwb6q5O4n"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Sound of clothes rustling, faint clinking of hangers from Jamie's wardrobe.",
+    "time": "07:31:05",
+    "type": "audio",
+    "device": "ambient",
+    "id": "LFMADUTYVolBeQFzWXe4"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Still can't believe we had that pop quiz this morning. So unfair. 😭",
+    "sender": "Maya Lee",
+    "senderApp": "WhatsApp",
+    "time": "07:32:40",
+    "type": "notification",
+    "device": "watch",
+    "id": "sZgzG5v6FtC1OojConRL"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Rustling of papers and books as Jamie packs her bag. Sound of a zipper.",
+    "time": "07:33:10",
+    "type": "audio",
+    "device": "ambient",
+    "id": "12kLwpZ99uP0XyGMAsVg"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "New post: 'Capturing the energy of Mong Kok street art!' with a carousel of photos.",
+    "sender": "design_inspirations_hk",
+    "senderApp": "Instagram",
+    "time": "07:34:55",
+    "type": "notification",
+    "device": "phone",
+    "id": "y6hlqmtSGpxB6Dd9bCKx"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Sound of turning pages of a notebook, Jamie softly mumbling Chemistry formulas.",
+    "time": "07:36:00",
+    "type": "audio",
+    "device": "ambient",
+    "id": "VJI1LIEqDbdhGVUC8RQ6"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Island Line: Minor signal delay near Admiralty. Expect 5-10 min added travel time.",
+    "sender": "MTR Service Update",
+    "senderApp": "MTR Mobile",
+    "time": "07:37:10",
+    "type": "notification",
+    "device": "watch",
+    "id": "apbOEVVXsdaXEFoGhYfW"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Sound of a backpack being lifted and shifted onto shoulders.",
+    "time": "07:38:20",
+    "type": "audio",
+    "device": "ambient",
+    "id": "jcIZrAHl33p5Bv7y9Xkp"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Sound of a residential building door closing, followed by soft footsteps on pavement.",
+    "time": "07:50:05",
+    "type": "ambient audio",
+    "device": "environmental",
+    "id": "5tvwPcfMSVAUmO84rc0r"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Upbeat lo-fi hip-hop music begins playing automatically.",
+    "time": "07:50:15",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "CRQJczAu2Vi6CWguihjz"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Distant sound of MTR train passing, general city hum with occasional car horns and Cantonese chatter.",
+    "time": "07:50:50",
+    "type": "ambient audio",
+    "device": "environmental",
+    "id": "sQV2tVZsYzhPZoH1eSk0"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Vibrant, colourful street art mural depicting a stylized dragon on a metal shop shutter catches attention.",
+    "time": "07:51:30",
+    "type": "ambient visual",
+    "device": "glasses",
+    "id": "eKq7PFh4J2ahKrWwynHP"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Another, smaller, intricate stencil piece of a 'Hong Kong style' cartoon character nearby.",
+    "time": "07:51:45",
+    "type": "ambient visual",
+    "device": "glasses",
+    "id": "jArTT6byNhNmv9S78Lif"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "New photo post: Fresh murals just dropped in Sheung Wan! #HKStreetArt",
+    "sender": "StreetArtHK_Feed",
+    "senderApp": "Instagram",
+    "time": "07:52:10",
+    "type": "notification",
+    "device": "phone",
+    "id": "vojHICSKlVKcTlo53oRt"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey! Just saw an MTR alert, minor signal delay near Admiralty. Hope you're not stuck!",
+    "sender": "Chloe Wong",
+    "senderApp": "WhatsApp",
+    "time": "07:52:55",
+    "type": "notification",
+    "device": "phone",
+    "id": "UmAXvskSpwWXmzS4UUhn"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Sound of a trolley cart rattling past, smell of freshly baked pineapple buns from a nearby bakery.",
+    "time": "07:53:30",
+    "type": "ambient audio",
+    "device": "environmental",
+    "id": "9MpUUi8Xkt3xq1Sz8zGa"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "A new lo-fi track with a chill synth melody begins.",
+    "time": "07:54:15",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "l1zvkgzehosxruERQ37z"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<Lo-fi beats music playing>",
+    "time": "08:05:05",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "Serd2JUaY1eiMWjd7GNf"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<MTR train doors closing, 'Please mind the gap' announcement in Cantonese and English, train starts moving>",
+    "time": "08:05:15",
+    "type": "audio",
+    "device": "ambient",
+    "id": "PJWkN0dDlhiBv3vp2tub"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<Rumble of MTR train, distant chatter of passengers, hum of ventilation fan>",
+    "time": "08:07:40",
+    "type": "audio",
+    "device": "ambient",
+    "id": "nCgxus4jrLlmuC4cBSuK"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Music volume slightly lowers, a system chime plays before announcement",
+    "time": "08:10:00",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "jWD5mTXZtDaPFPaLRYFR"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Attention passengers, we regret to inform you of a minor signal delay near Admiralty station. Your journey may experience slight delays. We apologize for any inconvenience caused. Thank you for your understanding.",
+    "time": "08:10:05",
+    "type": "audio",
+    "device": "ambient",
+    "id": "drHJQLFdZChzgmjNBZmy"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "MTR Service Alert: Minor signal delay near Admiralty. Expect slight delays on Island Line. (港鐵服務快訊：金鐘站附近有輕微信號延誤。預計行程將有輕微延誤。)",
+    "senderApp": "MTR Mobile",
+    "time": "08:10:30",
+    "type": "notification",
+    "device": "phone",
+    "id": "ZgrR2GGRLXtA490GGZ2l"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Biometric unlock (Face ID or fingerprint)",
+    "time": "08:10:45",
+    "type": "wake",
+    "device": "phone",
+    "id": "AHRGrkg6Xco44zYow7jh"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Opens MTR Mobile app to check route status and estimated arrival time",
+    "time": "08:10:50",
+    "type": "screen",
+    "device": "phone",
+    "id": "lEfgJlGyq5vWQf8gI9A5"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Swipes down to refresh MTR Mobile app for updated information",
+    "time": "08:11:15",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "YRGwsaw7azOKV7LuZocX"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey, u on the MTR? Heard there's a delay for Admiralty 😟 hope u not too late for first period!",
+    "sender": "Chloe Wong",
+    "senderApp": "WhatsApp",
+    "time": "08:12:00",
+    "type": "notification",
+    "device": "phone",
+    "id": "pZKkGvfxFGWimnQrnk0z"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Navigates to WhatsApp chat with Chloe Wong",
+    "time": "08:12:15",
+    "type": "screen",
+    "device": "phone",
+    "id": "wdLE8LSg7LPf3hOFXQOo"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Keyboard haptic feedback as user begins typing",
+    "time": "08:12:25",
+    "type": "haptic",
+    "device": "phone",
+    "id": "Pr4i1f0apnVRwlnZoJjb"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Typing message to Chloe: 'Yeah, just got the announcement. Guess I'll be a bit late for first period 😩 See you soon though!'",
+    "time": "08:12:30",
+    "type": "screen",
+    "device": "phone",
+    "id": "XvTzZAAS2VWGLisYNPsV"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Taps 'Send' button",
+    "time": "08:12:40",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "a9UrglJlcZTSBOPmfesM"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<Lo-fi beats music resumes normal volume>",
+    "time": "08:13:00",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "xpJQsMMCGW0Ql6GbSiJ3"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<MTR train continues moving, occasional station announcement for next stop, general background noise of passengers>",
+    "time": "08:15:30",
+    "type": "audio",
+    "device": "ambient",
+    "id": "TPg1Iz4U0CiXg0RVXicQ"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "New post: 'Check out the vibrant new mural near Graham Street! #HKStreetArt'",
+    "sender": "hongkong_streetart_gallery",
+    "senderApp": "Instagram",
+    "time": "08:20:00",
+    "type": "notification",
+    "device": "phone",
+    "id": "RixeUDADwVN54ex7RKMr"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "ambient sound of busy school corridor, students chatting, lockers closing, distant bell",
+    "time": "08:35:05",
+    "type": "audio",
+    "device": "watch",
+    "id": "Cs43SED6oMSsqAMlHZ5R"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Chloe: Hey Jamie, you just made it! MTR delay again?",
+    "time": "08:35:15",
+    "type": "audio",
+    "device": "watch",
+    "id": "RzCCkmGhQUJz9EU5bkRr"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie: Yeah, total chaos near Admiralty. Almost missed first period!",
+    "time": "08:35:20",
+    "type": "audio",
+    "device": "watch",
+    "id": "PdjR3vHndyaAKRVrKKfV"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Chloe: Ugh, annoying. You still good for the cat cafe this weekend?",
+    "time": "08:35:28",
+    "type": "audio",
+    "device": "watch",
+    "id": "Shdf0sTdH5TWVvTQFKKw"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie: Definitely! Can't wait. We need to book a time.",
+    "time": "08:35:33",
+    "type": "audio",
+    "device": "watch",
+    "id": "7XxnhCSvDCgdqlmjsipP"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Chloe: Yeah, I’ll text you later. Let’s head in, Mr. Lam will kill us.",
+    "time": "08:35:40",
+    "type": "audio",
+    "device": "watch",
+    "id": "LZOtGfJ3VRkRoQyZUCVi"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie: Phew, close one. See you in Physics!",
+    "time": "08:35:45",
+    "type": "audio",
+    "device": "watch",
+    "id": "kdtuq7bPc49VK1SY4zHh"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "U still up for game after school? New patch just dropped!",
+    "sender": "Ethan Chan",
+    "senderApp": "WhatsApp",
+    "time": "08:35:50",
+    "type": "notification",
+    "device": "phone",
+    "id": "mCTQ0X9DbbUAA94WrpCB"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "New post: Exploring vibrant street art in Sheung Wan this morning! #HKStreetArt",
+    "sender": "creative_hongkong_art",
+    "senderApp": "Instagram",
+    "time": "08:35:58",
+    "type": "notification",
+    "device": "phone",
+    "id": "X73z38BHiEQRpDreAE7e"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Teacher: '...the valency of elements is determined by the number of electrons in their outermost shell, impacting their reactivity...'",
+    "time": "08:46:15",
+    "type": "audio",
+    "device": "watch",
+    "id": "wpQPokZxVPd4OURKsgiX"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Did you get stuck on that last boss in 'Starlight Echoes' yet? So frustrating!",
+    "sender": "Ethan Chan",
+    "senderApp": "WhatsApp",
+    "time": "08:55:20",
+    "type": "notification",
+    "device": "watch",
+    "id": "A1bEromHc6bl5rkn0Y6O"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Teacher: '...and remember, a solid grasp of these principles will be crucial for your upcoming mid-term assessment.'",
+    "time": "09:05:00",
+    "type": "audio",
+    "device": "watch",
+    "id": "mJSnzRRWlLqOtR485wLp"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Cafeteria chatter, clatter of trays, distant PA system announcements. (Ethan) 'Hey Jamie, Chloe, did you guys see the trailer for 'Starlight Drifter'? It looks like a cool new indie visual novel.' (Chloe) 'Oh, not yet! Is it similar to the one we played last month?'",
+    "time": "12:30:15",
+    "type": "audio",
+    "device": "phone",
+    "id": "gXf50JdixZlimoHuQ5VH"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "😩 Algebra is literally killing me. Remind me to ask you about Q7 later.",
+    "sender": "Maya Lee",
+    "senderApp": "WhatsApp",
+    "time": "12:31:40",
+    "type": "notification",
+    "device": "phone",
+    "id": "nn3rFpDpr640Qa32hF9C"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "(Jamie) 'Oh, not that one yet, Ethan. I'm still stuck on 'Pixel Knight Adventures'. But speaking of games, I'm thinking of incorporating some fantasy elements into my art competition piece, maybe like a guardian character from a lost world.' (Chloe) 'That sounds cool! What kind of expression are you aiming for?'",
+    "time": "12:32:00",
+    "type": "audio",
+    "device": "phone",
+    "id": "Qlz1MUNynTOKkvLUi0Yd"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "New post: 'WIP character design for a new webtoon! Let me know what you think of her armor!'",
+    "sender": "artof_lyra (Artist she follows)",
+    "senderApp": "Instagram",
+    "time": "12:33:55",
+    "type": "notification",
+    "device": "phone",
+    "id": "467F1Sra85fT6q7gEZv1"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "(Jamie) 'I'm thinking something determined, but also a bit melancholic. Maybe with intricate armor details that tell a story.' (Ethan) 'You should check out the concept art for 'Emberwind', the characters have amazing lore conveyed just through their outfits.' (Chloe) 'Definitely! And don't forget we need to finalize our cat cafe plans. So excited to go!'",
+    "time": "12:35:10",
+    "type": "audio",
+    "device": "phone",
+    "id": "yCaWnV4U62drYHQm9Crx"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey, reminder about the Queer Youth Space HK meetup tonight. Looking forward to seeing you!",
+    "sender": "Sam Leung",
+    "senderApp": "Discord",
+    "time": "12:36:30",
+    "type": "notification",
+    "device": "watch",
+    "id": "zntiCBcoaQsQ2EBN8wdU"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "(Jamie) 'Oh yeah! I just got a notification from Sam about the meetup too. For the cat cafe, are we still good for Saturday afternoon around 2 PM?' (Chloe) 'Perfect! I've already saved some cute cat pictures to show you guys.' (Ethan) 'As long as there's good coffee, I'm in!'",
+    "time": "12:37:45",
+    "type": "audio",
+    "device": "phone",
+    "id": "gVXciAflTtBmGS9Im4tz"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Sent you HKD 50 for your lunch today. Don't forget those groceries your mom mentioned!",
+    "sender": "Mr. David Lee (Father)",
+    "senderApp": "PayMe by HSBC",
+    "time": "12:39:05",
+    "type": "notification",
+    "device": "phone",
+    "id": "EN5quCQtHHF1bE8FKXyh"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "(Jamie) 'Thanks, Dad! Just got his PayMe notification. Looks like I'll be grabbing those groceries after school.' (Chloe) 'Oh, good luck with your Chemistry mid-term too, Jamie! You've been studying hard.' (Ethan) 'Yeah, don't burn yourself out!' General laughter and sounds of packing up lunch things.",
+    "time": "12:40:10",
+    "type": "audio",
+    "device": "phone",
+    "id": "eHSPj0P1j847CZEAjTqB"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<earbuds are in Jamie's bag or pocket, not in use>",
+    "time": "13:30:15",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "jXKtIbUHVuGbA99331pH"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<phone is in Jamie's bag or pocket, on silent>",
+    "time": "13:30:45",
+    "type": "audio",
+    "device": "phone",
+    "id": "3pQqhfD5tNyTkgS4HFSs"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Good afternoon, class. Today we're continuing our discussion on Newton's Laws of Motion. Please turn to page 112 in your textbooks.",
+    "time": "13:31:02",
+    "type": "audio",
+    "device": "classroom",
+    "id": "xOax0TiL3im3Jf0JhRXb"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<sound of pages rustling, pens writing on paper>",
+    "time": "13:32:10",
+    "type": "audio",
+    "device": "classroom",
+    "id": "0ymQOCBad6B7IFqUk0O0"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Still buzzing about the cat cafe idea! Which day works best for you? 😊",
+    "sender": "Chloe Wong",
+    "senderApp": "WhatsApp",
+    "time": "13:35:30",
+    "type": "notification",
+    "device": "watch",
+    "id": "hk6E81Uy3FGLFsTH6vZo"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Still buzzing about the cat cafe idea! Which day works best for you? 😊",
+    "sender": "Chloe Wong",
+    "senderApp": "WhatsApp",
+    "time": "13:35:35",
+    "type": "notification",
+    "device": "phone",
+    "id": "VLh0s8MTVKTOZ83sepnI"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie, could you summarize the third law for us?",
+    "time": "13:40:15",
+    "type": "audio",
+    "device": "classroom",
+    "id": "dcSWeEjF30oSEa1AUnDX"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Uh, yes, Mr. Chan. For every action, there is an equal and opposite reaction.",
+    "time": "13:40:20",
+    "type": "audio",
+    "device": "classroom",
+    "id": "RJn2IKRk1qGOWesbIRvG"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Dude, you won't BELIEVE this indie game trailer I just saw. It's got major visual novel vibes.",
+    "sender": "Ethan Chan",
+    "senderApp": "Discord",
+    "time": "13:55:08",
+    "type": "notification",
+    "device": "watch",
+    "id": "Vkr50SHN1RT0KlqT1h71"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Dude, you won't BELIEVE this indie game trailer I just saw. It's got major visual novel vibes.",
+    "sender": "Ethan Chan",
+    "senderApp": "Discord",
+    "time": "13:55:12",
+    "type": "notification",
+    "device": "phone",
+    "id": "tZPtvokzkLuL16lJfezK"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<teacher explaining a complex formula, students murmuring as they take notes>",
+    "time": "14:10:05",
+    "type": "audio",
+    "device": "classroom",
+    "id": "RFbE7UAfHSry7xQ9nOES"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Remember to review chapters 7 and 8 for our upcoming quiz next week. Any questions before we finish today?",
+    "time": "14:25:40",
+    "type": "audio",
+    "device": "classroom",
+    "id": "ttOYjqybPli3oCIG3n41"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Sounds of school bell ringing, distant chatter of students, lockers closing, footsteps.",
+    "time": "15:30:05",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "FURd5zvAWLcX9lG0jH9r"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "fingerprint unlock",
+    "time": "15:30:15",
+    "type": "wake",
+    "device": "phone",
+    "id": "6IEXzG1e16sAi7HDaD08"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "tap WhatsApp icon",
+    "time": "15:30:20",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "gJIhHhz9pTzy7R4a4Qkl"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "scroll contact list, tap Chloe Wong's chat",
+    "time": "15:30:23",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "wEE80DHl558LoUog7FxQ"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey! Just finished school. Cat cafe still on for [specific day, e.g., Sat]?",
+    "time": "15:30:30",
+    "type": "text input",
+    "device": "phone",
+    "id": "B4405Lw3Q6ylJD0NxNRq"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "send message",
+    "time": "15:30:35",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "CubPlUb24yzVbw0JQ1Jr"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Yep! Super excited! Let's aim for 2 PM? We can check out that street art nearby after too.",
+    "sender": "Chloe Wong",
+    "senderApp": "WhatsApp",
+    "time": "15:30:45",
+    "type": "notification",
+    "device": "phone",
+    "id": "G47tbDGST0QCZb7F3qpp"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Sounds perfect! See you then :)",
+    "time": "15:30:50",
+    "type": "text input",
+    "device": "phone",
+    "id": "YK7YNESWjAwidJtXKG3f"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "send message",
+    "time": "15:30:53",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "JkcnEj9M561IZtMoOmIN"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Distant school announcements, students' laughter, general afternoon school dismissal sounds.",
+    "time": "15:31:00",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "Xwrdgf4N6CbZ4MGqr3sg"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "playing lo-fi beats playlist: 'Study & Chill Vibes'",
+    "time": "15:55:12",
+    "type": "playback",
+    "device": "earbuds",
+    "id": "4z5nn6yv6cMqEkxB5shz"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "[MTR announcement] 'Next station, Central. Doors will open on the left. Please mind the gap.'",
+    "time": "15:55:35",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "yKlrww85V28kZaPdGlS8"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "[ambient] 'MTR doors closing chime', 'muffled commuter chatter and train hum'",
+    "time": "15:56:10",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "bzG1W6eyeiUEEbcqwutt"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey, Cat cafe on Saturday still good? 🥰 Can't wait! Thinking of what art to bring.",
+    "sender": "Chloe Wong",
+    "senderApp": "WhatsApp",
+    "time": "15:57:05",
+    "type": "notification",
+    "device": "phone",
+    "id": "f7ooyWKv59njWO7EFLhO"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Yo, finished that game demo we talked about? Got some wild theories about the ending lol",
+    "sender": "Ethan Chan",
+    "senderApp": "Discord",
+    "time": "15:59:40",
+    "type": "notification",
+    "device": "phone",
+    "id": "BXcRsYJvKs52wSjFi7ad"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "[MTR announcement] 'Causeway Bay. Please mind the gap between the train and the platform. Causeway Bay.'",
+    "time": "16:01:25",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "eXbUEHUDcUulSwuVqNw3"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "New post from art_of_liam: 'Experimenting with cyberpunk aesthetics for my next character! What do you think? #digitalart #characterdesign'",
+    "sender": "art_of_liam (notification for new post)",
+    "senderApp": "Instagram",
+    "time": "16:03:00",
+    "type": "notification",
+    "device": "phone",
+    "id": "r9PvaRDJJRZ3Ee16ClOz"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "song transition to 'Rainy Day Cafe Jazz' by Lo-fi Hip Hop Beats",
+    "time": "16:05:15",
+    "type": "playback",
+    "device": "earbuds",
+    "id": "yVVPnuBeHAGfhI9OGlwM"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamieeeee where r u? Mom said u have to help me with my math later 😩 It's impossible!",
+    "sender": "Maya Lee",
+    "senderApp": "WhatsApp",
+    "time": "16:06:50",
+    "type": "notification",
+    "device": "phone",
+    "id": "feRbqFZ8LZJQtWzra0lo"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Music pauses, then disconnect sound",
+    "time": "16:20:00",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "VWALlVmirdNXtWClj2zS"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "screen on, placed on counter",
+    "time": "16:20:07",
+    "type": "wake",
+    "device": "phone",
+    "id": "kgN0i2U4d3UoojDUA2wj"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Chloe Wong posted a new story: 'Rough sketch update! What do you guys think of this pose? 🤔'",
+    "sender": "art_by_chloe",
+    "senderApp": "Instagram",
+    "time": "16:20:10",
+    "type": "notification",
+    "device": "phone",
+    "id": "LYABBqLflpBY8lNzpHsJ"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie, welcome home! How was school today?",
+    "time": "16:20:25",
+    "type": "audio",
+    "device": "phone",
+    "id": "o0cqm23vxbEYW6VEhMZZ"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey Mom! It was okay. Chemistry was a bit much, but I think I got the Physics stuff.",
+    "time": "16:20:30",
+    "type": "audio",
+    "device": "phone",
+    "id": "PEbKWeft4m3kAF3Efgge"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Good to hear. Oh, before I forget, could you quickly pick up some groceries for dinner later? Just milk and some vegetables from the convenience store.",
+    "time": "16:20:35",
+    "type": "audio",
+    "device": "phone",
+    "id": "hNbXd4Q7yAYlm50VWfDH"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Sure, Mom. I can do that after I finish some revision. I need a break from Chemistry anyway.",
+    "time": "16:20:40",
+    "type": "audio",
+    "device": "phone",
+    "id": "0iMa8boYVELnBZKq3ANJ"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey! So excited for the cat cafe this week! What day works best for you after school?",
+    "sender": "Chloe Wong",
+    "senderApp": "WhatsApp",
+    "time": "16:20:45",
+    "type": "notification",
+    "device": "watch",
+    "id": "1G8xoFqzB63Chs8XT830"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "sound of paper rustling, textbook pages turning",
+    "time": "16:45:10",
+    "type": "ambient audio",
+    "device": "phone",
+    "id": "9IMARAbaiwUbm4nT2HwY"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey! Still on for the cat cafe later this week? Excited to check it out! 😻",
+    "sender": "Chloe Wong",
+    "senderApp": "WhatsApp",
+    "time": "16:46:05",
+    "type": "notification",
+    "device": "phone",
+    "id": "6psZQjDeI2t82nT3DMkG"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "New post: Check out the vibrant new mural in Sham Shui Po! ✨ #HKStreetArt",
+    "sender": "creative_hongkong",
+    "senderApp": "Instagram",
+    "time": "16:47:20",
+    "type": "notification",
+    "device": "phone",
+    "id": "KQDIRAlcAduVsTn5LYcX"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Maya: Jamie, can you help me with this Algebra question? It's super confusing.",
+    "time": "16:48:05",
+    "type": "ambient audio",
+    "device": "phone",
+    "id": "64y5HuV3lRucR6F6CUmK"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie: *sighs softly* Okay, what's up? Show me.",
+    "time": "16:48:35",
+    "type": "ambient audio",
+    "device": "phone",
+    "id": "80Y8xbslx2efDtVyQ1AC"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Maya: It's about solving for x in these equations, I don't get why we have to expand it here.",
+    "time": "16:49:15",
+    "type": "ambient audio",
+    "device": "phone",
+    "id": "RWQzu5VHVGTc49U4iZhj"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Yo, thinking of hopping on [Game Name] later, you in?",
+    "sender": "Ethan Chan",
+    "senderApp": "Discord",
+    "time": "16:50:30",
+    "type": "notification",
+    "device": "phone",
+    "id": "Cjkqf4uv08oL8zxkVki8"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie: Right, so you see this part... if you factor it out first, it simplifies the whole thing. Let's break it down.",
+    "time": "16:51:05",
+    "type": "ambient audio",
+    "device": "phone",
+    "id": "ulaFXoDpyAxB5i7syp2L"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Reminder: Mid-term test is next Friday. Study Chapters 3-5!",
+    "sender": "Form 5 Chemistry Group",
+    "senderApp": "WhatsApp",
+    "time": "16:54:10",
+    "type": "notification",
+    "device": "phone",
+    "id": "O4kbGcfFhIgjY0BDSeB7"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Maya: Ohhh, I think I get it now! That makes so much more sense. Thank you!",
+    "time": "16:55:30",
+    "type": "ambient audio",
+    "device": "phone",
+    "id": "Zz3oRJLkvkWk21bkPgeO"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie: No problem. Just remember to check your steps.",
+    "time": "16:56:05",
+    "type": "ambient audio",
+    "device": "phone",
+    "id": "5XQ3pVTC4tBvEIOEs8tE"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "New Video: 'Speedpainting: Sci-Fi Character Concept from Scratch!'",
+    "sender": "ArtWrangler",
+    "senderApp": "YouTube",
+    "time": "16:58:30",
+    "type": "notification",
+    "device": "phone",
+    "id": "TDKfghatnWtmwktJI7p5"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Maya: Got it! You're the best! I'll leave you to your studying now.",
+    "time": "16:59:45",
+    "type": "ambient audio",
+    "device": "phone",
+    "id": "vuq22wsOy9ZSJVJT6ylg"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "unlock with Face ID",
+    "time": "17:45:00",
+    "type": "wake",
+    "device": "iPad",
+    "id": "AQfhItXzJLcIDd5G41ht"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "open Procreate app",
+    "time": "17:45:12",
+    "type": "screen",
+    "device": "iPad",
+    "id": "XKW2iFMhdOavccw8yDIy"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "drawing activity in Procreate: selecting canvas and brush",
+    "time": "17:45:35",
+    "type": "touch surface",
+    "device": "iPad",
+    "id": "t5FZ081P4XUNyNmlwQ2a"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "drawing activity in Procreate: sketching initial character pose",
+    "time": "17:46:20",
+    "type": "touch surface",
+    "device": "iPad",
+    "id": "uFRlN56CssyvwkfjtC44"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Mr. Lee: 'Jamie, remember to keep your work area tidy before dinner!'",
+    "time": "17:48:05",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "sLeVako9W4jLxQ4nj1ae"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "drawing activity in Procreate: refining facial structure for expression",
+    "time": "17:50:30",
+    "type": "touch surface",
+    "device": "iPad",
+    "id": "wq2RXfWGNyjmg98V92JZ"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "New post: 'Inspiring character concepts from local artists!'",
+    "sender": "art_of_hk",
+    "senderApp": "Instagram",
+    "time": "17:52:15",
+    "type": "notification",
+    "device": "phone",
+    "id": "IuyJv4F3bx8UoWTbFazt"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "drawing activity in Procreate: focusing on eye details for emotional impact",
+    "time": "17:54:50",
+    "type": "touch surface",
+    "device": "iPad",
+    "id": "J4GZitUQ9cM65xzu7byZ"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Maya: 'Mom, can you help me with this game level? It's too hard!'",
+    "time": "17:57:30",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "1ZxnV8VLzW5nljODq5bd"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "drawing activity in Procreate: adjusting mouth curvature to convey a specific emotion",
+    "time": "18:00:10",
+    "type": "touch surface",
+    "device": "iPad",
+    "id": "IoF0Oi1B1YqrTsFxYLgt"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey, did you see that new art supply store opened in Causeway Bay? We should check it out!",
+    "sender": "Chloe Wong",
+    "senderApp": "WhatsApp",
+    "time": "18:03:45",
+    "type": "notification",
+    "device": "phone",
+    "id": "mV4RKfH28XQyV6tpec0E"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "drawing activity in Procreate: adding subtle shading to highlight the expression",
+    "time": "18:07:00",
+    "type": "touch surface",
+    "device": "iPad",
+    "id": "8gC5Z7Md4LR5arBlY33F"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "New poll: 'What's your favorite visual novel released this year?'",
+    "sender": "IndieGameFanatics",
+    "senderApp": "Discord",
+    "time": "18:10:25",
+    "type": "notification",
+    "device": "phone",
+    "id": "sRiQnq58Vuso4hzSbi4R"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "drawing activity in Procreate: reviewing different expression layers",
+    "time": "18:13:50",
+    "type": "touch surface",
+    "device": "iPad",
+    "id": "YZio03IrEaopU4700WZc"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Mrs. Lee: 'Dinner's almost ready! Jamie, did you remember to grab those items?'",
+    "time": "18:17:15",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "tv7XxW7zAXviHuDoVjp8"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "drawing activity in Procreate: saving current version of character design",
+    "time": "18:19:40",
+    "type": "touch surface",
+    "device": "iPad",
+    "id": "WFcdWypfDWEbMu43bTYI"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "biometric unlock",
+    "time": "18:30:05",
+    "type": "wake",
+    "device": "phone",
+    "id": "0210GqAg6JhMh3NznYSK"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie, don't forget the soy sauce, please! And maybe some fresh milk.",
+    "time": "18:30:10",
+    "type": "audio",
+    "device": "phone",
+    "id": "gAEAz1GzdvNOrXCVe2ug"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "playing 'Lo-fi Chill Beats' playlist on YouTube Music",
+    "time": "18:30:25",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "JAy69VZP41pd1w5PJ70K"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "sounds of distant traffic, chatter in Cantonese from pedestrians, a dog barking",
+    "time": "18:30:45",
+    "type": "ambient_audio",
+    "device": "phone",
+    "id": "rlHsDjjTSPtt2mZFfIxw"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey! Did you see that new art post by @ink_bloom? So inspiring!",
+    "sender": "Chloe Wong",
+    "senderApp": "WhatsApp",
+    "time": "18:31:50",
+    "type": "notification",
+    "device": "phone",
+    "id": "mv9D0gzb89QI7iBMTkKs"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "theartgalleryhk posted a new story: 'Street art tour highlights from Sheung Wan!'",
+    "sender": "theartgalleryhk",
+    "senderApp": "Instagram",
+    "time": "18:32:40",
+    "type": "notification",
+    "device": "phone",
+    "id": "fMQ1pf1QBp7r2ZVEbZNF"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "convenience store automatic door chime, faint pop music playing, sounds of items being stocked",
+    "time": "18:33:15",
+    "type": "ambient_audio",
+    "device": "phone",
+    "id": "oJbKHoqwOECbQw5fBtHA"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey Siri, open PayMe",
+    "time": "18:34:05",
+    "type": "direct_command",
+    "device": "phone",
+    "id": "WsubMmJy4wbGaq2kjbag"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "PayMe app open, QR code ready for scanning",
+    "time": "18:34:10",
+    "type": "screen",
+    "device": "phone",
+    "id": "erK822h24F2lARaStBDC"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Payment of HKD 42.80 to 'Circle K Hong Kong' successful.",
+    "sender": "PayMe",
+    "senderApp": "PayMe by HSBC",
+    "time": "18:34:35",
+    "type": "notification",
+    "device": "phone",
+    "id": "tOKXK236g1rtbJ81b4mN"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "music resumes",
+    "time": "18:35:05",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "65buC60f9h1UelTeVvLr"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "sounds of cars passing, distant hawker shouting, cicadas chirping",
+    "time": "18:35:50",
+    "type": "ambient_audio",
+    "device": "phone",
+    "id": "JPMS9KBbu99sDkErKvK9"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Yo, thinking of hopping on 'The Cosmic Drift' in an hour if you're free?",
+    "sender": "Ethan Chan",
+    "senderApp": "Discord",
+    "time": "18:36:20",
+    "type": "notification",
+    "device": "phone",
+    "id": "DzCpXIVk5w2yq61JgjAl"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "screen off",
+    "time": "18:37:10",
+    "type": "lock",
+    "device": "phone",
+    "id": "hX6aZggNnsBnsZmvaSRa"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie's mom: \"How was everyone's day? Maya, how was school?\"",
+    "time": "19:00:15",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "IXd5Sk52RzO9xdxic49f"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Maya: \"It was okay, but Mr. Wong gave us a pop quiz in Math, it was so unfair!\"",
+    "time": "19:01:05",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "2CRtiVw7CbCgaNQoLE6T"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie's dad: \"Sounds tough, Maya. Jamie, how about you? Any progress on that art competition piece?\"",
+    "time": "19:01:45",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "KvKNDq9PC2koOpd46RlD"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie: \"Yeah, I worked on the character expressions this afternoon. I think they're coming along well, just need to refine some details.\"",
+    "time": "19:02:20",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "RdSU7Gs3YbRkLifc15eS"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey! Still on for cat cafe on Sat? I'm so excited! 😻",
+    "sender": "Chloe Wong",
+    "senderApp": "WhatsApp",
+    "time": "19:03:05",
+    "type": "notification",
+    "device": "phone",
+    "id": "B8stClriO7CyfLcvcpp5"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie's mom: \"And don't forget your Chemistry test this week, Jamie. Have you had enough time to study?\"",
+    "time": "19:05:30",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "1QgdByo3hwHnKAxhbefp"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie: \"I revised for an hour today, and Maya actually needed help with her Algebra, so I helped her for a bit too.\"",
+    "time": "19:06:00",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "44Et4WSFGb5sqvupvgDV"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "art_noodle_hk posted a new photo: 'New mural spotted in Sheung Wan!'",
+    "sender": "art_noodle_hk",
+    "senderApp": "Instagram",
+    "time": "19:06:15",
+    "type": "notification",
+    "device": "phone",
+    "id": "Vyd9JliDiWiek7tejJqd"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie's dad: \"Good to hear you're balancing everything. That competition piece is important for your portfolio too.\"",
+    "time": "19:08:40",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "EZQKrmjiV2Q9R1iXqHTd"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "yo, u free to play after dinner? got a new visual novel to try",
+    "sender": "Ethan Chan",
+    "senderApp": "Discord",
+    "time": "19:10:05",
+    "type": "notification",
+    "device": "watch",
+    "id": "MNEuuGh5ixX0iUatMyZa"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Maya: \"Can we watch that new anime tonight? The one with the magical girls?\"",
+    "time": "19:15:20",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "PmDzHv7DAWKpcb2jLJYU"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie's mom: \"Maybe after your homework, Maya. Jamie, did you remember to pick up the soy sauce from the store?\"",
+    "time": "19:16:00",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "aJ5teLPQbwSDiuuAqh4X"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie: \"Yes, I got it, Mom. It's on the counter.\"",
+    "time": "19:16:15",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "fC7JlymD5Z6wKx7ZIRQP"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie's dad: \"These braised ribs are excellent, Karen. Your cooking is always the best after a long day.\"",
+    "time": "19:25:30",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "E5oIXmY7zBFXe19rcNMh"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Someone liked your recent post: 'WIP character design for school comp!'",
+    "sender": "cool_art_stuff",
+    "senderApp": "Instagram",
+    "time": "19:26:45",
+    "type": "notification",
+    "device": "phone",
+    "id": "mele6BCbIMcxpZ4kS9CZ"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie: \"Dad, I saw some really cool new street art near the MTR station today. A huge mural.\"",
+    "time": "19:30:10",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "bTrs6G0MUQnBlYt6qD5T"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie's dad: \"Oh really? Where was that? I might check it out this weekend if I have time.\"",
+    "time": "19:31:00",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "WSsOAsCLKHrFM6aPmkLi"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Reminder: Queer Youth Space HK meetup tonight at 8 PM on voice chat! See you there <3",
+    "sender": "Sam Leung",
+    "senderApp": "Discord",
+    "time": "19:32:00",
+    "type": "notification",
+    "device": "phone",
+    "id": "7n4kVxxtUI0RkPavO5V9"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "biometric unlock",
+    "time": "20:15:05",
+    "type": "wake",
+    "device": "phone",
+    "id": "V2lYeBWBNbazAoBK1kZC"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "home screen displayed",
+    "time": "20:15:12",
+    "type": "screen",
+    "device": "phone",
+    "id": "0r2P37K9wv7Z1Rm5MWem"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "tap on Instagram app icon",
+    "time": "20:15:18",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "NUo8yUEJ6TEqcXkQInvp"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Instagram feed loaded, displaying posts from followed artists and friends",
+    "time": "20:15:20",
+    "type": "screen",
+    "device": "phone",
+    "id": "KMyyrVMaRHOWd1jyCmhc"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "scrolling down through Instagram feed",
+    "time": "20:15:35",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "av5TreSwToSrAZDpD88a"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "tap to view a digital illustration post in detail for art inspiration",
+    "time": "20:16:05",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "6nxHBmtkJ1TEFedDjtpX"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "double-tap to like an art post",
+    "time": "20:16:15",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "WNT8usFkuxsStpMEJMOz"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "New messages in #general channel",
+    "sender": "IndieGameHQ",
+    "senderApp": "Discord",
+    "time": "20:16:25",
+    "type": "notification",
+    "device": "phone",
+    "id": "ICACvqN8t7wpgPDNETm9"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "tap on Discord notification to open the app",
+    "time": "20:16:35",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "ELGGLbHpCXnWDgqrF31Z"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Discord app opened, showing the 'IndieGameHQ' server's #general channel",
+    "time": "20:16:38",
+    "type": "screen",
+    "device": "phone",
+    "id": "nCyyaBzWfDvPRARMzQ6A"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "scrolling through Discord messages from gaming communities",
+    "time": "20:16:45",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "Ab6OQ0kgyIQVuBdGYR0L"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Still on for cat cafe on Sat? Found some cute art to show u!",
+    "sender": "Chloe Wong",
+    "senderApp": "WhatsApp",
+    "time": "20:17:05",
+    "type": "notification",
+    "device": "phone",
+    "id": "CCYxkEz5WGImbd075p2C"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "tap to switch to a different Discord channel (e.g., #visual-novels)",
+    "time": "20:17:15",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "WSyMm7ISDUGrLiGovLar"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Discord app, displaying messages in #visual-novels channel",
+    "time": "20:17:20",
+    "type": "screen",
+    "device": "phone",
+    "id": "r4PI9tc2si0yJzekpQof"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey, you free to hop on for that VN later? Around 20:45?",
+    "sender": "Ethan Chan",
+    "senderApp": "Discord",
+    "time": "20:17:40",
+    "type": "notification",
+    "device": "phone",
+    "id": "cOG7M1f1xodu9MIlCs1M"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "tap on Ethan's message to open direct chat",
+    "time": "20:17:55",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "m2gzeD7Ial83uvaGdmac"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Discord direct message chat with Ethan Chan",
+    "time": "20:18:00",
+    "type": "screen",
+    "device": "phone",
+    "id": "MIHlk49TF2eMt3IBdtuD"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "typing a reply to Ethan",
+    "time": "20:18:10",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "tSXyuw6e7iwiuFXSlFoY"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "send message to Ethan: 'Yeah, sounds good! Just finishing up here. Be ready at 20:45.'",
+    "time": "20:18:20",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "NMM1l44WHHxa2uFmsTve"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<soft background hum of air conditioning or distant city sounds>",
+    "time": "20:18:30",
+    "type": "audio",
+    "device": "phone",
+    "id": "FN2Cpv2sVEedKElb7LKC"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "navigates back to Discord server list",
+    "time": "20:18:45",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "wImKOFBHzazWuldzoWcb"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Discord app open, navigating to Ethan's server/DM",
+    "time": "20:44:35",
+    "type": "screen",
+    "device": "laptop",
+    "id": "LvRTSBqmpYN83rolINR6"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Discord connection sound, then 'Ethan Chan joined your voice channel.'",
+    "time": "20:44:50",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "FqA5coOJsC3m5605DWKE"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie: 'Hey Ethan! Ready to dive back into the weirdness?'",
+    "time": "20:45:05",
+    "type": "audio",
+    "device": "laptop",
+    "id": "8pP8fM0SwneDepuPcll6"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Ethan: 'You know it, Jamie! My body is ready for more existential dread and questionable choices.'",
+    "time": "20:45:12",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "Do9SBZPyTfJP9lEvAnZk"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Visual novel game launched, loading screen displayed",
+    "time": "20:45:30",
+    "type": "screen",
+    "device": "laptop",
+    "id": "qiIh8uce4BfBIM5d2Try"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Game music starts, character dialogue sound effect. Jamie: 'Okay, where were we? Ah, the haunted noodle shop dilemma.'",
+    "time": "20:46:15",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "CIYWRe0IhtOZk6dQkzo6"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Ethan: 'Definitely don't pick the 'mysterious broth' option this time, Jamie. We almost died last time.'",
+    "time": "20:47:02",
+    "type": "audio",
+    "device": "laptop",
+    "id": "9nmBmgolfvgIgxZNoDpF"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie: 'Agent, lower game volume by 10%.'",
+    "time": "20:47:05",
+    "type": "command",
+    "device": "laptop",
+    "id": "fleHTO3LfoDu9HblUIf0"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Confirmation tone. Game volume slightly decreases.",
+    "time": "20:47:08",
+    "type": "audio",
+    "device": "laptop",
+    "id": "1FnIRacJswMgLCECm2of"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie: 'Hold on, is that new character related to the old lady from the temple? Their eyes look so similar.'",
+    "time": "20:51:20",
+    "type": "audio",
+    "device": "laptop",
+    "id": "chtkBvs4FHlGr2ZeALC6"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey! Still on for the cat cafe on Sat? Found a new art supply store nearby we could check out too! 🐈‍⬛",
+    "sender": "Chloe Wong",
+    "senderApp": "WhatsApp",
+    "time": "20:53:45",
+    "type": "notification",
+    "device": "phone",
+    "id": "GU8iNNEHT7BTe5M916NW"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Ethan: 'No way! Did you see that? The dialogue just implied a time loop!'",
+    "time": "20:55:10",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "GUinF3EhifUrGizBLZPI"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie: 'Wait, what? Rewind! I missed that. I was just thinking about the cat cafe this weekend...'",
+    "time": "20:55:15",
+    "type": "audio",
+    "device": "laptop",
+    "id": "wXcmAax76tGP9uffHkOM"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie: 'Agent, game, rewind 30 seconds.'",
+    "time": "20:55:18",
+    "type": "command",
+    "device": "laptop",
+    "id": "kDhPkvBn2NkG4SikzGb6"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Game sound effect for rewind, then dialogue plays again.",
+    "time": "20:55:20",
+    "type": "audio",
+    "device": "laptop",
+    "id": "dUIMkCEsBDbgX1WuM1QT"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie: 'Okay, so if we choose this path, it leads to the 'bad ending' based on the hints, but maybe there's a secret achievement?'",
+    "time": "21:02:40",
+    "type": "audio",
+    "device": "laptop",
+    "id": "CM6KJRZG0JKlhJLHMZF6"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "New post: Capturing the vibrant energy of Mong Kok's neon glow. Swipe to see the details! ✨ #HongKongArt #StreetPhotography",
+    "sender": "artof_hongkong",
+    "senderApp": "Instagram",
+    "time": "21:05:00",
+    "type": "notification",
+    "device": "phone",
+    "id": "R29vskJUvwG3lCXT2QfM"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Ethan: 'Dude, this character's inner monologue is straight-up me during exam season. 'Why am I even here?'",
+    "time": "21:10:30",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "fi3O417P3y3fhW42cNSh"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie: 'Haha, totally! Remember that Chemistry test? I still have to study for that properly this week.'",
+    "time": "21:11:00",
+    "type": "audio",
+    "device": "laptop",
+    "id": "FnZbY3GQkMejpxRYsiaC"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie: 'This choice is critical. If we trust the mysterious vendor, we could get a powerful relic, or a cursed artifact. What's your gut feeling, Ethan?'",
+    "time": "21:18:55",
+    "type": "audio",
+    "device": "laptop",
+    "id": "S1KNWQjxS6SZHDXpDVlf"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey! Just saw a post about a new queer youth event next month. Thinking of going, hbu?",
+    "sender": "Sam Leung",
+    "senderApp": "Discord",
+    "time": "21:20:10",
+    "type": "notification",
+    "device": "phone",
+    "id": "6XYE8GpalwfBit3Ip67i"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Ethan: 'Okay, theory time: I think the whole town is actually a dream, and we need to find the 'awakening' item.'",
+    "time": "21:25:30",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "ew2M7GG4gWrUF9Cs3jfB"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie: 'Hmm, that's a good one. It would explain the weird logic gates. Or maybe it's all an elaborate art installation.'",
+    "time": "21:26:05",
+    "type": "audio",
+    "device": "laptop",
+    "id": "l1hRBFhUqmVEZIYbY5Hv"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie: 'Right, let's play until the next save point, then we can wrap up for tonight. My eyes are starting to blur from all this reading.'",
+    "time": "21:35:40",
+    "type": "audio",
+    "device": "laptop",
+    "id": "jyyM4XT46qzVgcgLGU5f"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Ethan: 'Sounds good. This chapter was wild! Definitely need to process that cliffhanger.'",
+    "time": "21:35:55",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "tGD656rPOIZTiRHnl4fE"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Game sound effect for saving progress. Jamie: 'Alright, saved it. Phew!'",
+    "time": "21:40:15",
+    "type": "audio",
+    "device": "laptop",
+    "id": "wR0xLKmgm7cZvEkyQnow"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Ethan: 'Catch you later, Jamie! Don't let the noodle shop ghost haunt your dreams.'",
+    "time": "21:42:00",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "bqexJZykY3oBsAcsJCA9"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Jamie: 'You too! Good luck with that essay you mentioned. Bye!'",
+    "time": "21:42:05",
+    "type": "audio",
+    "device": "laptop",
+    "id": "5dH6DoMpUrrrRyX8wtCr"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Discord disconnect sound.",
+    "time": "21:42:10",
+    "type": "audio",
+    "device": "earbuds",
+    "id": "Tb7W2bUCiKFzLClWWpfz"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Netflix app displaying current anime episode (e.g., 'Spy x Family', 'Attack on Titan')",
+    "time": "21:45:00",
+    "type": "screen",
+    "device": "iPad",
+    "id": "FK8yiDoobnhc1J9I2mhb"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "charging status: connected to power outlet",
+    "time": "21:45:05",
+    "type": "power",
+    "device": "iPad",
+    "id": "h1Fe7gzj4iStQKK5fbhB"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<anime dialogue, dramatic background music, and sound effects playing>",
+    "time": "21:45:15",
+    "type": "audio",
+    "device": "iPad",
+    "id": "AcINeYz44rg7ABmVDoA5"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<rustling sounds of paper, books being removed and placed into a backpack>",
+    "time": "21:46:20",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "cpA2Fzfc2WURw8MgGdpw"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Just finished that character sketch! Still thinking about the competition theme. What if we did a cyberpunk HK market? 🤔",
+    "sender": "Chloe Wong",
+    "senderApp": "WhatsApp",
+    "time": "21:47:10",
+    "type": "notification",
+    "device": "phone",
+    "id": "52nWhNJoOSPb4sm3p672"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<anime action sequence sounds, character voice lines>",
+    "time": "21:47:55",
+    "type": "audio",
+    "device": "iPad",
+    "id": "VwXjWVMq5dNZ27P1d5er"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<sound of a pencil case being unzipped and contents arranged, then zipped closed>",
+    "time": "21:49:30",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "IeYXA2l0WpqlRM75RrRI"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "New mural spotted in Sham Shui Po! Check out @graffitilife_hk's latest piece – incredible detail! #HKart",
+    "sender": "HK_StreetArt_Collective",
+    "senderApp": "Instagram",
+    "time": "21:50:05",
+    "type": "notification",
+    "device": "phone",
+    "id": "H4Bo69isS3lRLkXi9Ic6"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<anime closing theme music begins to play>",
+    "time": "21:52:15",
+    "type": "audio",
+    "device": "iPad",
+    "id": "9ZSxkeXGblHbiZ8CH0u5"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "tap to pause Netflix playback (during end credits)",
+    "time": "21:53:00",
+    "type": "touch surface",
+    "device": "iPad",
+    "id": "VoptelitpngUd9YJ29YR"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<sound of a backpack zipper being pulled shut, followed by the bag being lifted and set down>",
+    "time": "21:53:10",
+    "type": "audio",
+    "device": "home speaker",
+    "id": "Hd74nt3GBXTVR5ZefyDc"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "tap to resume Netflix playback",
+    "time": "21:54:05",
+    "type": "touch surface",
+    "device": "iPad",
+    "id": "wcuIzRo48mzGMAP1QAzM"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "<Netflix auto-play countdown sound, then transitions to 'Up Next' screen with ambient menu music>",
+    "time": "21:54:15",
+    "type": "audio",
+    "device": "iPad",
+    "id": "FGCdB6frDf7YdaDkh3eW"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "sound of running water from tap",
+    "time": "22:45:15",
+    "type": "audio",
+    "device": "phone",
+    "id": "46as6XTb0RvpAweCewRa"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "sound of toothbrush brushing teeth",
+    "time": "22:45:30",
+    "type": "audio",
+    "device": "phone",
+    "id": "t95K7nxzIxm6PfcW4ARp"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "sound of light switch click (bathroom light off)",
+    "time": "22:46:40",
+    "type": "audio",
+    "device": "phone",
+    "id": "r9D2qemY2sWOV6zR1LTi"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "biometric unlock",
+    "time": "22:47:05",
+    "type": "wake",
+    "device": "phone",
+    "id": "Tyk4vNpu7gfNbwZD9z9c"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "open Instagram app",
+    "time": "22:47:20",
+    "type": "screen",
+    "device": "phone",
+    "id": "oLxmxF4tnQy1RwfunzGE"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "scrolling Instagram feed",
+    "time": "22:47:35",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "6nkanRHg8kUoWRurKLTh"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "new post: 'Experimenting with some character line art tonight! What do you guys think? ✨'",
+    "sender": "Chloe Wong",
+    "senderApp": "Instagram",
+    "time": "22:48:05",
+    "type": "notification",
+    "device": "phone",
+    "id": "InZQVNL3KQmpysgy0cc9"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "open WhatsApp app",
+    "time": "22:48:50",
+    "type": "screen",
+    "device": "phone",
+    "id": "bnRivEKfwJ9velh6gTrZ"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Dude, did you see the announcement for that new visual novel? It looks sick!",
+    "sender": "Ethan Chan",
+    "senderApp": "WhatsApp",
+    "time": "22:49:10",
+    "type": "notification",
+    "device": "phone",
+    "id": "ghIPOOZm8SJdKuw5yb0T"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "typing: Ooh, no! I'll check it out now, thanks for the heads up!",
+    "time": "22:49:30",
+    "type": "text input",
+    "device": "phone",
+    "id": "bUyiZaXJpwVze7eCUSgR"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "open Discord app",
+    "time": "22:50:05",
+    "type": "screen",
+    "device": "phone",
+    "id": "VEat5moAcZFvK1abKqWX"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "scrolling Discord servers (gaming, art, Queer Youth Space HK)",
+    "time": "22:50:25",
+    "type": "touch surface",
+    "device": "phone",
+    "id": "KIYXte8ZbmWkQAmUe1MY"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey Jamie, loved your point in the Queer Youth Space HK chat earlier, so important to talk about.",
+    "sender": "Sam Leung",
+    "senderApp": "Discord",
+    "time": "22:50:50",
+    "type": "notification",
+    "device": "phone",
+    "id": "dCv20okuwB18K4L7kROc"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey Siri, set an alarm for 6:30 AM tomorrow.",
+    "time": "22:51:30",
+    "type": "command",
+    "device": "phone",
+    "id": "91KzYIyxU19xEx7P3r8X"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "device plugged in",
+    "time": "22:51:45",
+    "type": "charging",
+    "device": "phone",
+    "id": "bpT3lbiNmU027tC5gchy"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "sound of rustling bedsheets",
+    "time": "22:52:00",
+    "type": "audio",
+    "device": "phone",
+    "id": "IawYjf3CeKSXJCBUDWOC"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "light switch click (room light off)",
+    "time": "22:52:10",
+    "type": "audio",
+    "device": "phone",
+    "id": "9WWt6F4YuzuGAchk5Rqp"
+  },
+  {
+    "date": "2025-11-07",
+    "data": "Hey! Just thought of a cool character pose for the art competition, remind me to show you tmrw! ✨",
+    "sender": "Chloe Wong",
+    "senderApp": "WhatsApp",
+    "time": "23:15:25",
+    "type": "notification",
+    "device": "phone",
+    "id": "Ci4usylIP8sicul5upyC"
+  }
+]

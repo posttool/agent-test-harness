@@ -42,6 +42,7 @@ describe("parseCapability", () => {
       role: "loop",
       outputSchema: "NextStepDecision",
       whenToUse: "Testing.",
+      activity: "Thinking",
       instructions: "## Instructions\n\nDo the thing.",
     });
   });

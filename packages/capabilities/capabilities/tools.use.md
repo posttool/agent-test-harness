@@ -3,6 +3,7 @@ id: tools.use
 title: Use a tool
 role: loop
 outputSchema: ToolInvocationPlan
+activity: Working
 whenToUse: A suitable tool is known and calling one of its functions would move the task forward.
 ---
 ## Instructions

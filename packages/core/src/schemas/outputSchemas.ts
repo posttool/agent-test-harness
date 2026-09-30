@@ -6,6 +6,10 @@ import { RouteDecisionSchema } from "../types/RouteDecision.ts";
 import { ToolDiscoveryResultSchema } from "../types/ToolDiscoveryResult.ts";
 import { ToolInvocationPlanSchema } from "../types/ToolInvocationPlan.ts";
 import { UiRequestSchema } from "../types/UiRequest.ts";
+import { AmbientScriptSchema } from "../types/AmbientScript.ts";
+import { SurfacePlanSchema } from "../types/SurfacePlan.ts";
+import { JudgeVerdictSchema } from "../types/JudgeVerdict.ts";
+import { UiAnswerSchema } from "../types/UiAnswer.ts";
 
 /**
  * Every schema a model is asked to produce. Each one must pass the provider parity
@@ -19,6 +23,10 @@ export const OUTPUT_SCHEMAS = {
   ToolDiscoveryResult: ToolDiscoveryResultSchema,
   ToolInvocationPlan: ToolInvocationPlanSchema,
   UiRequest: UiRequestSchema,
+  AmbientScript: AmbientScriptSchema,
+  SurfacePlan: SurfacePlanSchema,
+  JudgeVerdict: JudgeVerdictSchema,
+  UiAnswer: UiAnswerSchema,
 } as const satisfies Record<string, z.ZodType>;
 
 export type OutputSchemaName = keyof typeof OUTPUT_SCHEMAS;

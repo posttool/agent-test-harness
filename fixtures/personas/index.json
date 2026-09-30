@@ -1,0 +1,212 @@
+[
+  {
+    "id": "qTXNdC9mTcMkrj8EZTYu",
+    "name": "Camille Dubois",
+    "occupation": "Cultural Events Coordinator for a local heritage organization",
+    "city": "Pointe-à-Pitre, Guadeloupe",
+    "age": 48,
+    "image": "https://firebasestorage.googleapis.com/v0/b/aura-persona.firebasestorage.app/o/qTXNdC9mTcMkrj8EZTYu%2F6400940982%2Fpic.jpg?alt=media&token=4a122f48-f3bf-4130-bce4-848b11ff592f",
+    "hobbies": [
+      "Exploring nature trails and waterfalls across the island",
+      "Learning and practicing traditional Creole cooking techniques",
+      "Photography, especially focusing on local architecture and vibrant street scenes",
+      "Attending live Gwoka music and dance performances",
+      "Gardening tropical plants"
+    ],
+    "goals_this_week": [
+      "Finalize the program and artist lineup for the upcoming 'Festival du Patrimoine Créole'",
+      "Meet with local artisans to discuss their participation in the next exhibition",
+      "Prepare a grant application for a new youth cultural exchange program",
+      "Take a refreshing swim at Plage de Grande Anse after work one day"
+    ],
+    "family": [
+      {
+        "name": "Samira 'Sam' Khan",
+        "relation": "Partner"
+      },
+      {
+        "name": "Lila Dubois-Khan",
+        "relation": "Child, 20 years old, studying marine biology"
+      },
+      {
+        "name": "Marc Dubois",
+        "relation": "Older Sibling"
+      }
+    ],
+    "apps": [
+      {
+        "app": "WhatsApp",
+        "usage": "frequent (for personal and professional communication)"
+      },
+      {
+        "app": "Instagram",
+        "usage": "frequent (for promoting cultural events, connecting with artists, and sharing personal photography)"
+      },
+      {
+        "app": "Spotify",
+        "usage": "frequent (for listening to local music, podcasts, and curated playlists)"
+      },
+      {
+        "app": "Google Maps / Waze",
+        "usage": "frequent (for navigating around the island for meetings and personal trips)"
+      },
+      {
+        "app": "Local Bank App (e.g., Crédit Mutuel)",
+        "usage": "frequent (for managing finances and paying bills)"
+      },
+      {
+        "app": "Netflix",
+        "usage": "moderate (for relaxing with international and French content)"
+      },
+      {
+        "app": "Facebook",
+        "usage": "moderate (for joining community groups, event promotion, and staying connected with extended family)"
+      },
+      {
+        "app": "Trello",
+        "usage": "frequent (for project management and organizing event logistics)"
+      }
+    ]
+  },
+  {
+    "id": "UtNtD1I9ZmRWBPWEl64s",
+    "name": "Jamie Lee",
+    "occupation": "Student (Form 5)",
+    "city": "Hong Kong",
+    "age": 16,
+    "image": "https://firebasestorage.googleapis.com/v0/b/aura-persona.firebasestorage.app/o/UtNtD1I9ZmRWBPWEl64s%2F19549379%2Fpic.jpg?alt=media&token=c86f2ffa-7a5c-4350-b8fc-bd78c850c453",
+    "hobbies": [
+      "Digital art and illustration (character design, fan art)",
+      "Exploring Hong Kong's street art, indie cafes, and markets",
+      "Indie video games and visual novels",
+      "Learning Cantonese slang and local cultural nuances",
+      "Hiking on various Hong Kong trails"
+    ],
+    "goals_this_week": [
+      "Finish character design for the school's digital art competition",
+      "Study for the upcoming Chemistry mid-term test",
+      "Meet Chloe at the new cat cafe in Mong Kok",
+      "Attend the online 'Queer Youth Space HK' meetup on Discord"
+    ],
+    "family": [
+      {
+        "name": "Mr. David Lee",
+        "relation": "Father (Project Manager)"
+      },
+      {
+        "name": "Mrs. Karen Cheung",
+        "relation": "Mother (Accountant)"
+      },
+      {
+        "name": "Maya Lee",
+        "relation": "Younger Sister (13 years old)"
+      }
+    ],
+    "apps": [
+      {
+        "app": "WhatsApp",
+        "usage": "frequent (family, school, close friends)"
+      },
+      {
+        "app": "Instagram",
+        "usage": "frequent (sharing art, following artists, connecting with friends)"
+      },
+      {
+        "app": "YouTube",
+        "usage": "frequent (art tutorials, music, game reviews, documentaries)"
+      },
+      {
+        "app": "MTR Mobile",
+        "usage": "frequent (daily commute, exploring the city)"
+      },
+      {
+        "app": "Discord",
+        "usage": "frequent (gaming communities, online art groups, LGBTQ+ youth server)"
+      },
+      {
+        "app": "PayMe by HSBC",
+        "usage": "frequent (splitting bills with friends, small purchases)"
+      },
+      {
+        "app": "Procreate (or similar digital art app)",
+        "usage": "frequent (daily art practice, project work)"
+      },
+      {
+        "app": "Netflix",
+        "usage": "moderate (watching anime, indie films, TV series)"
+      }
+    ]
+  },
+  {
+    "id": "pvxHKBrxJoVRodbpw45y",
+    "name": "Luca Rossi",
+    "occupation": "High School Student",
+    "city": "Rome",
+    "age": 17,
+    "image": "https://firebasestorage.googleapis.com/v0/b/aura-persona.firebasestorage.app/o/pvxHKBrxJoVRodbpw45y%2F5925132802%2Fpic.jpg?alt=media&token=01e814e6-7076-4154-aece-113b81fb42cf",
+    "hobbies": [
+      "Spontaneous photography walks around Rome, especially at night",
+      "Trying out new, obscure cafes and gelaterias with friends",
+      "DIY fashion experiments (cutting up old clothes, painting sneakers)",
+      "Attending impromptu street performances or open mic nights",
+      "Learning new TikTok dances for a few hours, then moving on",
+      "Dabbling in digital art or music production (briefly)",
+      "Exploring hidden alleys and forgotten corners of the city"
+    ],
+    "goals_this_week": [
+      "Find the coolest vintage outfit for Saturday's party (last minute, of course)",
+      "Convince friends to go on a late-night adventure to a 'haunted' ruin",
+      "Experiment with a new hair color (again, probably temporary and impulsive)",
+      "Learn to play that one obscure indie song on the ukulele by Friday (and likely forget it by Sunday)",
+      "Perfect a new latte art design at the local cafe just because"
+    ],
+    "family": [
+      {
+        "name": "Marco Rossi",
+        "relation": "Father (Architect)"
+      },
+      {
+        "name": "Sofia Rossi",
+        "relation": "Mother (Teacher)"
+      },
+      {
+        "name": "Giulia Rossi",
+        "relation": "Younger Sibling (14)"
+      }
+    ],
+    "apps": [
+      {
+        "app": "TikTok",
+        "usage": "Frequent (for trends, dances, short creative bursts, and finding inspiration)"
+      },
+      {
+        "app": "Instagram",
+        "usage": "Frequent (for sharing spontaneous photos, fashion experiments, and aesthetic curation)"
+      },
+      {
+        "app": "WhatsApp",
+        "usage": "Frequent (for group chats with friends, making last-minute plans, and sharing memes)"
+      },
+      {
+        "app": "Spotify",
+        "usage": "Frequent (discovering new music genres constantly, creating hyper-specific playlists)"
+      },
+      {
+        "app": "Google Maps",
+        "usage": "Frequent (for finding new places on a whim, navigating spontaneous detours, getting lost and found in Rome)"
+      },
+      {
+        "app": "Glovo/Deliveroo",
+        "usage": "Occasional (for spontaneous late-night snack or dessert orders)"
+      },
+      {
+        "app": "VSCO/Lightroom Mobile",
+        "usage": "Frequent (for editing photos on the go, achieving a specific aesthetic for posts)"
+      },
+      {
+        "app": "Pinterest",
+        "usage": "Frequent (for fashion, art, aesthetic inspiration, and mood boards that change weekly)"
+      }
+    ]
+  }
+]
