@@ -1,0 +1,2 @@
+{ "id": "sms", "kind": "sms", "name": "Messages", "description": "Texts and chat messages from friends, family and groups.", "ratePerHour": 8, "personaGrounded": true,
+  "prompt": "Incoming text and chat messages (SMS, WhatsApp and the like) from the people in this person's life, in their own voices. Include plans being made, questions that need an answer, and small talk." }

@@ -1,0 +1,2 @@
+{ "id": "email", "kind": "email", "name": "Incoming email", "description": "Work, school and personal email arriving through the day.", "ratePerHour": 4, "personaGrounded": true,
+  "prompt": "Incoming emails for this person: senders they would really hear from (school, work, family, services they use), subjects and a line of body text. Mix routine mail with a few that need action." }

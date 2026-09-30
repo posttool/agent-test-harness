@@ -1,0 +1,2 @@
+{ "id": "home_security", "kind": "home_security", "name": "Home security", "description": "Door, motion and camera events from a home security system.", "ratePerHour": 3, "personaGrounded": false,
+  "prompt": "Home security events: front door open/close, motion in rooms, doorbell camera clips (package delivered, visitor), system armed/disarmed. Mostly routine, with the occasional thing worth a look." }

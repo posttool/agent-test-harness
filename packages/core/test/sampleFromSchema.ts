@@ -4,8 +4,8 @@ type Json = { [key: string]: unknown };
 
 /** Builds a minimal value that satisfies a JSON Schema, used to round-trip every type. */
 export function sampleFrom(schema: Json): unknown {
-  if (Array.isArray(schema.anyOf)) {
-    const variants = schema.anyOf as Json[];
+  if (Array.isArray(schema.anyOf) || Array.isArray(schema.oneOf)) {
+    const variants = (schema.anyOf ?? schema.oneOf) as Json[];
     const nonNull = variants.find((v) => v.type !== "null") ?? variants[0];
     return sampleFrom(nonNull ?? {});
   }

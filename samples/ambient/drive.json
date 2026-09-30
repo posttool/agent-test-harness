@@ -1,0 +1,2 @@
+{ "id": "drive_home_to_office", "kind": "drive", "name": "Drive from home to the office", "description": "A commute by car: departure, traffic, stops and arrival.", "ratePerHour": 12, "personaGrounded": true,
+  "prompt": "A drive from home to the office as the car and phone observe it: leaving home, route and traffic updates, a slowdown, a fuel or coffee stop if natural, and arriving at the office." }

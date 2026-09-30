@@ -1,0 +1,2 @@
+{ "id": "location_changes", "kind": "location", "name": "Location changes", "description": "Semantic location updates as the person moves around.", "ratePerHour": 3, "personaGrounded": true,
+  "prompt": "Semantic location changes for this person over their day, such as leaving home, arriving at school or work, the grocery store, a cafe, the gym, and heading home. Write each as the place and whether they are arriving or leaving." }

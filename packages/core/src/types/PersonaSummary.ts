@@ -10,8 +10,8 @@ export const PersonaSummarySchema = z.object({
   image: z.string().nullable().default(null),
   hobbies: z.array(z.string()).nullable().default(null),
   goals_this_week: z.array(z.string()).nullable().default(null),
-  family: z.unknown(),
-  apps: z.unknown(),
+  family: z.unknown().optional(),
+  apps: z.unknown().optional(),
 });
 
 export type PersonaSummary = z.infer<typeof PersonaSummarySchema>;
