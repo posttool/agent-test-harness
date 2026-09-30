@@ -49,7 +49,7 @@ describe("defaults", () => {
       failureWindowMs: 120_000,
       restMs: 60_000,
       maxRestMs: 600_000,
-      stepBudgetMs: 90_000,
+      stepBudgetMs: 180_000,
     });
   });
 

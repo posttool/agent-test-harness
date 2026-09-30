@@ -5,3 +5,7 @@ coverage/
 .env.*
 !.env.example
 fixtures/recordings/*.local.json
+data/
+test-results/
+playwright-report/
+apps/web/dist/

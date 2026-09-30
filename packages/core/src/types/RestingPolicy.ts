@@ -11,7 +11,7 @@ export const RestingPolicySchema = z.object({
   failureWindowMs: z.number().int().default(120_000),
   restMs: z.number().int().default(60_000),
   maxRestMs: z.number().int().default(600_000),
-  stepBudgetMs: z.number().int().default(90_000),
+  stepBudgetMs: z.number().int().default(180_000),
 });
 
 export type RestingPolicy = z.infer<typeof RestingPolicySchema>;

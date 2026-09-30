@@ -17,5 +17,5 @@
     "resolveJsonModule": true,
     "types": ["node"]
   },
-  "include": ["packages/*/src/**/*.ts", "packages/*/test/**/*.ts", "apps/*/server/**/*.ts", "apps/*/test/**/*.ts", "*.ts"]
+  "include": ["packages/*/src/**/*.ts", "packages/*/test/**/*.ts", "apps/*/server/**/*.ts", "apps/*/test/**/*.ts", "skins/*/src/**/*.ts", "*.ts"]
 }

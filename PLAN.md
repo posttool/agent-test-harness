@@ -197,7 +197,7 @@ The question is asked *before* the next step, and the session pauses until feedb
 
 | Failure | What the runner does |
 |---|---|
-| 429 rate limit, 529 overloaded, 5xx, timeout, network error | Retry **the same model** with exponential backoff and full jitter: base 1 s, factor 2, cap 30 s, at most 4 attempts. A `retry-after` header takes priority over the computed delay. |
+| 429 rate limit, 529 overloaded, 5xx, timeout, network error | Retry **the same model** with exponential backoff and full jitter: base 1 s, factor 2, cap 30 s, at most 4 attempts. A `retry-after` header takes priority over the computed delay. Each request times out after 120 s. |
 | Output fails schema validation | Retry once on the same model, adding the validation error to the prompt. If that fails, go to the next model. |
 | `refusal` stop reason | Don't retry. Go straight to the next model. On Claude, the server-side refusal fallback (`fallbacks: "default"`, beta `server-side-fallback-2026-07-01`) is on by default, so many refusals are handled inside the same call. |
 | 400 / 404 (bad request, unknown model) | Don't retry. Go to the next model and log a config error. |
@@ -205,7 +205,7 @@ The question is asked *before* the next step, and the session pauses until feedb
 
 **Resting a model (circuit breaker).** After 3 failures in a row that exhausted retries on one model within 2 minutes, the model **rests** for a 60 s cooldown. During the cooldown, calls skip it and go down the chain. After the cooldown, one probe call is allowed. If the probe succeeds the model is back in rotation; if it fails, the cooldown doubles, up to 10 min. Rest state is shared by all concurrent sessions, so one struggling model doesn't slow every loop.
 
-**Budget.** Each structured model call has a total time budget (`stepBudgetMs`, default 90 s) across all of its retries and fallbacks, and each request's timeout is capped at whatever budget remains. When the budget runs out, the call fails, the session records the error with every attempt, and the session is marked failed.
+**Budget.** Each structured model call has a total time budget (`stepBudgetMs`, default 180 s; raised from 90 s after a live persona run where a large memory merge needed more than 60 s) across all of its retries and fallbacks, and each request's timeout is capped at whatever budget remains. When the budget runs out, the call fails, the session records the error with every attempt, and the session is marked failed.
 
 **Switching models mid-session is safe.** Each step is a fresh request built from the session context. No provider's conversation state (Claude thinking blocks, for example) is carried from one step to the next, so falling back to a different model or provider doesn't break anything.
 

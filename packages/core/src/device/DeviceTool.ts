@@ -21,7 +21,8 @@ const SURFACE_SYSTEM = `You are the Device tool of a next-generation phone. You 
 - Spaces: the documents of active projects the user is likely to want now.
 - Respect each topic's triggers and the user's overrides (for example "never on the weekend").
 - Dynamic Island: one or two words only while something is in progress, otherwise null.
-Use only topic and document ids that appear in memory.`;
+Use only topic and document ids that appear in memory.
+Each item's \`reason\` is one short sentence for the user about why it is here now (for example "Your Chemistry test is this afternoon"). Don't describe your own choices.`;
 
 const el = (kind: UiElement["kind"], id: string, fields: Partial<UiElement> = {}): UiElement => ({
   kind,

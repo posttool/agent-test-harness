@@ -1,0 +1,13 @@
+{
+  "name": "@harness/skin-default",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/skin.ts",
+    "./skin.css": "./src/skin.css"
+  },
+  "dependencies": {
+    "@harness/core": "*"
+  }
+}

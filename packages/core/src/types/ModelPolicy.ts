@@ -12,7 +12,7 @@ export const ModelPolicySchema = z.object({
   roles: z.partialRecord(ModelRoleSchema, RoleModelOverrideSchema).default({}),
   effort: z.record(ModelRoleSchema, EffortLevelSchema),
   resting: RestingPolicySchema,
-  timeoutMs: z.number().int().default(60_000),
+  timeoutMs: z.number().int().default(120_000),
   maxOutputTokens: z.number().int().default(16_000),
 });
 

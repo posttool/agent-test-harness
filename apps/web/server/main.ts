@@ -1,20 +1,18 @@
-import { createServer } from "node:http";
-import { ClaudeClient, GeminiClient, type ProviderClient, type ProviderId } from "@harness/core";
-import { createModelProxy } from "./modelProxy.ts";
+import { join } from "node:path";
+import { fileURLToPath } from "node:url";
+import { createNodeRuntime } from "@harness/runtime/node";
+import { createHarnessServer } from "./harnessServer.ts";
 
-// Dev server for the harness. Keys come from the environment and never leave this process.
-const clients: Partial<Record<ProviderId, ProviderClient>> = {};
-if (process.env.ANTHROPIC_API_KEY) clients.claude = new ClaudeClient();
-if (process.env.GEMINI_API_KEY) clients.gemini = new GeminiClient();
+// The harness server. Keys come from the environment and never leave this process.
+const here = fileURLToPath(new URL(".", import.meta.url));
+const root = join(here, "..", "..", "..");
+const runtime = await createNodeRuntime({ root, dataFile: process.env.HARNESS_DATA ?? join(root, "data", "harness.json") });
+const { server } = createHarnessServer({ runtime, staticDir: join(here, "..", "dist") });
+runtime.start();
 
-const proxy = createModelProxy(clients);
 const port = Number(process.env.PORT ?? 8787);
 const host = process.env.HOST ?? "127.0.0.1";
-
-createServer((req, res) => {
-  proxy(req, res).then((handled) => {
-    if (!handled) res.writeHead(404, { "content-type": "application/json" }).end('{"error":{"kind":"not_found","message":"Not found"}}');
-  });
-}).listen(port, host, () => {
-  console.log(`harness server on http://${host}:${port} (providers: ${Object.keys(clients).join(", ") || "none"})`);
+server.listen(port, host, async () => {
+  const snap = await runtime.snapshot();
+  console.log(`harness on http://${host}:${port}  (models: ${snap.models.configured.join(", ") || "none"}; personas: ${snap.persona.source})`);
 });
