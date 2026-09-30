@@ -1,0 +1,14 @@
+{
+  "name": "@harness/core",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.130.0",
+    "@google/genai": "^2.24.0",
+    "zod": "^4.6.5"
+  }
+}

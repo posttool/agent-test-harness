@@ -1,0 +1,13 @@
+{
+  "name": "@harness/capabilities",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@harness/core": "*",
+    "yaml": "^2.9.1"
+  }
+}
