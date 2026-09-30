@@ -16,6 +16,8 @@ export const SkinManifestSchema = z.object({
   /** Artboard file for each harness screen (lock, home, brief, spaces, discover, document…). */
   screens: z.record(z.string(), z.string()).default({}),
   missingScreens: z.array(z.string()).default([]),
+  /** Artboard file → harness screen, set by a person. Wins over the analysis. */
+  screenOverrides: z.record(z.string(), z.string()).default({}),
   /** When the design was last installed, and a hash of each design file, so re-installs can tell what changed. */
   installed: z.object({ at: z.string(), files: z.record(z.string(), z.string()) }).nullable().default(null),
 });

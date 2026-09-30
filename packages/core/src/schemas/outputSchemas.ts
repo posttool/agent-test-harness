@@ -11,6 +11,7 @@ import { SurfacePlanSchema } from "../types/SurfacePlan.ts";
 import { JudgeVerdictSchema } from "../types/JudgeVerdict.ts";
 import { UiAnswerSchema } from "../types/UiAnswer.ts";
 import { LlmToolResultSchema } from "../types/LlmToolResult.ts";
+import { SkinBindingPlanSchema } from "../types/SkinBindingPlan.ts";
 
 /**
  * Every schema a model is asked to produce. Each one must pass the provider parity
@@ -29,6 +30,7 @@ export const OUTPUT_SCHEMAS = {
   JudgeVerdict: JudgeVerdictSchema,
   UiAnswer: UiAnswerSchema,
   LlmToolResult: LlmToolResultSchema,
+  SkinBindingPlan: SkinBindingPlanSchema,
 } as const satisfies Record<string, z.ZodType>;
 
 export type OutputSchemaName = keyof typeof OUTPUT_SCHEMAS;

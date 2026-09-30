@@ -9,7 +9,7 @@ const MODELS: ModelRef[] = [
   { provider: "gemini", model: "gemini-3.8-flash", serverFallback: false },
   { provider: "gemini", model: "gemini-3.7-flash", serverFallback: false },
 ];
-const ROLES: ModelRole[] = ["loop", "router", "memoryMerge", "device", "judge", "simulator"];
+const ROLES: ModelRole[] = ["loop", "router", "memoryMerge", "device", "judge", "simulator", "designer"];
 const EFFORTS: EffortLevel[] = ["low", "medium", "high", "xhigh", "max"];
 const byModel = (model: string) => MODELS.find((m) => m.model === model) ?? MODELS[0]!;
 

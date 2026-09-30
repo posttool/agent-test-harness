@@ -1,6 +1,6 @@
 # Installing skins from Claude Design: plan
 
-**Status:** S1 (skin contract and skin needs) S2 (DC runtime; Liquid Glass plays in the harness with its original copy) and S3 (install from a canvas link) are built; S4–S6 are planned. The four open decisions are settled (§10). **Reference design:** "Liquid Glass Phone" (Claude Design canvas `4Dtcsq4Mwn4F3psXDeVMTz`): Lock Screen, Home Screen and Brief Detail, 390×844, interactive.
+**Status:** S1 (skin contract and skin needs) S2 (DC runtime; Liquid Glass plays in the harness with its original copy) S3 (install from a canvas link) and S4 (model analysis → binding.json) are built; S5–S6 are planned. The four open decisions are settled (§10). **Reference design:** "Liquid Glass Phone" (Claude Design canvas `4Dtcsq4Mwn4F3psXDeVMTz`): Lock Screen, Home Screen and Brief Detail, 390×844, interactive.
 
 ## 1. What we are building
 
@@ -146,6 +146,8 @@ SkinBindingPlan {
 
 `anchor` is a stable locator into the parsed markup: an element path, plus the `aria-label` or `<section aria-label>` when there is one. Accessible labels (`aria-label="Next up"`, `"Waiting on you"`, `"Suggested"`, `"Live activity: ride arriving in 4 minutes"`) are strong hints, and good designs have them.
 
+**As built (S4).** `npm run skin:analyze -- skins/<id>` makes one `designer`-role call per artboard. The model gets the contract paths, the canvas's board titles and links, and each artboard as compact markup with `#aN` anchors plus its logic class, fenced as untrusted data. It does not get a screenshot yet. Code checks every plan: anchors must exist, bound paths must be in the contract, need values must be single strings, and command arguments must come from a list that command accepts. Results go to `binding.json` (hand-editable; set `"edited": true` to keep a plan when the artboard changes) and `binding-report.md`. `skin.json` gets the screen mapping, needs and missing screens. `screenOverrides` (artboard → screen) pins a screen by hand. Unchanged artboards are not re-analyzed. The live run on Liquid Glass cost about $0.60 in total across two passes.
+
 **What the analysis should find in the reference design:**
 
 | Artboard | Region | Binding |
@@ -209,7 +211,7 @@ Failures go back to the rewrite call with the lint messages, at most two retries
 | **S1** ✅ | Skin contract | `SkinViewModel`, `SkinCommand`, host adapter from the runtime snapshot, `SurfacePlan` additions (headline, summary, icon, badge, waiting), skin needs (`need` command, `skin_need` signal, `device.fulfill_need`), the default skin moved onto the contract, sample fixtures | Default skin passes today's UI tests on the contract; parity check passes; a scripted test fills a weather need |
 | **S2** ✅ | DC runtime | `@harness/dc-runtime` (template, logic, tweaks, navigation, sandbox), skin host page | The three reference artboards render with their original copy and tweaks, and links navigate |
 | **S3** ✅ | Fetch | `install-skin` skill, `scripts/install-skin.ts`, asset localization, `skin.json` | The reference canvas installs into `skins/liquid-glass/design/` from its URL |
-| **S4** | Analyze | `SkinBindingPlan` schema, analyzer, binding report view | The reference design's plan matches the §6 table, with the weather strip flagged |
+| **S4** ✅ | Analyze | `SkinBindingPlan` schema, analyzer, binding report view | The reference design's plan matches the §6 table, with the weather strip flagged |
 | **S5** | Rewrite and validate | rewriter, linters, fidelity and stress renders, retry loop, manual-fix preservation | Bound artboards pass all five checks, and a live persona day drives the Liquid Glass lock screen, island and brief |
 | **S6** | In the harness | skin picker, Skin panel, per-skin tweaks, missing-screen briefs, Playwright tests for installed skins | You can install, switch and use the Liquid Glass skin end to end (after Spaces and Discover are drawn), and CI covers it |
 

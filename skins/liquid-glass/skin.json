@@ -2,19 +2,43 @@
   "id": "liquid-glass",
   "name": "Liquid Glass",
   "contract": 1,
-  "needs": [],
+  "needs": [
+    {
+      "id": "weather",
+      "ask": "Get the current weather, today's high and low, and the temperature every two hours from 10 AM to 8 PM where the user is.",
+      "fields": [
+        "now",
+        "summary",
+        "high",
+        "low",
+        "hour1",
+        "temp1",
+        "hour2",
+        "temp2",
+        "hour3",
+        "temp3",
+        "hour4",
+        "temp4",
+        "hour5",
+        "temp5",
+        "hour6",
+        "temp6"
+      ],
+      "refreshMinutes": 30
+    }
+  ],
   "renderer": "dc",
   "source": "https://claude.ai/artifact/4Dtcsq4Mwn4F3psXDeVMTz",
   "status": "incomplete",
   "screens": {
     "lock": "Main.dc.html",
     "home": "Home.dc.html",
-    "brief": "Brief.dc.html"
+    "spaces": "Brief.dc.html"
   },
   "missingScreens": [
-    "spaces",
     "discover"
   ],
+  "screenOverrides": {},
   "installed": {
     "at": "2026-09-30T22:35:02.561Z",
     "files": {

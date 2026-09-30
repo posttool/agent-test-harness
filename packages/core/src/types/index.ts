@@ -58,6 +58,7 @@ export * from "./ServerMessage.ts";
 export * from "./SessionStatus.ts";
 export * from "./Signal.ts";
 export * from "./SignalKind.ts";
+export * from "./SkinBindingPlan.ts";
 export * from "./SkinCommand.ts";
 export * from "./SkinManifest.ts";
 export * from "./SkinNeed.ts";

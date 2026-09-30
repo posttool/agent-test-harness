@@ -11,6 +11,6 @@ export const DEFAULT_MODEL_POLICY: ModelPolicy = ModelPolicySchema.parse({
     { provider: "gemini", model: "gemini-3.8-flash" },
     { provider: "gemini", model: "gemini-3.7-flash" },
   ],
-  effort: { loop: "high", router: "low", memoryMerge: "medium", device: "medium", judge: "high", simulator: "low" },
+  effort: { loop: "high", router: "low", memoryMerge: "medium", device: "medium", judge: "high", simulator: "low", designer: "high" },
   resting: {},
 });
