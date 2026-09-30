@@ -1,6 +1,7 @@
 export * from "./analyze.ts";
 export * from "./anchors.ts";
 export * from "./bind.ts";
+export * from "./briefs.ts";
 export * from "./contract.ts";
 export * from "./dom.ts";
 export * from "./install.ts";

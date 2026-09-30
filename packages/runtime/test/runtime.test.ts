@@ -2,7 +2,7 @@ import { mkdtempSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { beforeEach, describe, expect, it } from "vitest";
-import { buildSkinView, ScriptedProviderClient, SequentialIds, skinCommandToMessages, type ProviderRequest, type ScriptedReply, SkinManifestSchema, type SkinManifest } from "@harness/core";
+import { buildSkinView, clip, ScriptedProviderClient, SequentialIds, skinCommandToMessages, type ProviderRequest, type ScriptedReply, SkinManifestSchema, type SkinManifest } from "@harness/core";
 import { createNodeRuntime, type NodeRuntimeOptions } from "../src/node.ts";
 import type { HarnessRuntime } from "../src/HarnessRuntime.ts";
 
@@ -236,6 +236,31 @@ describe("HarnessRuntime", () => {
     expect(skinCommandToMessages({ type: "dismiss", itemId: "nope" }, snap, manifest)).toEqual([]);
     expect(skinCommandToMessages({ type: "answer", questionId: "nope", action: "a", values: {}, said: "" }, snap, manifest)).toEqual([]);
     expect(skinCommandToMessages({ type: "teleport" }, snap, manifest)).toEqual([]);
+  });
+
+  it("keeps the brief short: the planner sees the agent's cards, at most three stay, and copy is clipped", async () => {
+    const rt = await runtime();
+    const card = (n: number) => ({
+      purpose: "notice" as const,
+      surface: "contextual_brief" as const,
+      blocking: false,
+      question: `Question ${n}?`,
+      rationale: "internal note the user must not see",
+      component: { kind: "brief_item" as const, id: `c${n}`, title: `Card ${n}`, primaryActionLabel: null, elements: [{ kind: "text" as const, id: "t", label: null, text: "x ".repeat(100), items: [], value: null, url: null, progress: null, fieldType: null }] },
+    });
+    for (let n = 1; n <= 4; n++) rt.device.show({ ...card(n), purpose: "brief_item" }, { sessionId: "s", uiRequestId: `u${n}`, stepId: "st", documentId: null, topicId: null });
+    script = { SurfacePlan: [reply({ islandWords: "", headline: "Busy", summary: "s", brief: [], discover: [], waiting: [], spaceDocumentIds: [], rationale: "r" })] };
+    await rt.handle({ type: "refresh_surfaces" });
+    const call = claude.calls.find((c) => c.schemaName === "SurfacePlan")!;
+    const shown = call.context.find((b) => b.title === "Already on the brief (from the agent)")!;
+    expect(shown.content).toContain("- Card 4: Question 4?");
+    expect(shown.content).not.toContain("internal note");
+    const view = buildSkinView(await rt.snapshot());
+    expect(view.brief.items.map((i) => i.title)).toEqual(["Card 4", "Card 3", "Card 2"]);
+    expect(view.brief.items[0]!.line.length).toBeLessThanOrEqual(110);
+    expect(view.brief.items[0]!.line.endsWith("…")).toBe(true);
+    expect(clip("short", 10)).toBe("short");
+    expect(clip("one two three four five", 12)).toBe("one two…");
   });
 
   it("rejects malformed commands", async () => {

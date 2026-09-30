@@ -16,7 +16,8 @@
     "react-dom": "^19.3.0",
     "ws": "^8.22.0",
     "zod": "^4.6.5",
-    "@harness/dc-runtime": "*"
+    "@harness/dc-runtime": "*",
+    "@harness/skins": "*"
   },
   "devDependencies": {
     "@types/d3-force": "^3.0.10",

@@ -2,6 +2,7 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync
 import { join, resolve } from "node:path";
 import { SkinManifestSchema } from "@harness/core";
 import type { BindingFile } from "./analyze.ts";
+import { missingScreensMarkdown } from "./briefs.ts";
 import { withDom } from "./dom.ts";
 import { rewriteArtboard, type RewriteResult } from "./rewrite.ts";
 import { validateBound, type CheckResult } from "./validate.ts";
@@ -53,6 +54,7 @@ export async function bindSkin(skinDir: string): Promise<BindResult> {
     }
   });
   writeFileSync(join(dir, "bind-report.md"), bindReport(manifest.name, result));
+  writeFileSync(join(dir, "missing-screens.md"), missingScreensMarkdown(manifest));
   return result;
 }
 

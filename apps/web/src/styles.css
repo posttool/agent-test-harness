@@ -84,3 +84,13 @@ main { flex: 1; display: grid; grid-template-columns: minmax(420px, 44%) 1fr; mi
 .actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px; }
 @media (max-width: 1000px) { main { grid-template-columns: 1fr; } .experience { border-right: 0; border-bottom: 1px solid var(--line); } }
 .persona select { max-width: 280px; }
+
+.tweaks { width: 390px; font-size: 12px; }
+.tweaks summary { cursor: pointer; color: var(--muted); }
+.tweak { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
+.tweak-name { width: 80px; color: var(--muted); }
+.tweak select, .tweak input:not([type="checkbox"]) { flex: 1; }
+.skin-panel pre.report { white-space: pre-wrap; font-size: 12px; max-height: 420px; overflow: auto; }
+.skin-panel table.kv td { padding: 2px 12px 2px 0; }
+.skin-panel .note { margin: 8px 0; }
+button.link { background: none; border: 0; color: var(--accent); cursor: pointer; padding: 0; margin-top: 4px; }

@@ -3,12 +3,13 @@ import { DataPanel } from "./components/DataPanel.tsx";
 import { ExperiencePanel } from "./components/ExperiencePanel.tsx";
 import { MemoryPanel } from "./components/MemoryPanel.tsx";
 import { ModelSettings } from "./components/ModelSettings.tsx";
+import { SkinPanel } from "./components/SkinPanel.tsx";
 import { ToolsPanel } from "./components/ToolsPanel.tsx";
 import { TopBar } from "./components/TopBar.tsx";
 import { TracesPanel } from "./components/TracesPanel.tsx";
 import { useHarness } from "./useHarness.ts";
 
-const PANELS = ["Memory", "Tools", "Data", "Traces"] as const;
+const PANELS = ["Memory", "Tools", "Data", "Traces", "Skin"] as const;
 type Panel = (typeof PANELS)[number];
 
 export function App() {
@@ -49,6 +50,7 @@ export function App() {
             {panel === "Tools" && <ToolsPanel snapshot={snapshot} send={send} />}
             {panel === "Data" && <DataPanel snapshot={snapshot} send={send} />}
             {panel === "Traces" && <TracesPanel traces={traces} snapshot={snapshot} />}
+            {panel === "Skin" && <SkinPanel />}
           </div>
         </section>
       </main>

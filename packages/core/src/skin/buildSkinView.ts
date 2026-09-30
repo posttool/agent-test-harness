@@ -15,15 +15,24 @@ function clockParts(iso: string): SkinViewModel["now"] {
   };
 }
 
+/** A last guard on length for glanceable surfaces: cut at a word boundary with an ellipsis. */
+export function clip(text: string, max: number): string {
+  const t = text.trim();
+  if (t.length <= max) return t;
+  const cut = t.slice(0, max - 1);
+  const space = cut.lastIndexOf(" ");
+  return `${(space > max / 2 ? cut.slice(0, space) : cut).trimEnd()}…`;
+}
+
 function row(item: SurfaceItem): SkinBriefRow {
   const kind = item.context ? "question" : item.component.kind === "notice" ? "notice" : "item";
   return {
     id: item.id,
     kind,
-    title: item.component.title ?? (kind === "question" ? "Needs your answer" : "Update"),
-    line: item.component.elements.find((e) => e.text)?.text ?? item.reason ?? "",
+    title: clip(item.component.title ?? (kind === "question" ? "Needs your answer" : "Update"), 48),
+    line: clip(item.component.elements.find((e) => e.text)?.text ?? item.reason ?? "", 110),
     cta: item.component.primaryActionLabel ?? (kind === "question" ? "Answer" : "Open"),
-    reason: item.reason ?? "",
+    reason: clip(item.reason ?? "", 140),
     icon: item.icon ?? (kind === "question" ? "alert" : "info"),
     badge: item.badge ?? "",
     topicId: item.topicId,

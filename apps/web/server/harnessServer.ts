@@ -5,7 +5,8 @@ import { WebSocketServer, type WebSocket } from "ws";
 import { ClientMessageSchema, type ProviderClient, type ProviderId, type ServerMessage } from "@harness/core";
 import type { HarnessRuntime } from "@harness/runtime";
 import { createModelProxy } from "./modelProxy.ts";
-import { listSkins, loadSkin } from "./skins.ts";
+import { bindSkin } from "@harness/skins";
+import { listSkins, loadSkin, skinReports } from "./skins.ts";
 
 const TYPES: Record<string, string> = {
   ".html": "text/html; charset=utf-8",
@@ -55,7 +56,21 @@ export function createHarnessServer(options: HarnessServerOptions): { server: Se
         const json = (status: number, body: unknown) => void res.writeHead(status, { "content-type": "application/json" }).end(JSON.stringify(body));
         if (!options.skinsDir) return json(200, []);
         if (url === "/api/skins") return json(200, listSkins(options.skinsDir));
-        const pkg = loadSkin(options.skinsDir, decodeURIComponent(url.slice("/api/skins/".length)));
+        const [id = "", action = ""] = url.slice("/api/skins/".length).split("/").map(decodeURIComponent);
+        if (action === "reports") {
+          const reports = skinReports(options.skinsDir, id);
+          return reports ? json(200, reports) : json(404, { error: "No such skin" });
+        }
+        if (action === "bind" && req.method === "POST") {
+          // Regenerates bound/ from design/ and binding.json: no model calls.
+          if (!listSkins(options.skinsDir).some((s) => s.id === id && s.renderer === "dc")) return json(404, { error: "No such skin" });
+          const dir = join(options.skinsDir, id);
+          return void bindSkin(dir)
+            .then((r) => json(200, { ok: r.ok, artboards: r.artboards.map((a) => ({ file: a.file, checks: a.checks.map((c) => ({ name: c.name, ok: c.ok })) })) }))
+            .catch((error: unknown) => json(500, { error: error instanceof Error ? error.message : String(error) }));
+        }
+        if (action) return json(404, { error: "Unknown skin action" });
+        const pkg = loadSkin(options.skinsDir, id);
         return pkg ? json(200, pkg) : json(404, { error: "No such skin" });
       }
       if (!options.staticDir) return void res.writeHead(404).end("Not found");

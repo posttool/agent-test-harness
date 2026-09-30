@@ -1,6 +1,6 @@
 # Installing skins from Claude Design: plan
 
-**Status:** S1 (skin contract and skin needs) S2 (DC runtime; Liquid Glass plays in the harness with its original copy) S3 (install from a canvas link), S4 (model analysis → binding.json) and S5 (bind + validate) are built; S6 is planned. The four open decisions are settled (§10). **Reference design:** "Liquid Glass Phone" (Claude Design canvas `4Dtcsq4Mwn4F3psXDeVMTz`): Lock Screen, Home Screen and Brief Detail, 390×844, interactive.
+**Status:** S1 (skin contract and skin needs) S2 (DC runtime; Liquid Glass plays in the harness with its original copy) S1–S6 are built. Liquid Glass is installed, analyzed and bound; it stays **incomplete** until a Discover screen is designed (see `skins/liquid-glass/missing-screens.md`). The four open decisions are settled (§10). **Reference design:** "Liquid Glass Phone" (Claude Design canvas `4Dtcsq4Mwn4F3psXDeVMTz`): Lock Screen, Home Screen and Brief Detail, 390×844, interactive.
 
 ## 1. What we are building
 
@@ -208,6 +208,8 @@ Failures go back to the rewrite call with the lint messages, at most two retries
 - **Skin settings:** the design's tweaks (font, wallpaper, accent, glass) as controls, stored per skin.
 - **Tests:** Playwright renders the installed reference skin against the scripted test server and checks that a question round-trips, the brief updates, the island shows a ride process, and the text and voice input work. These are the same guarantees the default skin has.
 
+**As built (S6).** A skin picker and a **Tweaks** section under the phone (the design's own `data-props` tweaks, remembered per skin in the browser), and a **Skin** tab listing installed skins with their source, screen map, needs, missing-screen design briefs, bind report and analysis report, plus a **Rebind** button (no model calls). Analysis stays a command (`npm run skin:analyze`) because it costs model calls. Binding `binding.json` in the panel is not built: edit the file and press Rebind.
+
 ## 9. Milestones
 
 | # | Milestone | Deliverables | Done when |
@@ -217,7 +219,7 @@ Failures go back to the rewrite call with the lint messages, at most two retries
 | **S3** ✅ | Fetch | `install-skin` skill, `scripts/install-skin.ts`, asset localization, `skin.json` | The reference canvas installs into `skins/liquid-glass/design/` from its URL |
 | **S4** ✅ | Analyze | `SkinBindingPlan` schema, analyzer, binding report view | The reference design's plan matches the §6 table, with the weather strip flagged |
 | **S5** ✅ | Rewrite and validate | rewriter, linters, fidelity and stress renders, retry loop, manual-fix preservation | Bound artboards pass all five checks, and a live persona day drives the Liquid Glass lock screen, island and brief |
-| **S6** | In the harness | skin picker, Skin panel, per-skin tweaks, missing-screen briefs, Playwright tests for installed skins | You can install, switch and use the Liquid Glass skin end to end (after Spaces and Discover are drawn), and CI covers it |
+| **S6** ✅ | In the harness | skin picker, Skin panel, per-skin tweaks, missing-screen briefs, Playwright tests for installed skins | You can install, switch and use the Liquid Glass skin end to end (after Spaces and Discover are drawn), and CI covers it |
 
 **Order and effort:** S1 and S2 come first and are pure engineering (no model calls). S3 to S5 are the "understand a design" part. S6 makes it usable. Model cost is two calls per artboard per install, plus retries.
 

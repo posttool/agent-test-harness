@@ -52,3 +52,10 @@ export function loadSkin(skinsDir: string, id: string): SkinPackage | null {
   const canvas: unknown = existsSync(canvasFile) ? JSON.parse(readFileSync(canvasFile, "utf8")) : null;
   return { manifest, canvas, artboards, from: pick };
 }
+
+/** The installer's reports for the Skin panel, as markdown (null when that step hasn't run). */
+export function skinReports(skinsDir: string, id: string): { binding: string | null; bind: string | null; missing: string | null } | null {
+  if (!listSkins(skinsDir).some((s) => s.id === id)) return null;
+  const read = (f: string) => (existsSync(join(skinsDir, id, f)) ? readFileSync(join(skinsDir, id, f), "utf8") : null);
+  return { binding: read("binding-report.md"), bind: read("bind-report.md"), missing: read("missing-screens.md") };
+}

@@ -17,12 +17,14 @@ import { randomIds, type IdGenerator } from "../util/ids.ts";
 
 const SURFACE_SYSTEM = `You are the Device tool of a next-generation phone. You decide what the phone's surfaces show, given the user's memory and where and when they are.
 
-- Contextual Brief: the few items that matter right now, most important first. Prefer what is relevant to this time and place (the grocery list at the store, a QR code at a venue), urgent changes (a moved test, an urgent message), and actions the user needs to take. Keep each item glanceable: a title, one line and a call to action. Never full detail. Tapping opens Spaces.
+- Contextual Brief: the few items that matter right now, most important first. Prefer what is relevant to this time and place (the grocery list at the store, a QR code at a venue), urgent changes (a moved test, an urgent message), and actions the user needs to take. Keep each item glanceable: a title of two to five words, one line under ten words, and a call to action. Never full detail. Tapping opens Spaces. Three to five items is plenty; one item per event.
 - Discover: a few topics related to the user's interests or projects that they did not ask for.
 - Spaces: the documents of active projects the user is likely to want now.
 - Respect each topic's triggers and the user's overrides (for example "never on the weekend").
 - Dynamic Island: one or two words only while something is in progress, otherwise null.
-- Headline and summary: the user's day at a glance ("Focused morning, wet evening."), from memory and the calendar.
+- Headline and summary: the user's day at a glance. The headline is under six words ("Focused morning, wet evening."); the summary is one sentence under 20 words.
+- Items the agent already put on the brief are listed under "Already on the brief". Don't add another item about the same thing.
+- Write for the user: say the fact or the ask. Never describe the UI, your choices, memory status or ids.
 - Each brief and discover item gets the icon that fits best and a very short badge (a countdown like "in 49m", a count, or an empty string).
 - Waiting: messages and asks from other people that the user has not answered yet, as memory records them. Leave it empty when there are none.
 Use only topic and document ids that appear in memory.
@@ -223,23 +225,26 @@ export class DeviceTool {
   /** Re-plans the Brief, Discover and Spaces with one model call. Pending questions stay. */
   async refresh(now: ContextBlock[] = []): Promise<SurfacePlan> {
     const memory = await renderMemory(this.memory);
+    const shown = this.state.brief.filter((i) => i.context !== null).map((i) => `- ${i.component.title ?? "Question"}${i.reason ? `: ${i.reason}` : ""}`);
     const result = await this.runner.run({
       role: "device",
       schemaName: "SurfacePlan",
       schema: SurfacePlanSchema,
       system: SURFACE_SYSTEM,
-      context: [{ kind: "memory", title: "Memory graph", content: memory }, ...now],
+      context: [{ kind: "memory", title: "Memory graph", content: memory }, ...(shown.length ? [{ kind: "note" as const, title: "Already on the brief (from the agent)", content: shown.join("\n") }] : []), ...now],
     });
     const plan = result.value;
     const documents = await this.memory.documents();
     const pending = (list: SurfaceItem[]) => list.filter((i) => i.context !== null);
+    // The agent's own brief cards: questions waiting on the user, newest three.
+    const agentCards = pending(this.state.brief).slice(0, 3);
     const card = (b: SurfacePlan["brief"][number], kind: UiComponentSpec["kind"]) =>
       this.item(
         { kind, id: this.ids.next("brief"), title: b.title, primaryActionLabel: b.callToAction, elements: [el("text", "line", { text: b.line })] },
         null,
         { topicId: b.topicId, documentId: b.documentId, reason: b.reason, icon: b.icon, badge: b.badge || null },
       );
-    this.state.brief = [...pending(this.state.brief), ...plan.brief.map((b) => card(b, "brief_item"))];
+    this.state.brief = [...agentCards, ...plan.brief.map((b) => card(b, "brief_item"))];
     this.state.discover = plan.discover.map((b) => card(b, "card"));
     this.state.headline = plan.headline;
     this.state.summary = plan.summary;

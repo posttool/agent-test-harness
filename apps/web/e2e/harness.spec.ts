@@ -128,3 +128,28 @@ test("serves the Claude Design skin page with a strict content security policy",
   expect(skins.map((s) => s.id)).toEqual(["default", "liquid-glass"]);
   expect((await request.get("/api/skins/..%2Fpackage.json")).status()).toBe(404);
 });
+
+test("the Skin panel shows installed skins, their reports and briefs for missing screens", async ({ page }) => {
+  await page.getByRole("tab", { name: "Skin" }).click();
+  const panel = page.getByTestId("skin-panel");
+  await expect(panel.getByText("skins/liquid-glass")).toBeVisible();
+  await expect(panel.getByText("incomplete")).toBeVisible();
+  await expect(panel.getByText("https://claude.ai/artifact/4Dtcsq4Mwn4F3psXDeVMTz")).toBeVisible();
+  await expect(panel.getByText('Add a "Discover" artboard to this canvas', { exact: false })).toBeVisible();
+  await panel.getByText("Bind report").click();
+  await expect(panel.getByText("Hard checks (format, fidelity, commands): **pass**.")).toBeVisible();
+});
+
+test("tweaks restyle a Claude Design skin and are remembered", async ({ page }) => {
+  await page.getByTestId("skin-picker").selectOption("liquid-glass");
+  const tweaks = page.getByTestId("tweaks");
+  await tweaks.locator("summary").click();
+  await tweaks.getByLabel("wallpaper").selectOption("Glacier");
+  const p = phone(page);
+  await expect.poll(() => p.locator("#root > div").getAttribute("style")).toContain("#04111b");
+  await page.reload();
+  await expect.poll(() => phone(page).locator("#root > div").getAttribute("style")).toContain("#04111b");
+  await page.getByTestId("tweaks").locator("summary").click();
+  await page.getByTestId("tweaks").getByText("Reset to the design's defaults").click();
+  await expect.poll(() => phone(page).locator("#root > div").getAttribute("style")).not.toContain("#04111b");
+});
