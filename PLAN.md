@@ -43,10 +43,10 @@ We are building a harness for designing and testing a next-generation personal a
 | P8 | **Capabilities are Markdown.** | Each reasoning capability is a `.md` file (instructions plus metadata front-matter). The loop is configured with a list of capability files. |
 
 **Model providers:** the prototype runs on **both Gemini and Claude**, and both are fully supported.
-- **Gemini** (https://ai.google.dev/gemini-api/docs): Gemini 3.8 Flash is the default model, as the brief asks.
-- **Claude** (Anthropic Messages API, `@anthropic-ai/sdk`): Claude Opus 5.5 (`claude-opus-5-5`) is the default Claude model.
+- **Claude** (Anthropic Messages API, `@anthropic-ai/sdk`): **Claude Opus 5.5 (`claude-opus-5-5`) is the primary default** for every role.
+- **Gemini** (https://ai.google.dev/gemini-api/docs): Gemini 3.8 Flash (`gemini-3.8-flash`) is the first model on the other provider in the fallback chain, and can be picked for any role.
 
-A setting chooses the provider and model for each role (the loop, the router, the memory merge, the Device tool, the eval judge). The fallback chain can cross providers (see §4.5 and §4.6).
+Calls use the resting strategy (§4.5): back off and retry the same model, rest a model that keeps failing, then fall back through a chain that crosses providers. A setting can change the provider and model for each role (the loop, the router, the memory merge, the Device tool, the eval judge).
 
 ---
 
@@ -180,13 +180,36 @@ The question is asked *before* the next step, and the session pauses until feedb
 ### 4.5 Model policy
 
 `ModelPolicy` (a type) contains:
-- `primary`: a `ModelRef` (`{provider: "gemini" | "claude", model, options}`). The default is Gemini 3.8 Flash.
-- `fallbacks`: an ordered list of `ModelRef`s. **These can cross providers.** A typical chain is Gemini 3.8 Flash, then Claude Opus 5.5, then an older Gemini Flash.
-- `roles`: optional overrides for each role (`router`, `loop`, `memoryMerge`, `device`, `judge`), so we can try, for example, Claude for memory merging and Gemini for routing.
-- `retry`: `{maxAttempts, baseDelayMs, maxDelayMs, retryOn: [timeout, 429, 5xx, overloaded, schemaInvalid, refusal]}`
+- `primary`: a `ModelRef` (`{provider: "claude" | "gemini", model, options}`). **The default is Claude Opus 5.5 (`claude-opus-5-5`).**
+- `fallbacks`: an ordered list of `ModelRef`s that can cross providers. The default chain is:
+  1. `claude-opus-5-5`, the primary
+  2. `claude-opus-5`, the previous Claude Opus
+  3. `gemini-3.8-flash`, the other provider
+  4. `gemini-3.7-flash`, the previous Gemini Flash
+- `roles`: optional overrides for each role (`router`, `loop`, `memoryMerge`, `device`, `judge`). Each role inherits the primary and the chain unless it is overridden.
+- `effort`: Claude effort for each role. Opus 5.5 defaults to `medium`, so we always set it. Starting values: `loop: high`, `router: low`, `memoryMerge: medium`, `device: medium`, `judge: high`. M8 tunes them.
+- `resting`: the retry-and-rest strategy described below.
 - `timeoutMs`
 
-The flow is: call the model, check its output against the schema, and retry on failure. Once retries run out, move to the next `ModelRef` in the chain. Every attempt, including failures and fallbacks, is traced with its provider, model, token usage and cost. The web UI can change the policy at runtime.
+#### Resting strategy (retry, rest, fall back)
+
+"Resting" means backing off between retries, and letting a model that keeps failing rest for a while so calls skip it.
+
+| Failure | What the runner does |
+|---|---|
+| 429 rate limit, 529 overloaded, 5xx, timeout, network error | Retry **the same model** with exponential backoff and full jitter: base 1 s, factor 2, cap 30 s, at most 4 attempts. A `retry-after` header takes priority over the computed delay. |
+| Output fails schema validation | Retry once on the same model, adding the validation error to the prompt. If that fails, go to the next model. |
+| `refusal` stop reason | Don't retry. Go straight to the next model. On Claude, the server-side refusal fallback (`fallbacks: "default"`, beta `server-side-fallback-2026-07-01`) is on by default, so many refusals are handled inside the same call. |
+| 400 / 404 (bad request, unknown model) | Don't retry. Go to the next model and log a config error. |
+| 401 / 403 (bad or missing key) | Don't retry. Skip **every** model from that provider for the rest of the session and show the error in the UI. |
+
+**Resting a model (circuit breaker).** After 3 failures in a row that exhausted retries on one model within 2 minutes, the model **rests** for a 60 s cooldown. During the cooldown, calls skip it and go down the chain. After the cooldown, one probe call is allowed. If the probe succeeds the model is back in rotation; if it fails, the cooldown doubles, up to 10 min. Rest state is shared by all concurrent sessions, so one struggling model doesn't slow every loop.
+
+**Budget.** Each step has a total time budget (default 90 s) across all retries and fallbacks. When it runs out, the step fails and the session records the error, and the loop decides what to do next.
+
+**Switching models mid-session is safe.** Each step is a fresh request built from the session context. No provider's conversation state (Claude thinking blocks, for example) is carried from one step to the next, so falling back to a different model or provider doesn't break anything.
+
+Every attempt, rest and fallback is traced with its provider, model, token usage, delay and cost. The web UI shows each model's rest state and can change the policy at runtime.
 
 ### 4.6 Provider adapters
 
@@ -205,17 +228,17 @@ Each provider has an adapter that turns this call into that provider's native AP
 
 | Concern | `GeminiClient` (`@google/genai`) | `ClaudeClient` (`@anthropic-ai/sdk`) |
 |---|---|---|
-| Default model | Gemini 3.8 Flash | `claude-opus-5-5` (Claude Opus 5.5) |
+| Role in the default policy | fallback (`gemini-3.8-flash`, then `gemini-3.7-flash`) | **primary** (`claude-opus-5-5`, then `claude-opus-5`) |
 | Structured output | `responseMimeType: "application/json"` + `responseSchema` | `output_config.format` with a JSON schema, or `client.messages.parse()` with the Zod schema |
 | Reasoning depth | model thinking config | Adaptive thinking is always on for Opus 5.5. Depth is set with `output_config.effort`, whose default is `medium`, so we set it explicitly for each role. |
 | Tool calls | function declarations | `tools` with `strict: true`, and `tool_choice: auto`. Opus 5.5 rejects forced tool choice, so we use structured output when we need a guaranteed shape. |
 | Prompt caching | context caching | Capability `.md` files and the system prompt go first and never change. They are marked with `cache_control`, while per-session context goes after them. `usage.cache_read_input_tokens` is traced. |
 | Web built-in | Google Search grounding | The `web_search` / `web_fetch` server tools, as an alternative backend for the Web tool |
-| Refusals | safety block → `refusal` | `stop_reason: "refusal"` → `refusal`, and the policy moves to the next model. Server-side `fallbacks` can be turned on as well. |
-| Errors | map to `timeout`, `429`, `5xx` | Typed SDK errors (`RateLimitError`, `APIError` with status 429, 529 or 5xx) mapped to the same retry classes. SDK auto-retry is turned off so that `ModelPolicyRunner` owns retries. |
+| Refusals | safety block → `refusal` | `stop_reason: "refusal"` → `refusal`. Server-side `fallbacks: "default"` is on by default. If the whole chain still refuses, the policy moves to the next model. |
+| Errors | map to `timeout`, `429`, `5xx` | Typed SDK errors (`RateLimitError`, `APIError` with status 429, 529 or 5xx) mapped to the same retry classes. SDK auto-retry is turned off (`maxRetries: 0`) so that `ModelPolicyRunner` owns retries and resting. |
 | Keys | `GEMINI_API_KEY` | `ANTHROPIC_API_KEY` |
 
-In the browser, calls go through a small proxy (`apps/web/server`) so that API keys never reach the client.
+In the browser, calls go through a small proxy (`apps/web/server`) so that API keys never reach the client. **Keys are never committed.** Local development reads a gitignored `.env`, whose shape is shown in `.env.example`. Cloud sessions and CI read them from environment secrets.
 
 **Provider parity is a test requirement.** Every capability's output schema must work under both providers' structured-output modes. Some features exist on only one side (a JSON-schema keyword, image input). In those cases the Zod schema is limited to what both support. A CI check converts each schema for both providers and fails if either one rejects it.
 
@@ -270,7 +293,7 @@ A `Document` is a set of memory nodes nested under one root, and it records a pr
 - structured sections (the "Math test prep" page is the reference: topics, per-skill progress, agentic actions, generated practice app, links, test date, relevant observations);
 - **live process status** for any running tool process, updated by subscriptions;
 - **results and follow-up actions** once a process finishes;
-- a **history** where each action taken or completed is recorded as a `DocumentRevision` (our reading of the brief's "the document is archived");
+- a **history** where each action taken or completed is recorded as a `DocumentRevision`. The document itself is **archived when the project is finished**, meaning its topic reaches `done`. Until then it stays live and keeps growing.
 - a **suggested actions** list, filled in by asking the tool layer "given this context, what help is available?".
 
 Documents can be recalled on request or brought forward by the agent when something relevant changes. For example, a flight change surfaces the whole trip.
@@ -387,7 +410,7 @@ The layout is a persistent Experience panel in the center with four side panels.
 **Global controls:**
 - **Clear memory:** wipes memory, traces, subscriptions, the dashboard and the Experience, and stops any simulation.
 - **Dark/light mode.**
-- **Model settings:** provider and model for each role (default Gemini 3.8 Flash; Claude Opus 5.5 available), Claude effort level, a fallback chain that can mix providers, and the retry policy. A quick **A/B switch** replays the current persona day on the other provider so the two can be compared side by side in Traces.
+- **Model settings:** provider and model for each role (default Claude Opus 5.5), Claude effort for each role, the fallback chain (which can mix providers), the resting settings (backoff, cooldown, step budget), and a live rest-state indicator for each model. A quick **A/B switch** replays the current persona day on the other provider so the two can be compared side by side in Traces.
 - **Persona picker:** picks an Aura persona, clears everything, and starts the day-in-the-life simulation.
 - The harness **starts blank**, with no sample data.
 
@@ -450,7 +473,7 @@ agent-test-harness/
 |---|-----------|-------------|-----------|
 | **M0** | Scaffold | Workspaces, TS config, Vitest, lint, CI, this plan | `npm test` passes in CI on an empty suite |
 | **M1** | Data model | All types in `types/` with Zod schemas; capability file format and loader; the six capability `.md` files | Schema and loader tests pass |
-| **M2** | Loop core | `ModelClient` interface, `GeminiClient` **and** `ClaudeClient`, `ModelPolicyRunner` (retry and cross-provider fallback), `AgentReasoningLoop`, `TriggerRouter`, `TraceStore`, `ScriptedModelClient`, API-key proxy | Deterministic tests cover step selection, end, retry, fallback, and pause/resume; the parity check passes; one live smoke test per provider passes |
+| **M2** | Loop core | `ModelClient` interface, `GeminiClient` **and** `ClaudeClient`, `ModelPolicyRunner` (resting strategy and cross-provider fallback), `AgentReasoningLoop`, `TriggerRouter`, `TraceStore`, `ScriptedModelClient`, API-key proxy | Deterministic tests cover step selection, end, backoff, `retry-after`, resting (cooldown, probe, doubling), auth-skip, fallback, step budget and pause/resume; the parity check passes; one live smoke test per provider passes |
 | **M3** | Memory | `MemoryStore` with versioned transactions, in-memory and IndexedDB adapters, topic lifecycle, `TopicMeta`, documents, calendar, pruning | Concurrent-write and merge tests pass; recorded-fixture scenario builds the Math test prep document |
 | **M4** | Tools | Registry, oversight gate, web built-in, sandboxed generated tools, subscriptions | Oversight gate triggers disambiguation; a long-running tool streams progress into its document |
 | **M5** | Ambient and persona | Emission engine, templates, vibe-coded sources, `persona-sim` adapter and fixtures | A persona day plays through the loop headless and produces sensible topics |
@@ -461,13 +484,23 @@ agent-test-harness/
 
 ---
 
-## 13. Assumptions and open questions
+## 13. Decisions and open questions
 
-1. **Models.** Gemini 3.8 Flash is the default, as the brief asks. Its exact API model string will be checked against the Gemini docs during M2. Claude Opus 5.5 (`claude-opus-5-5`) is the default Claude model. Claude Sonnet 5.5 (`claude-sonnet-5-5`) and Claude Haiku 4.5 (`claude-haiku-4-5`) are candidates for cheaper roles such as the router and judge, if we choose them. All of these are settings, not hard-coded values. **Which provider should be the default for each role is an open question** that the M8 comparison should answer.
-2. **API keys.** We need a Gemini key and an Anthropic API key for live tests and evals. Scripted and recorded tests need neither.
-3. **"The document is archived."** We read this as every action being *recorded in the document's history* (`DocumentRevision`), and the whole document being archived only at the end of its lifecycle. Please confirm.
-4. **Persona service access.** `persona-sim` calls the deployed Aura persona HTTP endpoints. We need the base URL and an access decision (public endpoints or an API key).
-5. **Cross-device backend.** Firestore is the working choice because it matches the persona stack. Confirm, or name another.
-6. **Sandbox for generated code.** Web Worker plus `vm` is enough for a harness. A real device build would need proper isolation.
-7. **Swipe-to-dismiss "why?".** When the user swipes a topic away, the agent may quietly ask why and store the answer as a `TriggerOverride`. This UX pattern is in scope for M6 and M7.
-8. **"Nadav's drawing" and Loom.** Those references are outside this repo. Any visual spec from them should be added under `docs/`.
+### Decided (2026-09-30)
+
+| Topic | Decision |
+|---|---|
+| Primary model | **Claude Opus 5.5** (`claude-opus-5-5`) for every role, using the resting strategy in §4.5 |
+| Fallback chain | `claude-opus-5` → `gemini-3.8-flash` → `gemini-3.7-flash`. The Gemini IDs were checked against the live Gemini models list on 2026-09-30. |
+| API keys | Both are provided and both checked OK on 2026-09-30. They are stored as environment secrets or a gitignored `.env`, never in the repo. |
+| Persona service | Base URL `https://us-central1-aura-persona.cloudfunctions.net/`, using the HTTP endpoints `listPersona1`, `getPersona1`, `listDaysForPersona1` and `listObservations1` |
+| "The document is archived" | A document is archived when its project is finished. Until then, each action is recorded as a `DocumentRevision`. |
+
+### Still open
+
+1. **Network access to the persona service.** The cloud dev environment's network policy currently blocks `us-central1-aura-persona.cloudfunctions.net`. It needs to be added to the allowed domains before `persona-sim` can run live. Until then it runs against exported fixtures.
+2. **Cheaper roles.** Opus 5.5 is the default everywhere. M8 will measure whether any role (router, judge) should move to a cheaper model. That is a decision for you, not something we change automatically.
+3. **Cross-device backend.** Firestore is the working choice because it matches the persona stack. Confirm, or name another.
+4. **Sandbox for generated code.** Web Worker plus `vm` is enough for a harness. A real device build would need proper isolation.
+5. **Swipe-to-dismiss "why?".** When the user swipes a topic away, the agent may quietly ask why and store the answer as a `TriggerOverride`. This UX pattern is in scope for M6 and M7.
+6. **"Nadav's drawing" and Loom.** Those references are outside this repo. Any visual spec from them should be added under `docs/`.
