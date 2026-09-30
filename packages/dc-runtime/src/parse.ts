@@ -28,8 +28,8 @@ export interface Artboard {
 export class ArtboardError extends Error {}
 
 /** Parses a Claude Design artboard. Needs a DOM (the browser, or happy-dom in tests). */
-export function parseArtboard(file: string, source: string): Artboard {
-  const doc = new DOMParser().parseFromString(source, "text/html");
+export function parseArtboard(file: string, source: string, parser: DOMParser = new DOMParser()): Artboard {
+  const doc = parser.parseFromString(source, "text/html");
   const root = doc.querySelector("x-dc");
   if (!root) throw new ArtboardError(`${file} has no <x-dc> element`);
   const helmetEl = root.querySelector(":scope > helmet");

@@ -2,10 +2,26 @@
   "id": "liquid-glass",
   "name": "Liquid Glass",
   "contract": 1,
+  "needs": [],
   "renderer": "dc",
   "source": "https://claude.ai/artifact/4Dtcsq4Mwn4F3psXDeVMTz",
   "status": "incomplete",
-  "screens": { "lock": "Main.dc.html", "home": "Home.dc.html", "brief": "Brief.dc.html" },
-  "missingScreens": ["spaces", "discover"],
-  "needs": []
+  "screens": {
+    "lock": "Main.dc.html",
+    "home": "Home.dc.html",
+    "brief": "Brief.dc.html"
+  },
+  "missingScreens": [
+    "spaces",
+    "discover"
+  ],
+  "installed": {
+    "at": "2026-09-30T22:35:02.561Z",
+    "files": {
+      "Main.dc.html": "eca91da169b290c9",
+      "Home.dc.html": "08ea918bbcaa85c0",
+      "Brief.dc.html": "8f41af124d22a80b",
+      "canvas.json": "a79e0548d11d8ff5"
+    }
+  }
 }

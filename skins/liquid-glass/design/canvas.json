@@ -1,1 +1,58 @@
-{"v":3,"attachments":{},"createdOnFiles":{"at":"2026-09-30T17:00:00Z","v":1},"title":"Liquid Glass Phone","launch":{"view":"canvas"},"pages":[],"boards":{"Main.dc.html":{"x":0,"y":0,"w":390,"h":844,"title":"Lock Screen","is_interactive":true,"radius":54},"Home.dc.html":{"x":470,"y":0,"w":390,"h":844,"title":"Home Screen","is_interactive":true,"radius":54},"Brief.dc.html":{"x":940,"y":0,"w":390,"h":844,"title":"Brief Detail","is_interactive":true,"radius":54}},"order":["Main.dc.html","Home.dc.html","Brief.dc.html"],"notes":{"t1":{"kind":"title1","maxW":1330,"text":"Liquid Glass — Lock, Home & Brief","w":240,"x":0,"y":-260}},"designSystems":[]}
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Brief.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 54,
+      "title": "User Spaces",
+      "w": 390,
+      "x": 940,
+      "y": 0
+    },
+    "Home.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 54,
+      "title": "Home Screen",
+      "w": 390,
+      "x": 470,
+      "y": 0
+    },
+    "Main.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 54,
+      "title": "Lock Screen",
+      "w": 390,
+      "x": 0,
+      "y": 0
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-09-30T17:00:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {
+    "t1": {
+      "kind": "title1",
+      "maxW": 1330,
+      "text": "Liquid Glass — Lock, Home & Brief",
+      "w": 240,
+      "x": 0,
+      "y": -260
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "Home.dc.html",
+    "Brief.dc.html"
+  ],
+  "pages": [],
+  "title": "Liquid Glass Phone"
+}

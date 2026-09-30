@@ -18,7 +18,8 @@
     "test:live": "vitest run --config vitest.live.config.ts",
     "check": "npm run typecheck && npm run lint && npm test",
     "test:ui": "playwright test",
-    "eval": "node packages/evals/src/cli.ts"
+    "eval": "node packages/evals/src/cli.ts",
+    "skin:install": "node scripts/install-skin.ts"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

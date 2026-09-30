@@ -1,6 +1,17 @@
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
-import { join } from "node:path";
+import { extname, join } from "node:path";
 import { SkinManifestSchema, type SkinManifest } from "@harness/core";
+
+const ASSET_TYPES: Record<string, string> = {
+  ".png": "image/png",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".gif": "image/gif",
+  ".webp": "image/webp",
+  ".svg": "image/svg+xml",
+  ".woff2": "font/woff2",
+  ".woff": "font/woff",
+};
 
 export interface SkinPackage {
   manifest: SkinManifest;
@@ -31,7 +42,12 @@ export function loadSkin(skinsDir: string, id: string): SkinPackage | null {
   if (!manifest) return null;
   const pick = (["bound", "design"] as const).find((d) => existsSync(join(skinsDir, id, d)) && statSync(join(skinsDir, id, d)).isDirectory()) ?? null;
   const dir = pick ? join(skinsDir, id, pick) : null;
-  const artboards = dir ? Object.fromEntries(readdirSync(dir).filter((f) => f.endsWith(".dc.html")).map((f) => [f, readFileSync(join(dir, f), "utf8")])) : {};
+  // The sandboxed skin frame has no network access, so installed assets travel inline as data URIs.
+  const assetsDir = dir ? join(dir, "assets") : null;
+  const assets = assetsDir && existsSync(assetsDir) ? readdirSync(assetsDir).filter((f) => ASSET_TYPES[extname(f).toLowerCase()]) : [];
+  const inline = (source: string) =>
+    assets.reduce((text, f) => text.split(`assets/${f}`).join(`data:${ASSET_TYPES[extname(f).toLowerCase()]};base64,${readFileSync(join(assetsDir!, f)).toString("base64")}`), source);
+  const artboards = dir ? Object.fromEntries(readdirSync(dir).filter((f) => f.endsWith(".dc.html")).map((f) => [f, inline(readFileSync(join(dir, f), "utf8"))])) : {};
   const canvasFile = join(skinsDir, id, "design", "canvas.json");
   const canvas: unknown = existsSync(canvasFile) ? JSON.parse(readFileSync(canvasFile, "utf8")) : null;
   return { manifest, canvas, artboards, from: pick };
