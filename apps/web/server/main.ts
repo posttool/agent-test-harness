@@ -7,7 +7,7 @@ import { createHarnessServer } from "./harnessServer.ts";
 const here = fileURLToPath(new URL(".", import.meta.url));
 const root = join(here, "..", "..", "..");
 const runtime = await createNodeRuntime({ root, dataFile: process.env.HARNESS_DATA ?? join(root, "data", "harness.json") });
-const { server } = createHarnessServer({ runtime, staticDir: join(here, "..", "dist") });
+const { server } = createHarnessServer({ runtime, staticDir: join(here, "..", "dist"), skinsDir: join(root, "skins") });
 runtime.start();
 
 const port = Number(process.env.PORT ?? 8787);

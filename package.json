@@ -26,6 +26,7 @@
     "@types/node": "^22.20.4",
     "eslint": "^10.11.0",
     "fake-indexeddb": "^6.2.5",
+    "happy-dom": "^20.14.5",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.71.0",
     "vitest": "4.0.18"

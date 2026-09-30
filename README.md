@@ -32,6 +32,8 @@ Open http://127.0.0.1:8787 in one or more browsers or devices. Every client shar
 | `packages/evals` | Scenario evals on both providers with a user simulator and an LLM judge |
 | `apps/web` | The React harness, the harness server (WebSocket + model proxy) and Playwright UI tests |
 | `skins/default` | The phone skin, rendered in an iframe (plan for Claude Design skins: [docs/SKINS_FROM_CLAUDE_DESIGN.md](docs/SKINS_FROM_CLAUDE_DESIGN.md)) |
+| `packages/dc-runtime` | Plays Claude Design `.dc.html` artboards (holes, `sc-if`, `sc-for`, `dc-import`, logic classes, tweaks, links) |
+| `skins/liquid-glass` | The Liquid Glass design from Claude Design, played by the DC runtime in a sandboxed frame. Pick it under the phone. |
 | `samples/` | Ambient templates, tool suggestions and eval scenarios (JSON) |
 | `fixtures/` | Exported Aura personas and recorded model runs |
 | `scripts/` | Persona export extractor, scenario recorder, headless persona run |

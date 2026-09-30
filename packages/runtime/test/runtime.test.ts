@@ -2,7 +2,7 @@ import { mkdtempSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { beforeEach, describe, expect, it } from "vitest";
-import { buildSkinView, ScriptedProviderClient, SequentialIds, skinCommandToMessages, type ProviderRequest, type ScriptedReply, type SkinManifest } from "@harness/core";
+import { buildSkinView, ScriptedProviderClient, SequentialIds, skinCommandToMessages, type ProviderRequest, type ScriptedReply, SkinManifestSchema, type SkinManifest } from "@harness/core";
 import { createNodeRuntime, type NodeRuntimeOptions } from "../src/node.ts";
 import type { HarnessRuntime } from "../src/HarnessRuntime.ts";
 
@@ -222,7 +222,7 @@ describe("HarnessRuntime", () => {
     const view = buildSkinView(snap);
     expect(view.brief).toMatchObject({ headline: "Busy day", summary: "Test at 2" });
     expect(view.brief.items[0]).toMatchObject({ title: "Chemistry", line: "Test at 2pm", icon: "school", badge: "in 4h", kind: "item", questionId: null });
-    const manifest: SkinManifest = { id: "t", name: "t", contract: 1, needs: [{ id: "weather", ask: "w", fields: ["now"], refreshMinutes: 60 }] };
+    const manifest: SkinManifest = SkinManifestSchema.parse({ id: "t", name: "t", contract: 1, needs: [{ id: "weather", ask: "w", fields: ["now"], refreshMinutes: 60 }] });
     const row = view.brief.items[0]!;
     expect(skinCommandToMessages({ type: "open", itemId: row.id }, snap, manifest)).toEqual([
       { type: "device", action: "unlock" },

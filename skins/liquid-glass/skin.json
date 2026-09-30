@@ -1,0 +1,11 @@
+{
+  "id": "liquid-glass",
+  "name": "Liquid Glass",
+  "contract": 1,
+  "renderer": "dc",
+  "source": "https://claude.ai/artifact/4Dtcsq4Mwn4F3psXDeVMTz",
+  "status": "incomplete",
+  "screens": { "lock": "Main.dc.html", "home": "Home.dc.html", "brief": "Brief.dc.html" },
+  "missingScreens": ["spaces", "discover"],
+  "needs": []
+}

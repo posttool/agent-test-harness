@@ -59,6 +59,6 @@ claude.handler = (req: ProviderRequest): ScriptedReply => {
 };
 
 const runtime = await createNodeRuntime({ root, env: {}, clients: { claude } });
-const { server } = createHarnessServer({ runtime, staticDir: join(here, "..", "dist") });
+const { server } = createHarnessServer({ runtime, staticDir: join(here, "..", "dist"), skinsDir: join(root, "skins") });
 runtime.start();
 server.listen(Number(process.env.PORT ?? 8790), "127.0.0.1", () => console.log("test harness ready"));

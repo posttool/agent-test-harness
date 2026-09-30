@@ -8,10 +8,12 @@ export default defineConfig({
   plugins: [react()],
   build: {
     outDir: "dist",
-    rollupOptions: { input: { index: resolve(import.meta.dirname, "index.html"), skin: resolve(import.meta.dirname, "skin.html") } },
+    rollupOptions: { input: { index: resolve(import.meta.dirname, "index.html"), skin: resolve(import.meta.dirname, "skin.html"), dcSkin: resolve(import.meta.dirname, "dc-skin.html") } },
   },
   server: {
     port: 5173,
+    // The Claude Design skin page runs in a sandboxed (opaque-origin) iframe, so its modules load cross-origin.
+    cors: true,
     proxy: { "/ws": { target: server.replace("http", "ws"), ws: true }, "/api": server },
   },
 });
