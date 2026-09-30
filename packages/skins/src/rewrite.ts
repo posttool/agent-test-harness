@@ -283,6 +283,8 @@ export function rewriteArtboard(file: string, designSource: string, plan: SkinBi
           group.forEach((g, gi) => values[ri]!.set(g.key, parts?.[pieces!.order[gi]!] ?? (group.length === 1 ? text : "")));
         });
         if (pieces) writeSource(first, where.attr, pieces.literals, pieces.order.map((o) => `{{${as}.${group[o]!.key}}}`));
+        // A field that is the element's whole text hides the element when it is empty (an empty badge pill).
+        if (pieces && !where.attr && group.length === 1 && pieces.literals.every((l) => l.trim() === "")) first.setAttribute("data-skin-empty", `{{${as}.${group[0]!.key}_empty}}`);
         for (const g of group) {
           mark(first, region.fields[fields.indexOf(g)]!.anchor);
           bound.push({ anchor: anchorId(region.fields[fields.indexOf(g)]!.anchor), path: joinPath(listSlot, g.path) });
@@ -327,6 +329,10 @@ export function rewriteArtboard(file: string, designSource: string, plan: SkinBi
       }
       mark(target, f.anchor);
       singles.push(`${js(key)}: __fmt(__get(s, ${js(path)}), ${js(f.sample)})`);
+      if (textOf(target) === `{{bind.b.${key}}}`) {
+        singles.push(`${js(`${key}_empty`)}: s !== __SAMPLE && __fmt(__get(s, ${js(path)}), ${js(f.sample)}) === ""`);
+        target.setAttribute("data-skin-empty", `{{bind.b.${key}_empty}}`);
+      }
       const before = setPath(sample, path, f.sample);
       if (typeof before === "string" && before !== f.sample) problems.push(`${path} is shown twice with different copy ("${before}" and "${f.sample}"); the sample keeps the second.`);
       if (listSlot && !(getPath(sample, `${base}.id`))) setPath(sample, `${base}.id`, `sample-${anchorId(region.anchor)}`);
@@ -377,11 +383,19 @@ export function rewriteArtboard(file: string, designSource: string, plan: SkinBi
         `...__variant(${js(l.variants)}, i, arr.length)`,
         // Without live data each row shows its own designer copy verbatim.
         ...l.fields.map((f) => `${js(f.key)}: s === __SAMPLE ? ${js(l.sampleCopy.map((r) => r[f.key]))}[i] : __fmt(__get(it, ${js(f.path)}), ${js(f.sample)})`),
+        ...l.fields.map((f) => `${js(`${f.key}_empty`)}: s !== __SAMPLE && __fmt(__get(it, ${js(f.path)}), ${js(f.sample)}) === ""`),
         ...l.handlers.map((h) => `${js(h.key)}: () => send({ type: ${js(h.command)}, itemId: it.id })`),
       ];
       return `      ${js(l.key)}: (__get(s, ${js(l.slot)}) || []).map((it, i, arr) => ({ ${entries.join(", ")} })),`;
     })
     .join("\n");
+
+  // Empty bound elements are hidden (the attribute is only set when live data leaves them empty).
+  const helmet = xdc.querySelector(":scope > helmet") ?? xdc.insertBefore(doc.createElement("helmet"), xdc.firstChild);
+  const style = doc.createElement("style");
+  style.setAttribute("data-skin", "");
+  style.textContent = '[data-skin-empty="true"]{display:none!important}';
+  helmet.appendChild(style);
 
   const script = doc.querySelector('script[type="text/x-dc"]');
   const design = script?.textContent ?? "";
@@ -403,6 +417,14 @@ function __fmt(v, sample) {
   if (v === null || v === undefined) return "";
   const text = String(v);
   if (String(sample).length === 1 && text.length > 1) return text.slice(0, 1).toUpperCase();
+  // An ISO time where the design shows a clock time ("9:40") shows as HH:MM.
+  // An ISO time shows the way the design shows it: "9:40", or "Wed · 9:41".
+  if (text.length >= 16 && text[10] === "T" && String(sample).includes(":")) {
+    const parts = String(sample).split(" · ");
+    const time = text.slice(11, 16);
+    if (parts.length === 2 && parts[1].includes(":")) return new Date(text).toLocaleDateString("en-US", { weekday: "short", timeZone: "UTC" }) + " · " + time;
+    if (String(sample).length <= 5) return time;
+  }
   if (typeof v === "number" && String(sample).trim().endsWith("%") && v <= 1) return Math.round(v * 100) + "%";
   return text;
 }

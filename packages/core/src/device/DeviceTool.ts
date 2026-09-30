@@ -126,7 +126,8 @@ export class DeviceTool {
 
   /** Places UI the loop asked for. Blocking questions go to Spaces with a pointer on the Brief. */
   show(request: UiRequest, context: UiContext): RenderOp {
-    const item = this.item(request.component, context, { reason: request.question ?? request.rationale });
+    // The rationale is the model's own note and never reaches the user; only the question does.
+    const item = this.item(request.component, context, { reason: request.question });
     let surface = request.surface;
     if (request.blocking || request.purpose === "disambiguation" || request.purpose === "document_view") surface = "intent_space";
     if (surface === "intent_space") {
