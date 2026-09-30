@@ -31,7 +31,7 @@ Open http://127.0.0.1:8787 in one or more browsers or devices. Every client shar
 | `packages/runtime` | `HarnessRuntime`, which composes everything, plus `createNodeRuntime` and `FileStorage` |
 | `packages/evals` | Scenario evals on both providers with a user simulator and an LLM judge |
 | `apps/web` | The React harness, the harness server (WebSocket + model proxy) and Playwright UI tests |
-| `skins/default` | The phone skin, rendered in an iframe |
+| `skins/default` | The phone skin, rendered in an iframe (plan for Claude Design skins: [docs/SKINS_FROM_CLAUDE_DESIGN.md](docs/SKINS_FROM_CLAUDE_DESIGN.md)) |
 | `samples/` | Ambient templates, tool suggestions and eval scenarios (JSON) |
 | `fixtures/` | Exported Aura personas and recorded model runs |
 | `scripts/` | Persona export extractor, scenario recorder, headless persona run |

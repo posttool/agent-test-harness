@@ -240,7 +240,7 @@ Each provider has an adapter that turns this call into that provider's native AP
 
 In the browser, calls go through a small proxy (`apps/web/server`) so that API keys never reach the client. **Keys are never committed.** Local development reads a gitignored `.env`, whose shape is shown in `.env.example`. Cloud sessions and CI read them from environment secrets.
 
-**Provider parity is a test requirement.** Every capability's output schema must work under both providers' structured-output modes. Some features exist on only one side (a JSON-schema keyword, image input). In those cases the Zod schema is limited to what both support. A CI check converts each schema for both providers and fails if either one rejects it.
+**Provider parity is a test requirement.** Every capability's output schema must work under both providers' structured-output modes. Some features exist on only one side (a JSON-schema keyword, image input). In those cases the Zod schema is limited to what both support. A CI check converts each schema for both providers and fails if either one rejects it. The first live eval found one more Claude limit, which the check now enforces: at most 16 union-typed (nullable) parameters per schema.
 
 ---
 
@@ -407,7 +407,7 @@ RenderOp = { surface: SurfaceId, op: "set" | "patch" | "remove", component: UiCo
 - **Spaces:** the active projects, documents and disambiguations.
 
 ### Skin isolation
-The Experience renders inside an **iframe** so its styles are fully separate from the harness. Skins (`skins/*`) implement one renderer interface for the `UiComponentSpec` vocabulary and can be swapped at runtime.
+The Experience renders inside an **iframe** so its styles are fully separate from the harness. Skins (`skins/*`) implement one renderer interface for the `UiComponentSpec` vocabulary and can be swapped at runtime. Skins can also be installed from a Claude Design canvas; see [docs/SKINS_FROM_CLAUDE_DESIGN.md](docs/SKINS_FROM_CLAUDE_DESIGN.md).
 
 ---
 
