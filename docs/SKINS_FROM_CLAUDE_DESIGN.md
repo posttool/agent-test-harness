@@ -1,6 +1,6 @@
 # Installing skins from Claude Design: plan
 
-**Status:** plan, not built. **Reference design:** "Liquid Glass Phone" (Claude Design canvas `4Dtcsq4Mwn4F3psXDeVMTz`): Lock Screen, Home Screen and Brief Detail, 390×844, interactive.
+**Status:** plan, not built. The four open decisions are settled (§10). **Reference design:** "Liquid Glass Phone" (Claude Design canvas `4Dtcsq4Mwn4F3psXDeVMTz`): Lock Screen, Home Screen and Brief Detail, 390×844, interactive.
 
 ## 1. What we are building
 
@@ -60,12 +60,34 @@ SkinViewModel {
   today:     [{ time, title, detail, kind: "event" | "now" | "leave" | "weather" }]  // calendar and plans
   waiting:   [{ id, who, when, text, cta }]                                  // things waiting on the user
   apps:      [{ id, name, icon }]                                            // tools
+  needs:     { [needId]: { status: "idle" | "asked" | "ready" | "failed", updatedAt, summary,
+                           values: { [field]: string } } }                    // data the skin asked the agent for
   sample:    boolean                                                         // true while rendering sample data
 }
 
 SkinCommand = unlock | lock | say(text, via: "text" | "voice") | answer(questionId, action, values)
             | open(documentId | topicId) | act(itemId, cta) | dismiss(itemId) | seen(topicId) | navigate(screen)
+            | need(needId)                                                   // ask the agent to fill a declared need
 ```
+
+**Skin needs: data the skin asks the agent for.** Some regions show data that nothing in memory holds, like weather. Instead of the harness growing a feed for each one, a skin declares **needs** in `skin.json`, and the agent fills them with its own tools:
+
+```json
+"needs": [{
+  "id": "weather",
+  "ask": "Local weather for the user's current location: now, and the rest of today.",
+  "fields": ["now", "high", "low", "summary", "rainAt"],
+  "refreshMinutes": 60
+}]
+```
+
+1. The skin sends `need("weather")` when a screen that binds `needs.weather` opens. The host also re-asks when `refreshMinutes` pass on the virtual clock, and ignores repeats while an ask is in flight.
+2. The host turns it into a `skin_need` signal: the ask, the field names and the user's location. It goes through the normal router and loop, so it is traced and costs model calls like any other signal.
+3. The agent uses a tool (the web built-in, or an installed weather tool) and answers with a new device function, `device.fulfill_need({ needId, values, summary })`. The host checks the values against the declared fields.
+4. `needs.weather.values.now` and the rest become bindable. Until then the region shows the designer's sample copy, with `needs.weather.status` available for a loading or failed state.
+
+Needs are a general mechanism. Weather is the first one, and the analyzer proposes a need whenever a live region has no contract slot (§6).
+
 
 The contract is **scalars and lists of plain objects only**: every field a template can bind to is a dotted path, and every list works with `<sc-for>`.
 
@@ -78,7 +100,7 @@ The contract is **scalars and lists of plain objects only**: every field a templ
 | "Today" timeline | `today[]` | Built by the host from calendar entries plus penciled-in plans; no model call |
 | Live ride in the Dynamic Island (car, ETA, route, progress) | `island.process` | Built from the newest running `active_process` node |
 | "Waiting on you" (Maya, Jon) | `waiting[]` | Add `waiting` to `SurfacePlan` (unanswered messages and asks from memory) |
-| Weather strip | none | **No data source.** Options: a weather tool via the web built-in, an `ambient_state` node from a weather stream, or leave it static. The installer asks (§6). |
+| Weather strip | `needs.weather.*` | **Decided:** a skin need. The skin asks the agent, which looks the weather up with a tool (see *Skin needs* above) |
 
 ## 4. The DC runtime (`@harness/dc-runtime`)
 
@@ -89,7 +111,7 @@ This is a small renderer for the subset of the format that the reference design 
 - **Logic:** evaluate the `Component extends DCLogic` class with `props`, `state`, `setState` and `renderVals()`. React-style lifecycle is not needed for v1.
 - **Props:** each artboard gets `props = { ...tweakDefaults, ...skinTweaks, skin: SkinViewModel }`. Design tweaks (font, wallpaper, accent, glass) become skin settings in the harness.
 - **Navigation:** `<a href="Home.dc.html">` switches screens inside the skin, and `skin.json` maps artboards to Experience screens.
-- **Sandbox:** the design's code is untrusted (the format's own docs say so). It runs only in the Experience iframe with `sandbox="allow-scripts"` (no same-origin) and a CSP that allows only the skin's own assets and Google Fonts CSS. Commands leave through `postMessage` only, and the host validates each one against `SkinCommand`.
+- **Sandbox:** the design's code is untrusted (the format's own docs say so). It runs only in the Experience iframe with `sandbox="allow-scripts"` (no same-origin) and a CSP that allows only the skin's own assets and Google Fonts (CSS and font files). Commands leave through `postMessage` only, and the host validates each one against `SkinCommand`.
 
 **Done when:** the three reference artboards render in the harness with their original copy, tweaks change them, and links navigate. A screenshot of each matches the Claude Design render in a side-by-side review.
 
@@ -103,7 +125,7 @@ The harness server can't sign in to claude.ai, so fetching happens in a Claude s
 At fetch time:
 - The canvas's `designSystems` tokens (if any) are copied.
 - Every `/_blob/` URL is rewritten to a local file.
-- Google Fonts links are kept, or vendored under `--offline`.
+- Google Fonts links are kept and load at runtime (decided). The skin CSP allows `fonts.googleapis.com` and `fonts.gstatic.com`.
 - The source URL, version and file hashes are recorded in `skin.json`, so re-installs can tell what changed.
 
 ## 6. Analysis: which parts are live? (model)
@@ -116,7 +138,8 @@ SkinBindingPlan {
   regions: [{ id, anchor, role: "live" | "decoration" | "control",
               slot, cardinality: "one" | "list", fields: [{ anchor, path, sample }], rationale }]
   interactions: [{ anchor, command, argsFrom }]
-  unmapped: [{ anchor, what, options }]          // e.g. the weather strip
+  needs:    [{ id, ask, fields, refreshMinutes }] // live regions with no contract slot, e.g. weather
+  unmapped: [{ anchor, what, options }]          // anything left for you to decide
   missingScreens: [...]                          // screens the harness needs that the design lacks
 }
 ```
@@ -140,11 +163,11 @@ SkinBindingPlan {
 | Brief | header date, "updated", headline, summary | `now.date`, `brief.updatedAt`, `brief.headline`, `brief.summary` |
 | Brief | Next up (title, time, place, attendees, agenda, Directions / Open deck) | the first upcoming item in `today[]`; buttons → `act` with the item's CTAs |
 | Brief | Today timeline | `<sc-for>` over `today` |
-| Brief | Weather | **unmapped**: ask the user (§3 gaps) |
+| Brief | Weather | need `weather` (§3): `needs.weather.values.*`, asked for when the Brief screen opens |
 | Brief | Waiting on you (Maya, Jon, Reply) | `<sc-for>` over `waiting`; Reply → `act` |
 | Brief | Suggested chips (already an `<sc-for>`) | rebind the list to `brief.items[].cta`; tap → `act` |
 
-**Missing screens.** The harness needs Spaces (documents and blocking questions) and Discover, which the design doesn't have. The Brief artboard is close to a document view, so the plan maps `document` to it, with sections as an `<sc-for>`. Questions and Discover use **token-themed fallbacks**: the default skin's renderers, restyled with the design's extracted tokens (fonts, accent, glass blur, radius, wallpaper). The binding report can also offer to draw the missing screens in the same Claude Design canvas, in the same style, which you then re-install.
+**Missing screens (decided: design them first).** The harness needs Spaces (documents and blocking questions) and Discover, which the design doesn't have. They get drawn in Claude Design, in this style, before the skin is called complete. The installer's report lists them with a short brief for each: which contract fields the screen shows, the question component types it must render (choice, text, date, confirm, approval), and the commands it sends. Paste that brief into the canvas, then re-install. Until those screens exist, the skin installs as **incomplete**: it can be previewed, and a missing screen shows a plain placeholder naming the screen, not a restyled default.
 
 ## 7. Rewrite and validate
 
@@ -169,11 +192,12 @@ Failures go back to the rewrite call with the lint messages, at most two retries
 
 ## 8. In the harness
 
-- **Top bar:** a skin picker (Default, Liquid Glass, …). Switching reloads the Experience iframe; the agent and memory are untouched.
+- **Top bar:** a skin picker (Default, Liquid Glass, …). Incomplete skins are marked. Switching reloads the Experience iframe; the agent and memory are untouched.
 - **Skin panel:**
   - install from a folder, with the Claude Code command to copy
   - installed skins with their source link and version
-  - the **binding report**: each artboard shown three ways (original, bound with sample data, bound with live data), the region-to-slot table, unmapped regions with their options, stress screenshots, and lint results
+  - the **binding report**: each artboard shown three ways (original, bound with sample data, bound with live data), the region-to-slot table, needs, unmapped regions with their options, stress screenshots, and lint results
+  - **missing screens** with the design brief for each, ready to paste into Claude Design
   - buttons for re-install and for editing `binding.json`
 - **Skin settings:** the design's tweaks (font, wallpaper, accent, glass) as controls, stored per skin.
 - **Tests:** Playwright renders the installed reference skin against the scripted test server and checks that a question round-trips, the brief updates, the island shows a ride process, and the text and voice input work. These are the same guarantees the default skin has.
@@ -182,18 +206,20 @@ Failures go back to the rewrite call with the lint messages, at most two retries
 
 | # | Milestone | Deliverables | Done when |
 |---|---|---|---|
-| **S1** | Skin contract | `SkinViewModel`, `SkinCommand`, host adapter from the runtime snapshot, `SurfacePlan` additions (headline, summary, icon, badge, waiting), the default skin moved onto the contract, sample fixtures | Default skin passes today's UI tests on the contract; parity check passes |
+| **S1** | Skin contract | `SkinViewModel`, `SkinCommand`, host adapter from the runtime snapshot, `SurfacePlan` additions (headline, summary, icon, badge, waiting), skin needs (`need` command, `skin_need` signal, `device.fulfill_need`), the default skin moved onto the contract, sample fixtures | Default skin passes today's UI tests on the contract; parity check passes; a scripted test fills a weather need |
 | **S2** | DC runtime | `@harness/dc-runtime` (template, logic, tweaks, navigation, sandbox), skin host page | The three reference artboards render with their original copy and tweaks, and links navigate |
 | **S3** | Fetch | `install-skin` skill, `scripts/install-skin.ts`, asset localization, `skin.json` | The reference canvas installs into `skins/liquid-glass/design/` from its URL |
 | **S4** | Analyze | `SkinBindingPlan` schema, analyzer, binding report view | The reference design's plan matches the §6 table, with the weather strip flagged |
 | **S5** | Rewrite and validate | rewriter, linters, fidelity and stress renders, retry loop, manual-fix preservation | Bound artboards pass all five checks, and a live persona day drives the Liquid Glass lock screen, island and brief |
-| **S6** | In the harness | skin picker, Skin panel, per-skin tweaks, Playwright tests for installed skins, token-themed fallbacks for missing screens | You can install, switch and use the Liquid Glass skin end to end, and CI covers it |
+| **S6** | In the harness | skin picker, Skin panel, per-skin tweaks, missing-screen briefs, Playwright tests for installed skins | You can install, switch and use the Liquid Glass skin end to end (after Spaces and Discover are drawn), and CI covers it |
 
 **Order and effort:** S1 and S2 come first and are pure engineering (no model calls). S3 to S5 are the "understand a design" part. S6 makes it usable. Model cost is two calls per artboard per install, plus retries.
 
-## 10. Decisions for you
+## 10. Decisions
 
-1. **Weather (and anything else unmapped):** give it a data source (a weather tool through the web built-in, or a simulated weather stream), hide it, or keep the designer's static copy?
-2. **Missing screens:** use token-themed fallbacks for Spaces and Discover (fast), or draw them in Claude Design in this style first (better)?
-3. **Write back to the canvas:** should the installer ever publish bound artboards or new screens back to a Claude Design canvas? The default is no: it only reads your canvas, and anything it creates goes to a copy you choose.
-4. **Fonts:** load Google Fonts at runtime (simplest), or vendor them into the skin (works offline)?
+| # | Question | Decision |
+|---|---|---|
+| 1 | Weather and other unmapped regions | The agent fetches them with a tool. The skin asks for them itself through **skin needs** (§3). |
+| 2 | Missing screens (Spaces, Discover) | Design them in Claude Design first. The installer supplies a brief for each and marks the skin incomplete until they exist (§6). |
+| 3 | Write back to the canvas | No. The installer only reads the canvas. |
+| 4 | Fonts | Load Google Fonts at runtime; the CSP allows them. |
