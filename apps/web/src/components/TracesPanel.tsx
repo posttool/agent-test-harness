@@ -45,7 +45,7 @@ function Entry({ entry }: { entry: TraceEntry }) {
         : entry.kind === "step_start"
           ? `${String(d.capability)}: ${String(d.instruction)}`
           : entry.kind === "step_result"
-            ? String(d.note ?? "")
+            ? String(d.note ?? (d.output as { summary?: string } | null)?.summary ?? "")
             : entry.kind === "signal"
               ? String((d.signal as { content: string }).content).slice(0, 160)
               : entry.kind === "error"

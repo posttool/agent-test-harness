@@ -37,8 +37,13 @@ function Graph({ snapshot, onSelect, selected }: { snapshot: HarnessSnapshot; on
   if (!nodes.length) return <Empty>Memory is empty. Send the agent something, or start a persona's day.</Empty>;
   const xs = layout.nodes.map((n) => n.x ?? 0);
   const ys = layout.nodes.map((n) => n.y ?? 0);
+  // Fit the layout, but never zoom in past a comfortable scale when there are few nodes.
   const pad = 40;
-  const box = [Math.min(...xs) - pad, Math.min(...ys) - pad, Math.max(...xs) - Math.min(...xs) + pad * 2, Math.max(...ys) - Math.min(...ys) + pad * 2].join(" ");
+  const width = Math.max(Math.max(...xs) - Math.min(...xs) + pad * 2, 640);
+  const height = Math.max(Math.max(...ys) - Math.min(...ys) + pad * 2, 420);
+  const cx = (Math.max(...xs) + Math.min(...xs)) / 2;
+  const cy = (Math.max(...ys) + Math.min(...ys)) / 2;
+  const box = [cx - width / 2, cy - height / 2, width, height].join(" ");
   return (
     <svg className="graph" viewBox={box} data-testid="memory-graph">
       {layout.links.map((l, i) => {
