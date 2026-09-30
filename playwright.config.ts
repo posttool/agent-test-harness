@@ -4,6 +4,9 @@ import { defineConfig } from "@playwright/test";
 export default defineConfig({
   testDir: "apps/web/e2e",
   timeout: 30_000,
+  // One shared harness server (one phone, one memory): tests must not run at the same time.
+  workers: 1,
+  fullyParallel: false,
   use: {
     baseURL: "http://127.0.0.1:8790",
     launchOptions: process.env.PLAYWRIGHT_CHROMIUM ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM } : {},

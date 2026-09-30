@@ -6,6 +6,7 @@ import type { SkinCommandMessage, SkinStateMessage } from "@harness/skin-default
 export function ExperiencePanel({ snapshot, send }: { snapshot: HarnessSnapshot; send: (m: ClientMessage) => void }) {
   const frame = useRef<HTMLIFrameElement>(null);
   const ready = useRef(false);
+  const lastSent = useRef("");
 
   const state: SkinStateMessage = {
     type: "state",
@@ -21,6 +22,7 @@ export function ExperiencePanel({ snapshot, send }: { snapshot: HarnessSnapshot;
       if (e.source !== frame.current?.contentWindow) return;
       if (e.data.type === "ready") {
         ready.current = true;
+        lastSent.current = JSON.stringify(stateRef.current);
         frame.current?.contentWindow?.postMessage(stateRef.current, "*");
       }
       if (e.data.type === "command") send(e.data.command);
@@ -29,8 +31,12 @@ export function ExperiencePanel({ snapshot, send }: { snapshot: HarnessSnapshot;
     return () => window.removeEventListener("message", onMessage);
   }, [send]);
 
+  // Post to the skin only when what it shows actually changed.
   useEffect(() => {
-    if (ready.current) frame.current?.contentWindow?.postMessage(state, "*");
+    const text = JSON.stringify(state);
+    if (!ready.current || text === lastSent.current) return;
+    lastSent.current = text;
+    frame.current?.contentWindow?.postMessage(state, "*");
   });
 
   const t = new Date(snapshot.ambient.virtualNow);

@@ -21,6 +21,12 @@ export class DefaultSkin {
   private state: SkinStateMessage | null = null;
   private screen: Screen = "home";
   private selectedSpace: string | null = null;
+  /** What the last render drew; unchanged state is not redrawn. */
+  private lastKey = "";
+  /** Text the user is typing survives redraws: the input bar and every form field. */
+  private inputDraft = "";
+  private readonly drafts = new Map<string, string>();
+  private recognition: SpeechLike | null = null;
   private readonly root: HTMLElement;
   private readonly post: (m: SkinCommandMessage) => void;
 
@@ -32,7 +38,14 @@ export class DefaultSkin {
   update(state: SkinStateMessage): void {
     this.state = state;
     document.documentElement.dataset.theme = state.theme;
-    this.render();
+    if (this.renderKey() !== this.lastKey) this.render();
+  }
+
+  /** Everything the screen shows. Time only matters on the lock screen, to the minute. */
+  private renderKey(): string {
+    if (!this.state) return "";
+    const d = this.state.device;
+    return JSON.stringify([{ ...d, virtualTime: d.locked ? d.virtualTime.slice(0, 16) : "" }, this.state.apps, this.state.theme, this.screen, this.selectedSpace, this.recognition !== null]);
   }
 
   private send(command: SkinCommandMessage["command"]): void {
@@ -41,8 +54,19 @@ export class DefaultSkin {
 
   private render(): void {
     if (!this.state) return;
+    this.lastKey = this.renderKey();
     const d = this.state.device;
+    // Keep focus and the caret on whatever field the user is typing in.
+    const active = document.activeElement instanceof HTMLInputElement ? document.activeElement : null;
+    const focusKey = active?.dataset.key;
+    const start = active?.selectionStart ?? null;
+    const end = active?.selectionEnd ?? null;
     this.root.replaceChildren(d.locked ? this.lock(d) : this.unlocked(d));
+    if (focusKey) {
+      const again = this.root.querySelector<HTMLInputElement>(`[data-key="${CSS.escape(focusKey)}"]`);
+      again?.focus();
+      if (again && start !== null && end !== null && again.type === "text") again.setSelectionRange(start, end);
+    }
   }
 
   private island(d: DeviceState): HTMLElement {
@@ -111,29 +135,84 @@ export class DefaultSkin {
   private home(d: DeviceState): HTMLElement {
     const apps = h("div", { class: "apps" });
     for (const app of this.state?.apps ?? []) apps.append(h("div", { class: "app" }, h("div", { class: "icon" }, app.name.slice(0, 1)), h("div", { class: "name" }, app.name)));
-    const input = h("input", { placeholder: "Ask or tell your agent…", "data-testid": "input" }) as HTMLInputElement;
+    const input = h("input", { placeholder: this.recognition ? "Listening…" : "Ask or tell your agent…", "data-testid": "input", "data-key": "home-input" }) as HTMLInputElement;
+    input.value = this.inputDraft;
+    input.oninput = () => (this.inputDraft = input.value);
     const sendText = () => {
-      if (!input.value.trim()) return;
-      this.send({ type: "user_text", text: input.value.trim(), source: "home input bar" });
+      const text = input.value.trim();
+      if (!text) return;
+      this.send({ type: "user_text", text, source: "home input bar" });
       input.value = "";
+      this.inputDraft = "";
     };
-    input.onkeydown = (e) => e.key === "Enter" && sendText();
+    // Don't return a value here: `false` from an on* handler cancels the keystroke.
+    input.onkeydown = (e) => {
+      if (e.key === "Enter") sendText();
+    };
     const send = h("button", { class: "send", "data-testid": "send" }, "↑");
     send.onclick = sendText;
-    const mic = h("button", { class: "mic", title: "Speak" }, "🎙");
-    mic.onclick = () => this.listen(input);
+    const mic = h("button", { class: `mic${this.recognition ? " listening" : ""}`, title: this.recognition ? "Stop listening" : "Speak", "data-testid": "mic" }, "🎙");
+    mic.onclick = () => this.listen();
     return h("div", { class: "home-body" }, this.brief(d), apps, h("div", { class: "input-bar" }, mic, input, send));
   }
 
-  private listen(input: HTMLInputElement): void {
-    const Recognition = (window as unknown as { SpeechRecognition?: new () => SpeechLike; webkitSpeechRecognition?: new () => SpeechLike }).SpeechRecognition ??
-      (window as unknown as { webkitSpeechRecognition?: new () => SpeechLike }).webkitSpeechRecognition;
-    if (!Recognition) return void (input.placeholder = "Speech input isn't available in this browser");
+  /**
+   * Speech input: one utterance becomes exactly one message. Interim words show in the input
+   * bar; the final transcript is sent once, when recognition ends. Pressing the mic again
+   * stops listening instead of starting a second recognizer.
+   */
+  private listen(): void {
+    if (this.recognition) {
+      this.recognition.stop();
+      return;
+    }
+    const w = window as unknown as { SpeechRecognition?: new () => SpeechLike; webkitSpeechRecognition?: new () => SpeechLike };
+    const Recognition = w.SpeechRecognition ?? w.webkitSpeechRecognition;
+    const field = () => this.root.querySelector<HTMLInputElement>('[data-key="home-input"]');
+    if (!Recognition) {
+      const f = field();
+      if (f) f.placeholder = "Speech input isn't available in this browser";
+      return;
+    }
     const rec = new Recognition();
+    rec.continuous = false;
+    rec.interimResults = true;
+    rec.lang = navigator.language;
+    const finals: string[] = [];
+    let sent = false;
     rec.onresult = (e) => {
-      const text = e.results[0]?.[0]?.transcript ?? "";
-      if (text) this.send({ type: "user_text", text, source: "voice" });
+      // Some browsers repeat the same final result; keep each distinct final phrase once.
+      finals.length = 0;
+      let interim = "";
+      for (let i = 0; i < e.results.length; i++) {
+        const result = e.results[i]!;
+        const text = (result[0]?.transcript ?? "").trim();
+        if (!text) continue;
+        if (result.isFinal) {
+          if (finals.at(-1) !== text) finals.push(text);
+        } else {
+          interim = text;
+        }
+      }
+      this.inputDraft = [...finals, interim].filter(Boolean).join(" ");
+      const f = field();
+      if (f) f.value = this.inputDraft;
     };
+    const finish = () => {
+      if (this.recognition !== rec) return;
+      this.recognition = null;
+      const text = finals.join(" ").trim();
+      if (!sent && text) {
+        sent = true;
+        this.inputDraft = "";
+        this.send({ type: "user_text", text, source: "voice" });
+      }
+      this.render();
+    };
+    rec.onend = finish;
+    rec.onerror = finish;
+    this.recognition = rec;
+    this.render();
     rec.start();
   }
 
@@ -141,6 +220,8 @@ export class DefaultSkin {
     const items = d.spaces;
     if (!items.length) return h("div", { class: "spaces-body" }, h("div", { class: "empty" }, "No active projects yet."));
     const selected = items.find((i) => i.id === this.selectedSpace) ?? items[0]!;
+    // Stay on this item when new ones arrive, instead of jumping away mid-typing.
+    this.selectedSpace = selected.id;
     const tabs = h("div", { class: "tabs" });
     for (const item of items) {
       const t = h("button", { class: item === selected ? "on" : "" }, item.context ? `❓ ${item.component.title ?? "Question"}` : (item.component.title ?? "Document"));
@@ -165,8 +246,9 @@ export class DefaultSkin {
     const submit = (action: string, said: string) => {
       if (!item.context) return;
       this.send({ type: "ui_feedback", feedback: { context: item.context, action, values: { ...values }, at: new Date().toISOString() }, said });
+      for (const key of [...this.drafts.keys()]) if (key.startsWith(`${item.id}:`)) this.drafts.delete(key);
     };
-    for (const e of spec.elements) card.append(this.element(e, values, submit));
+    for (const e of spec.elements) card.append(this.element(e, values, submit, item.id));
     if (spec.primaryActionLabel && item.context && !spec.elements.some((e) => e.kind === "button")) {
       const b = h("button", { class: "primary" }, spec.primaryActionLabel);
       b.onclick = () => submit("submit", spec.primaryActionLabel ?? "submit");
@@ -175,7 +257,7 @@ export class DefaultSkin {
     return card;
   }
 
-  private element(e: UiElement, values: Record<string, string>, submit: (action: string, said: string) => void): HTMLElement {
+  private element(e: UiElement, values: Record<string, string>, submit: (action: string, said: string) => void, itemId: string): HTMLElement {
     const label = e.label ? h("div", { class: "label" }, e.label) : null;
     switch (e.kind) {
       case "text":
@@ -186,10 +268,14 @@ export class DefaultSkin {
         return h("div", { class: "el list" }, label, ul);
       }
       case "form_field": {
-        const input = h("input", { type: e.fieldType === "number" ? "number" : e.fieldType === "date" ? "date" : "text", "data-field": e.id }) as HTMLInputElement;
-        input.value = e.value ?? "";
+        const key = `${itemId}:${e.id}`;
+        const input = h("input", { type: e.fieldType === "number" ? "number" : e.fieldType === "date" ? "date" : "text", "data-field": e.id, "data-key": key }) as HTMLInputElement;
+        input.value = this.drafts.get(key) ?? e.value ?? "";
         values[e.id] = input.value;
-        input.oninput = () => (values[e.id] = input.value);
+        input.oninput = () => {
+          values[e.id] = input.value;
+          this.drafts.set(key, input.value);
+        };
         return h("label", { class: "el field" }, label ?? e.id, input);
       }
       case "choice": {
@@ -226,8 +312,14 @@ export class DefaultSkin {
 }
 
 interface SpeechLike {
-  onresult: (e: { results: ArrayLike<ArrayLike<{ transcript: string }>> }) => void;
+  continuous: boolean;
+  interimResults: boolean;
+  lang: string;
+  onresult: (e: { results: ArrayLike<ArrayLike<{ transcript: string }> & { isFinal: boolean }> }) => void;
+  onend: () => void;
+  onerror: () => void;
   start(): void;
+  stop(): void;
 }
 
 /** Boots the skin inside its iframe, talking to the parent page. */

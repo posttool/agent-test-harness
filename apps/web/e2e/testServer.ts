@@ -19,7 +19,10 @@ const choice = {
     id: "color",
     title: "Sweater color",
     primaryActionLabel: null,
-    elements: [{ kind: "choice", id: "color", label: "Pick one", text: null, items: ["Blue", "Green"], value: null, url: null, progress: null, fieldType: null }],
+    elements: [
+      { kind: "choice", id: "color", label: "Pick one", text: null, items: ["Blue", "Green"], value: null, url: null, progress: null, fieldType: null },
+      { kind: "form_field", id: "note", label: "Anything else?", text: null, items: [], value: null, url: null, progress: null, fieldType: "text" },
+    ],
   },
 };
 claude.handler = (req: ProviderRequest): ScriptedReply => {
